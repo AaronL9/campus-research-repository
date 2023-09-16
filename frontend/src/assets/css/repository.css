@@ -1,0 +1,140 @@
+.previous-btn {
+  width: min(1067px, 90%);
+  margin-inline: auto;
+  padding-bottom: 1rem;
+}
+
+.repository .title {
+  width: min(600px, 90%);
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  gap: 1rem 0;
+  position: relative;
+  padding-bottom: 1rem;
+  border-radius: 30px;
+}
+
+.repository .title.cite {
+  color: #50444c;
+  border-bottom: 3px solid #50444c;
+}
+
+.repository .title.cea {
+  color: #300404;
+  border-bottom: 3px solid #300404;
+}
+
+.repository .title.cma {
+  color: #634B0C;
+  border-bottom: 3px solid #634B0C;
+}
+
+.repository .title.cahs {
+  color: #0c3f26;
+  border-bottom: 3px solid #0c3f26;
+}
+
+.repository .title.cela {
+  color: #20146c;
+  border-bottom: 3px solid #20146c;
+}
+
+.repository .title.ccje {
+  color: #382c34;
+  border-bottom: 3px solid #382c34;
+}
+
+.repository .title.shs {
+  color: #184424;
+  border-bottom: 3px solid #184424;
+}
+
+.repository .title.law {
+  color: #584c1c;
+  border-bottom: 3px solid #584c1c;
+}
+
+.repository .title h1 {
+  text-align: center;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+  margin-inline: 1rem;
+}
+
+.repository .title img {
+  width: min(100px, 20vw);
+  vertical-align: middle;
+  box-shadow: 0px 3px 5px 0 #00000083;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.repository .search-bar {
+  width: min(1067px, 90%);
+  margin-inline: auto;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.repository .research {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.repository .research .research-card {
+  display: flex;
+  margin-inline: auto;
+  width: min(1067px, 90%);
+  background-color: #f0f0f0;
+}
+
+.repository .research .research-card picture {
+  margin-right: auto;
+  text-align: center;
+}
+
+.repository .research .research-card img {
+  width: min(350px, 80vw);
+  height: 100%;
+  object-fit: cover;
+}
+
+.repository .research .research-card .content {
+  width: min(900px, 60%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: justify;
+  padding: 2rem min(1rem, 2vw);
+  margin-right: auto;
+}
+
+.repository .research .research-card .content span {
+  font-weight: bold;
+}
+
+.repository .research .research-card .content p {
+  font-size: 12px;
+}
+
+.repository .research .research-card .content a {
+  color: white;
+  background: linear-gradient(131deg, #202c61 0%, #19505b 50%, #1d6353 99% 99%);
+  text-align: center;
+  width: 150px;
+  padding: 0.75rem;
+  border-radius: 50px;
+  margin: auto;
+  margin-top: 1rem;
+  transition: all 300ms;
+}
+
+.repository .research .research-card .content a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,267 @@
+.sidebar {
+  width: 75px;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #f0f0f0;
+  overflow-x: hidden;
+  padding-block: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem 0;
+  box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.25);
+  transition: all 500ms;
+}
+
+/* behavior */
+@media (min-width: 821px) {
+  .sidebar:hover,
+  .open {
+    width: 229px;
+  }
+
+  .sidebar:hover > .profile span {
+    display: inline;
+    margin-left: 0.75rem;
+  }
+
+  .sidebar:hover > .profile p {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .sidebar:hover #create-btn {
+    padding: 0.75rem 2rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+
+  .sidebar:hover .links a > span {
+    display: inline;
+  }
+
+  .sidebar:hover ~ main,
+  .sidebar:hover ~ footer,
+  .sidebar:hover ~ .content-container {
+    margin-left: 15rem;
+  }
+
+  .sidebar .links a:hover {
+    background-color: #d9d9d9;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+/* behavior */
+
+/* PROFILE */
+.profile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile .container {
+  margin-block: 1rem;
+  width: max-content;
+  text-align: center;
+}
+
+.profile img {
+  vertical-align: middle;
+}
+
+.profile span {
+  width: max-content;
+  vertical-align: middle;
+  display: none;
+}
+
+.profile .email {
+  font-size: 10px;
+  display: none;
+}
+
+.sidebar .line {
+  border-top: 2px solid rgba(0, 0, 0, 0.5);
+  width: 50%;
+}
+
+.sidebar #create-btn {
+  margin-top: 2rem;
+  color: black;
+  background-color: #f1f1f1;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+}
+/* PROFILE */
+
+/* LINKS */
+.sidebar .links {
+  width: 229;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem 0;
+}
+
+.sidebar .links a {
+  display: block;
+  width: 229px;
+  padding: 11px 8px 11px 23px;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  transition: all 200ms;
+}
+
+.sidebar .links a.active {
+  background-color: #d9d9d9;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.sidebar .links img {
+  margin-right: 1.25rem;
+  vertical-align: middle;
+}
+
+.links a > span {
+  display: none;
+}
+
+.sidebar .links a:last-child img {
+  margin-right: 1rem;
+}
+/* LINKS */
+
+/* DOWN - MOBILE MENU */
+.hamburger {
+  display: none;
+  /* background-color: rg   ba(255, 255, 255, 0.826); */
+  border-radius: 10px;
+}
+
+.hamburger .toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition-duration: 0.3s;
+}
+
+.hamburger .bars {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    180deg,
+    #202c61 24.27%,
+    #19505b 77.92%,
+    #1d6353 100%
+  );
+  border-radius: 5px;
+  transition-duration: 0.3s;
+}
+
+.close-btn {
+  position: fixed;
+  top: 0.5rem;
+  left: -4rem;
+  z-index: 100;
+  transition: 500ms;
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  border-radius: 15px;
+}
+
+.close-btn .toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition-duration: 0.3s;
+}
+
+.close-btn .bars {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    180deg,
+    #202c61 24.27%,
+    #19505b 77.92%,
+    #1d6353 100%
+  );
+  border-radius: 5px;
+  transition-duration: 0.3s;
+}
+
+.close-btn .toggle #bar2 {
+  transform: translateY(14px) rotate(60deg);
+  margin-left: 0;
+  transform-origin: right;
+  transition-duration: 0.3s;
+  z-index: 2;
+}
+
+.close-btn .toggle #bar1 {
+  transform: translateY(28px) rotate(-60deg);
+  transition-duration: 0.3s;
+  transform-origin: left;
+  z-index: 1;
+}
+
+.close-btn .toggle {
+  transform: rotate(-90deg);
+}
+
+.appear {
+  left: 250px;
+}
+
+@media (max-width: 820px) {
+  .hamburger {
+    display: block;
+    transition: all 300ms;
+  }
+
+  .sidebar {
+    width: 0;
+  }
+
+  .open {
+    width: 229px;
+  }
+
+  .sidebar #create-btn {
+    padding: 0.75rem 2rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+
+  .profile span {
+    display: inline;
+    margin-left: 0.75rem;
+  }
+
+  .profile .container p {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .links a > span {
+    display: inline;
+  }
+}
+/* UP - MOBILE MENU */

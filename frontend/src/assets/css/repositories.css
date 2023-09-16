@@ -1,0 +1,258 @@
+.home-container .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 2fr));
+  gap: 50px;
+}
+
+.home-container {
+  max-width: 1100px;
+  margin: 2px auto;
+  text-align: center;
+  padding: 25px 20px;
+}
+
+.home-container h2 {
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+  text-shadow: 2px 2px #ccbebe;
+  color: #202c61;
+}
+
+.home-container .box {
+  padding: 20px 0;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/*============  cite card view    ==================*/
+.home-container .box-container .cite {
+  background-color: #50444c;
+}
+
+/*=============   cea card view     ==================*/
+.home-container .box-container .cea {
+  background-color: #300404;
+}
+
+/*=============  cma card view    ======================*/
+.home-container .box-container .cma {
+  background-color: #634B0C;
+}
+
+/*============   cahs card view   ====================*/
+.home-container .box-container .cahs {
+  background-color: #0c3f26;
+}
+
+/*============   cela card view    ======================*/
+.home-container .box-container .cela {
+  background-color: #20146c;
+}
+
+/*============   ccje card view    =====================*/
+.home-container .box-container .ccje {
+  background-color: #382c34;
+}
+
+/*=============   shs card view    ======================*/
+.home-container .box-container .shs {
+  background-color: #184424;
+}
+
+/*=============   law card view    ======================*/
+.home-container .box-container .law {
+  background-color: #584c1c;
+}
+
+/*=====================================================    image (department logo)    ===========================================*/
+.home-container .box-container .box .image {
+  margin-bottom: 15px;
+}
+
+.home-container .box-container .box .image img {
+  width: 150px;
+  margin-top: 20px;
+  transition: all 0.2s linear;
+}
+
+.home-container .box-container .box:hover .image img {
+  transform: scale(1.1);
+}
+
+.home-container .box-container .box .content h3 {
+  font-size: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  padding-bottom: 25px;
+}
+
+/*=====================================================    buttons    ===========================================*/
+
+/*=============   cite button    ======================*/
+.home-container .box-container .box .content .cite {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #080404;
+  background-color: #080404;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.home-container .box-container .box .content .cite:hover {
+  background-color: #584f4f;
+  border-color: #584f4f;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*=============   cea button    ======================*/
+.home-container .box-container .box .content .cea {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #c47c14;
+  background-color: #c47c14;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.home-container .box-container .box .content .cea:hover {
+  background-color: #a06310;
+  border-color: #a06310;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*=============   cma button    ======================*/
+.home-container .box-container .box .content .cma {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #C0A119;
+  background-color: #C0A119;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.home-container .box-container .box .content .cma:hover {
+  background-color: #5a3d0a;
+  border-color: #5a3d0a;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*=============   cahs button    ======================*/
+.home-container .box-container .box .content .cahs {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #10643c;
+  background-color: #10643c;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.home-container .box-container .box .content .cahs:hover {
+  background-color: #1a4a43;
+  border-color: #1a4a43;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*=============   cela button    ======================*/
+.home-container .box-container .box .content .cela {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #4064a4;
+  background-color: #4064a4;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.home-container .box-container .box .content .cela:hover {
+  background-color: #3a507d;
+  border-color: #3a507d;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*=============   ccje button    ======================*/
+.home-container .box-container .box .content .ccje {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #080404;
+  background-color: #080404;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.home-container .box-container .box .content .ccje:hover {
+  background-color: #524f4f;
+  border-color: #524f4f;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*=============   shs button    ======================*/
+.home-container .box-container .box .content .shs {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #c08c0c;
+  background-color: #c08c0c;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.home-container .box-container .box .content .shs:hover {
+  background-color: #9a700a;
+  border-color: #9a700a;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*=============   law button    ======================*/
+.home-container .box-container .box .content .law {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #407c34;
+  background-color: #407c34;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.home-container .box-container .box .content .law:hover {
+  background-color: #33632a;
+  border-color: #33632a;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* button hover - style */
+
+.home-container .btn {
+  transition: all 0.2s;
+}
+
+.home-container .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.home-container .btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

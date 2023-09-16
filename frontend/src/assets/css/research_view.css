@@ -1,0 +1,149 @@
+/* --------------------------- Research-View / Parent --------------------------- */
+.research-document {
+    margin-top: 2rem;
+}
+
+.research-view {
+  width: min(1100px, 95%);
+  background: #f0f0f0;
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.research-view .text-center {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 400;
+  margin: 0.7rem 0;
+}
+
+/* --------------------------- Research-Title -------------------------- */
+.research-view .research-title {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 3rem 4.8rem 0 4.8rem;
+  gap: 2rem;
+}
+
+/* --------- content-left ---------*/
+.research-view .content-left img {
+  width: 80%;
+}
+
+.research-view .content-left .research-info {
+  margin: 2rem 0;
+}
+
+.research-view .content-left .research-info p {
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.research-view .content-left .research-info span {
+  font-weight: 650;
+}
+
+/* -------- content-right --------*/
+.research-view .content-right .download-btn {
+  border: none;
+  background: #ffffff;
+  padding: 0.8rem 2.2rem;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1em;
+  box-shadow: 0px 3px 0px 0 rgba(0, 0, 0, 0.2);
+}
+
+.research-view .content-right .download-btn:hover {
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.research-view .content-right .file-info {
+  margin: 3.8rem 0;
+}
+
+.research-view .content-right .file-info p {
+  font-size: 1em;
+  margin-bottom: 2.2rem;
+}
+
+.research-view .content-right .file-info span {
+  font-weight: 650;
+}
+
+.research-view .content-right .abstract {
+  margin: 4.5rem 0;
+  text-align: justify;
+}
+
+.research-view .content-right .abstract span {
+  font-weight: 650;
+}
+
+.research-view .content-right .abstract p {
+  text-indent: 2rem;
+}
+
+/* -------------------------- Research-Review -------------------------- */
+.research-view .research-review {
+  margin: 1.5rem 4.8rem;
+}
+
+.research-view .research-review img {
+  width: 100%;
+}
+
+/* -------------------------- Responsiveness -------------------------- */
+@media (max-width: 740px) {
+  .research-view .research-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .research-view .research-title,
+  .research-view .research-reviewer {
+    margin: auto;
+  }
+
+  .research-view .content-left img {
+    width: 100%;
+    height: 60vh;
+  }
+
+  .research-view .content-left,
+  .research-view .content-right {
+    margin: 0 1.5rem;
+  }
+
+  .research-view .content-right .download-btn {
+    padding: 0.5rem 1.8rem;
+    margin: 0 auto;
+  }
+
+  .research-view .content-right .file-info {
+    margin: 2.5rem 0;
+  }
+
+  .research-view .content-right .file-info p {
+    margin-bottom: 0.5rem;
+  }
+
+  .research-view .content-right .abstract {
+    margin: 2rem 0;
+  }
+
+  .research-view .research-review {
+    margin: 0 1.5rem;
+  }
+}

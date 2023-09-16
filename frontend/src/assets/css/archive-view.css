@@ -1,0 +1,227 @@
+/*===================================================  Archive  ===================================================*/
+
+.archive-view-container {
+  background: #f0f0f0;
+  align-items: center;
+  width: min(1200px, 95%);
+  padding-block: 1rem 4rem;
+  margin-inline: auto;
+  margin-top: 3rem;
+}
+
+.archive-view-container h1 {
+  font-weight: 400;
+  margin-bottom: 50px;
+  padding-left: 50px;
+  padding-top: 10px;
+}
+
+.archive-view-container .archive-view {
+  width: 92%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-inline: auto;
+  margin-bottom: 30px;
+}
+
+.archive-view .info h2 {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.archive-view .info span {
+  font-weight: 600;
+}
+
+/*===================================================  Button  ===================================================*/
+.archive-view-container .download-btn {
+  border: none;
+}
+
+.archive-view-container .download-btn a {
+  text-decoration: none;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 30px;
+  color: #000;
+  font-size: 0.9em;
+}
+
+.archive-view-container .download-btn a:hover {
+  cursor: pointer;
+  background: #1c435d;
+  color: #fff;
+}
+/*===================================================  Table  ===================================================*/
+.archive-view-container .table-content {
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 0.9em;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 92%;
+}
+
+.archive-view-container .table-content thead tr {
+  background: linear-gradient(to bottom, #212d62, #212d62, #1c435d, #1b5858);
+  text-align: left;
+  color: #fff;
+}
+
+.archive-view-container .table-content thead th {
+  padding-left: 4rem;
+  height: 4rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.archive-view-container .table-content td {
+  padding-bottom: 10px;
+}
+
+.archive-view-container .table-content tbody tr {
+  height: 4rem;
+}
+
+.archive-view-container .table-content tbody tr:nth-child(even) {
+  background-color: #d9d9d9;
+}
+
+.archive-view-container .table-content tbody .field {
+  border-right: 3px solid #1d6055;
+  padding-left: 4rem;
+  padding-right: 5rem;
+  width: 25%;
+}
+
+.archive-view-container .table-content tbody .value {
+  padding-left: 4rem;
+}
+
+/*===================================================  Responsiveness  ===================================================*/
+
+@media (max-width: 700px) {
+
+  .archive-view-container h1 {
+    padding-left: 20px;
+  }
+
+  .archive-view-container .archive-view .download-btn {
+    margin-bottom: 30px;
+    font-size: 0.8em;
+  }
+
+  .archive-view-container .archive-view .info {
+    font-size: 0.9em;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 650px) {
+  .archive-view-container {
+    height: auto;
+  }
+
+  .archive-view-container .table-content {
+    margin-bottom: 20px;
+  }
+
+  .archive-view-container .table-content thead th {
+    text-align: center;
+    padding-left: 0;
+    height: 4rem;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .archive-view-container .table-content tbody td {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .archive-view-container .table-content tbody .value {
+    padding-left: 2rem;
+  }
+
+  .archive-view-container .table-content tbody .field {
+    font-weight: 600;
+    font-size: 1em;
+    padding-left: 2rem;
+  }
+
+  .archive-view-container .table-content tbody .field {
+    border-right: none;
+    width: 100%;
+  }
+
+  .archive-view-container
+    .table-content
+    tbody
+    td
+    .field:nth-of-type(1)::before {
+    content: "research title:";
+  }
+
+  .archive-view-container
+    .table-content
+    tbody
+    td
+    .field:nth-of-type(2)::before {
+    content: "publication year:";
+  }
+
+  .archive-view-container
+    .table-content
+    tbody
+    td
+    .field:nth-of-type(3)::before {
+    content: "author";
+  }
+
+  .archive-view-container
+    .table-content
+    tbody
+    td
+    .field:nth-of-type(4)::before {
+    content: "date issued";
+  }
+
+  .archive-view-container
+    .table-content
+    tbody
+    td
+    .field:nth-of-type(5)::before {
+    content: "course/strand";
+  }
+
+  .archive-view-container
+    .table-content
+    tbody
+    td
+    .field:nth-of-type(5)::before {
+    content: "department";
+  }
+}
+
+@media (max-width: 450px) {
+  .archive-view-container .logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .archive-view-container .logo img {
+    width: 10%;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+
+  .archive-view-container .logo h1 {
+    margin: 0;
+    font-size: 0.9em;
+    text-transform: capitalize;
+    color: #000;
+  }
+}

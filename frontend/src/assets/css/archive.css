@@ -1,0 +1,412 @@
+/*========================================== Archives ==========================================*/
+.archives {
+  /* max-width: 1200px; */
+  margin-inline: auto;
+}
+
+.archives h1 {
+  width: 90%;
+  margin-inline: auto;
+  margin-bottom: 2rem;
+}
+
+.archives .archive-features {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-inline: auto;
+}
+/*========================================== Archive Dropdown ==========================================*/
+.archives .archive-features .archive-dropdown {
+  display: flex;
+  background: #d9d9d9;
+  border-radius: 20px;
+  padding: 10px 20px;
+  justify-content: space-between;
+}
+.archives .archive-features .archive-dropdown .filter {
+  margin-right: 5rem;
+}
+
+.archive-dropdown span {
+  font-weight: 800;
+}
+
+.archive-dropdown .dropbtn-dept,
+.archive-dropdown .dropbtn-course,
+.archive-dropdown .dropbtn-sort {
+  font-size: 0.9em;
+}
+
+.archive-dropdown .dropbtn-dept {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.archive-dropdown .dropbtn-sort {
+  margin-left: 10px;
+}
+
+/*========================================== Department Dropdown ==========================================*/
+.dropbtn-dept {
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.dropdown-dept {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content-dept {
+  display: none;
+  position: absolute;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content-dept a {
+  color: #000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.8em;
+  background: #d9d9d9;
+}
+
+.dropdown-content-dept a:hover {
+  background-color: #d9d9d9;
+  color: #000;
+}
+
+.dropdown-dept:hover .dropdown-content-dept {
+  display: block;
+}
+
+/*========================================== Course Dropdown ==========================================*/
+.dropbtn-course {
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.dropdown-course {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content-course {
+  display: none;
+  position: absolute;
+  min-width: 60px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content-course a {
+  color: #000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.8em;
+  background: #d9d9d9;
+}
+
+.dropdown-content-course a:hover {
+  background-color: #d9d9d9;
+  color: #000;
+}
+
+.dropdown-course:hover .dropdown-content-course {
+  display: block;
+}
+
+/*========================================== Sort Dropdown ==========================================*/
+.dropbtn-sort {
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #212d62, #212d62, #1c435d, #1b5858);
+  color: #fff;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+.dropbtn-sort i {
+  margin-left: 30px;
+}
+
+.dropdown-sort {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content-sort {
+  display: none;
+  position: absolute;
+  min-width: 90px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content-sort a {
+  color: #000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.8em;
+  background: #d9d9d9;
+}
+
+.dropdown-content-sort a:hover {
+  background-color: #d9d9d9;
+  color: #000;
+}
+
+.dropdown-sort:hover .dropdown-content-sort {
+  display: block;
+}
+
+/*========================================== Table ==========================================*/
+.archives .table-content {
+  width: 90%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+.archives .table-content thead tr {
+  background: linear-gradient(to bottom, #212d62, #212d62, #1c435d, #1b5858);
+  color: #fff;
+}
+
+.archives .table-content thead th {
+  padding-block: 1.5rem;
+  font-weight: 300;
+  text-align: center;
+  width: 25%;
+}
+
+.archives .table-content tbody tr {
+  background-color: #f0f0f0;
+}
+
+.archives .table-content tbody tr:nth-child(even) {
+  background-color: #d9d9d9;
+}
+
+.archives .table-content tbody tr:last-child {
+  border-bottom: 3px solid #212d62;
+}
+
+.archives .table-content tbody td {
+  /* padding-left: 4rem; */
+  font-weight: 400;
+  padding-block: 1rem;
+  text-align: center;
+  margin-inline: min(1rem, 2vw) 2rem;
+}
+
+.archives .table-content tbody td:nth-child(1) {
+  font-weight: 400;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding-left: min(2rem, 10vw);
+}
+
+.archives .table-content tbody td:nth-child(1) > .title {
+  width: 100%;
+  text-align: center;
+}
+
+.archives .table-content tbody tr a {
+  text-decoration: none;
+  font-size: 1.7em;
+  color: #1d5f55;
+}
+
+.archives .table-content tbody tr a:hover {
+  cursor: pointer;
+  color: #212d62;
+}
+
+.tooltip {
+  text-align: center;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background: linear-gradient(to bottom, #212d62, #212d62, #1c435d, #1b5858);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: -2vw;
+  left: 30%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #1b5858 transparent transparent transparent;
+}
+
+@media (min-width: 650px) {
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+}
+
+.archives .table-content tbody tr span {
+  text-align: justify;
+}
+
+.archives .archives-table .table-content tbody .archive-table-btn a {
+  display: none;
+}
+
+/*========================================== Prev/Next Buttons ==========================================*/
+.archives .pagination {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.archives .pagination button {
+  padding: 3px 20px;
+  border-radius: 5px;
+  border: none;
+  background: #121e3a;
+  color: #ffffff;
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+.archives .pagination button:hover {
+  background-color: #d9d9d9;
+  color: #000;
+  cursor: pointer;
+}
+
+.archives .page-num {
+  background: #1d5f55;
+  padding: 4px 14px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.7em;
+}
+
+/*========================================== Media Query Responsiveness ==========================================*/
+@media screen and (max-width: 1100px) {
+  .archives {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .archives .archive-features .archive-dropdown {
+    display: block;
+    justify-content: start;
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 750px) {
+  .archives .archives-table .table {
+    width: 100%;
+  }
+
+  .archives .archives-table .table-content thead th {
+    display: none;
+  }
+
+  .archives .archives-table .table-content tbody td {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-align: left;
+  }
+
+  .archives .archives-table .table-content tbody td:first-child {
+    padding-top: 2rem;
+    justify-content: flex-start;
+  }
+
+  .archives .archives-table .table-content tbody td .title {
+    text-align: left;
+  }
+
+  a[href="/student/archive/view"] {
+    display: none;
+  }
+
+  .archives .archives-table .table-content tbody td:last-child {
+    padding-bottom: 2rem;
+  }
+
+  .archives .archives-table .table-content tbody td::before {
+    font-weight: 700;
+    font-size: 1.2em;
+    text-transform: capitalize;
+    display: block;
+  }
+
+  .archives .archives-table .table-content tbody td:nth-of-type(1)::before {
+    content: "title";
+  }
+
+  .archives .archives-table .table-content tbody td:nth-of-type(2)::before {
+    content: "author";
+  }
+
+  .archives .archives-table .table-content tbody td:nth-of-type(3)::before {
+    content: "course/strand";
+  }
+
+  .archives .archives-table .table-content tbody td:nth-of-type(4)::before {
+    content: "department";
+  }
+
+  .archives .archives-table .table-content tbody td:nth-of-type(5)::before {
+    content: "date created";
+  }
+
+  .archives .archives-table .table-content tbody .archive-table-btn a {
+    display: block;
+    color: white;
+    background: linear-gradient(
+      131deg,
+      #202c61 0%,
+      #19505b 50%,
+      #1d6353 99% 99%
+    );
+    text-align: center;
+    width: 120px;
+    padding: 0.45rem;
+    border-radius: 50px;
+    margin: auto;
+    margin-top: 1rem;
+    transition: all 300ms;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,147 @@
+/* banner */          
+
+.home {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* .home .search-bar {
+  width: min(1077px, 90%);  
+  display: flex;
+  justify-content: flex-end;
+} */
+
+.intro-section {
+  width: min(1077px, 90%);  
+  padding: 4.5rem min(3.5rem, 10%);
+  margin-inline: auto;
+  margin-bottom: 3.5rem;
+  border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../images/home/home-bg-upang.png");
+}
+
+/* Intro-Content*/
+
+.intro-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+
+/* ==================== Intro-Text ==================== */
+.intro-content__title {
+  font-size: min(2rem, calc(3vw + 0.5rem));
+  color: #ffffff;
+  text-align: center;
+}
+
+.intro-content__title:nth-child(1) {
+  font-weight: 400;
+}
+
+.intro-content__title:nth-child(3) {
+  font-weight: 200;
+}
+
+.intro-content__separator {
+  width: min(266px, 80%);
+  border-top: 1px solid #ffffff;
+}
+
+/*Intro Button*/
+
+.intro-content__btn {
+  width: min(250px, 85%);
+  text-align: center;
+  padding: min(0.65rem, 4vw) 0;
+  border-radius: 50px;
+  background: #ffffff;
+  color: #000000;
+  font-size: min(1.5rem, 5vw);
+  font-weight: 300;
+  cursor: pointer;
+  border: none;
+  transition: all 300ms;
+}
+
+.intro-content__btn:hover {
+  outline: 2px solid #ffffff;
+  background: none;
+  color: #ffffff;
+}
+
+/* welcome section */
+
+.welcome-section {
+  width: min(1077px, 90%);  
+  margin-inline: auto;
+  background: #e7e7e7;
+  box-shadow: 4px 4px 10px 3px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem 2rem 5rem;
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+/* Welcome PHINMA Image*/
+
+.welcome-img img {
+  width: min(250px, 60vw);
+}
+
+.welcome figure {
+  text-align: center;
+}
+
+.welcome-content h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.welcom-content .greet {
+  color: #000000;
+  font-size: 16px;
+  margin: auto;
+}
+
+/*Welcome Quotation*/
+
+.greet span {
+  color: #d5aa36;
+  font-weight: 700;
+}
+
+.welcome-section .line {
+  border-top: 1px solid rgba(0, 0, 0, 0.785);
+  width: 70%;
+  margin-inline: auto;
+  margin-top: 4rem;
+}
+
+@media (max-width: 500px) {
+  .welcome-content {
+    align-items: center;
+  }
+
+  .welcome-content h2 {
+    margin-top: 1rem;
+  }
+
+  .intro-section, .welcome-section {
+    width: 95%;
+  }
+}

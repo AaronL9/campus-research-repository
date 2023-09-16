@@ -1,0 +1,42 @@
+/* ==================== SEARCH BAR ==================== */
+
+.search-bar form {
+  display: flex;
+  max-width: 310px;
+  padding: 11px 23px;
+  border-radius: 50px;
+  background: #d9d9d9;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+/*Search-Text*/
+.search-bar input {
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  background: none;
+  border: none;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+/* clears the ‘X’ from Chrome */
+.search-bar input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+/* Search SVG Button*/
+.search-bar .search-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.search-bar .search-icon,
+.search-bar .search-btn {
+  width: 25px;
+  height: 25.004px;
+  min-width: 25px;
+}

@@ -1,4 +1,3 @@
-
 // assets
 import "../assets/css/faqs.css";
 

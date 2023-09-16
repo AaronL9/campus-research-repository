@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-// layouts
+// layouts 
 import RootLayout from "./layouts/RootLayout";
 
 // components

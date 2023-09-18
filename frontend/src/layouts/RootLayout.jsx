@@ -18,22 +18,10 @@ import Profile from "../components/sidebar/Profile";
 const Sidebar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  // const [hide, setHide] = useState(false);
 
   const handleToggleMenu = () => {
     setIsOpen((prevOpen) => !prevOpen);
   };
-
-  // let currentScroll = window.pageYOffset;
-  // const handleScroll = () => {
-  //   const position = window.pageYOffset;
-  //   currentScroll > position ? setHide(false) : setHide(true);
-  //   currentScroll = position;
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll, { passive: true });
-  // }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);

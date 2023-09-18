@@ -62,7 +62,22 @@ export default function Research() {
             </div>
           </div>
           <h1 className="text-center">Research Review</h1>
-          <div className="research-review"></div>
+          <div className="research-review">
+            <object
+              data="/file/pdf_file.pdf"
+              type="application/pdf"
+              width="500"
+              height="678"
+            >
+              <iframe
+                src="/file/pdf_file.pdf"
+                width="500"
+                height="678"
+              >
+                <p>This browser does not support PDF!</p>
+              </iframe>
+            </object>
+          </div>
         </div>
       </div>
     </>

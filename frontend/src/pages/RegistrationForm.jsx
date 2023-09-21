@@ -2,12 +2,24 @@ import { Link, useNavigate } from "react-router-dom";
 
 // assets
 import "../assets/css/user_auth/registration_form.css";
+import { useState } from "react";
+import { useSignup } from "../hooks/useSignup";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const RegistrationForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { user } = useAuthContext;
+
+  const { signup } = useSignup;
+
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/student/home");
+
+    await signup(name, email, password);
+    if (user) navigate("/user/home");
   };
 
   return (
@@ -33,9 +45,30 @@ const RegistrationForm = () => {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="registration-form__input-field">
-              <input type="text" name="name" placeholder="Name" required />
-              <input type="email" name="email" placeholder="Email" required />
-              <input type="password" name="password" placeholder="Password" required />
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
               <div className="registration-form__checkbox">
                 <input type="checkbox" name="remember-me" id="remember-me" />
                 &nbsp;

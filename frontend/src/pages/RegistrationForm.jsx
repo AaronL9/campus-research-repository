@@ -10,16 +10,16 @@ const RegistrationForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user } = useAuthContext;
+  const { user } = useAuthContext();
+  const { signup } = useSignup();
 
-  const { signup } = useSignup;
 
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signup(name, email, password);
-    if (user) navigate("/user/home");
+    await signup(name, email, password);  
+    if (user) navigate("/student/home");
   };
 
   return (

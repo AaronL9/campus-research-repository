@@ -23,7 +23,7 @@
 }
 
 .registration-form__header {
-  background-image: url(../images/bg-upang.jpg);
+  background-image: url(/images/bg-upang.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 40px 0 0 40px;

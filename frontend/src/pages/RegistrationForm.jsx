@@ -1,8 +1,7 @@
-import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 // assets
-import "../assets/css/registration_form.css";
+import "../assets/css/user_auth/registration_form.css";
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
@@ -34,9 +33,9 @@ const RegistrationForm = () => {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="registration-form__input-field">
-              <input type="text" name="name" placeholder="Name" />
-              <input type="email" name="email" placeholder="Email" />
-              <input type="password" name="password" placeholder="Password" />
+              <input type="text" name="name" placeholder="Name" required />
+              <input type="email" name="email" placeholder="Email" required />
+              <input type="password" name="password" placeholder="Password" required />
               <div className="registration-form__checkbox">
                 <input type="checkbox" name="remember-me" id="remember-me" />
                 &nbsp;

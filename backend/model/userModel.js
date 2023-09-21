@@ -5,6 +5,7 @@ const validator = require("validator");
 const Schema = mongoose.Schema;
 
 const uesrSchema = new Schema({
+  
   email: {
     type: String,
     required: true,

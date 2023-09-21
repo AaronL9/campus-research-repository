@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 
 // Assets
-import "../assets/css/login_form.css";
-import UpangLogo from "../assets/images/upang-logo.png";
+import "../assets/css/user_auth/login_form.css";
+import SigninField from "../components/auth/SigninField";
+import SchoolLogo from "../components/SchoolLogo";
 
 const LoginForm = () => {
  
@@ -16,25 +17,15 @@ const LoginForm = () => {
 
   return (
     <div className="login-form">
-      <figure className="login-form__logo">
-        <img src={UpangLogo} alt="logo" />
-      </figure>
+      <SchoolLogo className={"login-form__logo"} />
       <h1 className="login-form__title">CAMPUS RESEARCH REPOSITORY</h1>
       <div className="login-form__container">
         <figure className="login-form__profile">
-          <img src='/svg/profile.svg' alt="profile-logo" />
+          <img src="/svg/profile.svg" alt="profile-logo" />
         </figure>
         <form onSubmit={handleSubmit}>
-          <div className="login-form__field">
-            <input type="text" required />
-            <span></span>
-            <label>Email</label>
-          </div>
-          <div className="login-form__field">
-            <input type="password" required />
-            <span></span>
-            <label>Password</label>
-          </div>
+          <SigninField type={"email"} />
+          <SigninField type={"password"} />
           <div className="login-form__forgot-password">Forgot Password?</div>
           <input type="submit" value="Sign In" />
           <div className="login-form__signup-link">

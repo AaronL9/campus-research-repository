@@ -7,6 +7,7 @@ import Logo from '../assets/images/home/university_logo_name.png'
 
 // components
 import SearchBar from "../components/SearchBar";
+import SchoolLogo from "../components/SchoolLogo";
 
 export default function Home() {
 
@@ -24,12 +25,7 @@ export default function Home() {
       </div>
       <div className="welcome-section">
         <div className="welcome-content">
-          <figure className="welcome-img">
-            <img
-              src={Logo}
-              alt="university_logo"
-            />
-          </figure>
+          <SchoolLogo className={"welcome-img"} />
           <h2>Welcome</h2>
           <p className="greet">
             <span>“</span>The Campus Research Repository is a collection of

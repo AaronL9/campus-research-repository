@@ -25,6 +25,7 @@ import ArchiveView from "./components/archive/ArchiveView";
 import Research from "./pages/Research";
 import Create from "./pages/Create";
 import PrivateRoutes from "./components/auth/PrivateRoutes";
+import { useAuthContext } from "./hooks/useAuthContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

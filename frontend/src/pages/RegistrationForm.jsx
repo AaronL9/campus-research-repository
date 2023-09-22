@@ -1,11 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useSignup } from "../hooks/useSignup";
 
 // assets
 import "../assets/css/user_auth/registration_form.css";
-import { useState } from "react";
-import { useSignup } from "../hooks/useSignup";
 
 const RegistrationForm = () => {
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  useEffect(() => {
+    if (user) navigate("/student/home");
+  }, []);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +21,7 @@ const RegistrationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signup(name, email, password);  
+    await signup(name, email, password);
   };
 
   return (

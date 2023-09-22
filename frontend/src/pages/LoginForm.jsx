@@ -4,11 +4,18 @@ import { Link, useNavigate } from "react-router-dom";
 import "../assets/css/user_auth/login_form.css";
 import SigninField from "../components/auth/SigninField";
 import SchoolLogo from "../components/SchoolLogo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLogin } from "../hooks/useLogin";
-import { useAuthContext } from "../hooks/useAuthContext";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  useEffect(() => {
+    if (user) navigate("student/home");
+  }, [])
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, error } = useLogin();

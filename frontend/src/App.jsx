@@ -25,12 +25,11 @@ import ArchiveView from "./components/archive/ArchiveView";
 import Research from "./pages/Research";
 import Create from "./pages/Create";
 import PrivateRoutes from "./components/auth/PrivateRoutes";
-import { useAuthContext } from "./hooks/useAuthContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route index element={<LoginForm />}></Route>
+      <Route index  element={<LoginForm />}></Route>
       <Route path="registration" element={<RegistrationForm />}></Route>
       <Route element={<PrivateRoutes />}>
         <Route path="student" element={<RootLayout />} errorElement={<Error />}>
@@ -57,7 +56,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider  router={router} />;
 }
 
 export default App;

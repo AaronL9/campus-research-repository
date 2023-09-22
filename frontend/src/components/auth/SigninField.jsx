@@ -1,12 +1,23 @@
-import React from 'react'
+import React from "react";
 
-export default function SigninField({type}) {
-  const label = type.charAt(0).toUpperCase() + type.slice(1)
+export default function SigninField({ type, currentState, setState }) {
+  const label = type.charAt(0).toUpperCase() + type.slice(1);
+
   return (
     <div className="login-form__field">
-      <input type={type} required />
+      <input
+        id={type}
+        type={type}
+        name={type}
+        autoComplete="true"
+        required
+        value={currentState}
+        onChange={(e) => {
+          setState(e.target.value);
+        }}
+      />
       <span></span>
-      <label>{label}</label>
+      <label htmlFor={type}>{label}</label>
     </div>
   );
 }

@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from './useAuthContext'
 
 export const useSignup = () => {
   const { dispatch } = useAuthContext()
+  const navigate = useNavigate();
 
   const signup = async (name, email, password) => {
     const response = await fetch('/api/user/signup', {
@@ -20,6 +22,8 @@ export const useSignup = () => {
 
       // update the auth context
       dispatch({type: 'LOGIN', payload: json})
+
+      navigate('/student/home')
 
     }
   }

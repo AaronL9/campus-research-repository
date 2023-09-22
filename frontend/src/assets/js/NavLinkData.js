@@ -19,8 +19,4 @@ export const NavLinkData = [
     id: 5,
     label: 'FAQs'
   },
-  {
-    id: 6,
-    label: 'Logout'
-  },
 ]

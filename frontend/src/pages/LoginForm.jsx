@@ -4,16 +4,19 @@ import { Link, useNavigate } from "react-router-dom";
 import "../assets/css/user_auth/login_form.css";
 import SigninField from "../components/auth/SigninField";
 import SchoolLogo from "../components/SchoolLogo";
+import { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const LoginForm = () => {
- 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login, error } = useLogin();
 
-  let navigate = useNavigate()
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    navigate('student/home')
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(email, password);
+  };
 
   return (
     <div className="login-form">
@@ -24,8 +27,22 @@ const LoginForm = () => {
           <img src="/svg/profile.svg" alt="profile-logo" />
         </figure>
         <form onSubmit={handleSubmit}>
-          <SigninField type={"email"} />
-          <SigninField type={"password"} />
+          <SigninField
+            type={"email"}
+            currentState={email}
+            setState={setEmail}
+          />
+          <SigninField
+            type={"password"}
+            currentState={password}
+            setState={setPassword}
+          />
+          {error && (
+            <div className="login-form__error-message">
+              <img src="/svg/error.svg" />
+              {error}
+            </div>
+          )}
           <div className="login-form__forgot-password">Forgot Password?</div>
           <input type="submit" value="Sign In" />
           <div className="login-form__signup-link">

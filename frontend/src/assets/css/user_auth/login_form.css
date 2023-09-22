@@ -50,6 +50,10 @@ form .login-form__field{
   margin: 30px 0;
 }
 
+.login-form__field:nth-child(2) {
+  margin-bottom: 10px;
+}
+
 .login-form__field input{
   width: 100%;
   padding: 0 5px;
@@ -93,8 +97,20 @@ form .login-form__field{
   width: 100%;
 }
 
+.login-form__error-message {
+  color: #d93025;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.login-form__error-message img {
+  width: 20px;
+  margin-right: 5px;
+}
+
 .login-form__forgot-password{
-  margin: -5px 0 20px 5px;
+  margin: 20px 0 20px 5px;
   color: #a6a6a6;
   cursor: pointer;
 }

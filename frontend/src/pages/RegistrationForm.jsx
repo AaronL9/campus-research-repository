@@ -4,22 +4,17 @@ import { Link, useNavigate } from "react-router-dom";
 import "../assets/css/user_auth/registration_form.css";
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
-import { useAuthContext } from "../hooks/useAuthContext";
 
 const RegistrationForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user } = useAuthContext();
   const { signup } = useSignup();
 
-
-  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     await signup(name, email, password);  
-    if (user) navigate("/student/home");
   };
 
   return (
@@ -65,6 +60,8 @@ const RegistrationForm = () => {
                 type="password"
                 name="password"
                 placeholder="Password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{8,}$"
+                title="Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (@, #, $, %, ^, &, *, or !)"
                 required
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}

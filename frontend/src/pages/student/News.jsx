@@ -1,11 +1,11 @@
 import React from "react";
 
 // assets
-import "../assets/css/news.css";
+import "../../assets/css/news.css";
 
 // components
-import NewResearch from "../components/news/NewResearch";
-import NewArchive from "../components/news/NewArchive";
+import NewResearch from "../../components/news/NewResearch";
+import NewArchive from "../../components/news/NewArchive";
 
 export default function News() {
   return (

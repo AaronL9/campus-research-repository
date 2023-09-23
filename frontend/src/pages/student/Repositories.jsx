@@ -1,13 +1,13 @@
 import React from "react";
 
 // data
-import { RepoInfo } from "../assets/js/RepoInfo";
+import { RepoInfo } from "../../assets/js/RepoInfo";
 
 // component
-import DepartmentCard from "../components/repositories/DepartmentCard";
+import DepartmentCard from "../../components/repositories/DepartmentCard";
 
 // assets
-import "../assets/css/repositories.css";
+import "../../assets/css/repositories.css";
 
 export default function Repository() {
   const keys = Object.keys(RepoInfo);

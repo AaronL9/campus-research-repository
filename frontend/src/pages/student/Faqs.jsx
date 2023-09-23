@@ -1,8 +1,8 @@
 // assets
-import "../assets/css/faqs.css";
+import "../../assets/css/faqs.css";
 
 // components
-import Category from "../components/faqs/Category";
+import Category from "../../components/faqs/Category";
 import { Outlet } from "react-router-dom";
 
 

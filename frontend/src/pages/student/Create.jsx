@@ -1,8 +1,8 @@
 import React from "react";
-import "../assets/css/create.css";
-import { submitFormData } from "../assets/js/SubmitFormData";
-import InputField from "../components/submit_form/InputField";
-import Upload from "../components/submit_form/Upload";
+import "../../assets/css/create.css";
+import { submitFormData } from "../../assets/js/SubmitFormData";
+import InputField from "../../components/submit_form/InputField";
+import Upload from "../../components/submit_form/Upload";
 
 export default function Create() {
   return (

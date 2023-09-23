@@ -46,7 +46,7 @@ uesrSchema.statics.signup = async function (name, email, password) {
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
 
-  const user = await this.create({name, email, password: hash });
+  const user = await this.create({ name, email, password: hash });
 
   return user;
 };
@@ -71,5 +71,14 @@ uesrSchema.statics.login = async function (email, password) {
 
   return user;
 };
+
+uesrSchema.static(
+  "findOneOrCreate",
+  async function findOneorCreate(condition, doc) {
+    const one = await this.findOne(condition);
+
+    return one || this.create(doc);
+  }
+);
 
 module.exports = mongoose.model("User", uesrSchema);

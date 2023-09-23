@@ -2,12 +2,10 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // assets
-import "../assets/css/home.css";
-import Logo from '../assets/images/home/university_logo_name.png'
+import "../../assets/css/home.css";
 
 // components
-import SearchBar from "../components/SearchBar";
-import SchoolLogo from "../components/SchoolLogo";
+import SchoolLogo from "../../components/SchoolLogo";
 
 export default function Home() {
 

@@ -1,6 +1,6 @@
 import React from "react";
-import "../assets/css/research_view.css";
-import PreviousButton from "../components/PreviousButton";
+import "../../assets/css/research_view.css";
+import PreviousButton from "../../components/PreviousButton";
 
 export default function Research() {
   return (

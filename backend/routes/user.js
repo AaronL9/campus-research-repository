@@ -8,7 +8,8 @@ const {
   loginUser,
   recoverPassword,
   resetPassword,
-  changePassword
+  changePassword,
+  signupWithGoogle
 } = require("../controller/userController");
 
 const requireAuth = require('../middleware/requireAuth');
@@ -17,6 +18,7 @@ const requireAuth = require('../middleware/requireAuth');
 router.post("/login", loginUser);
 
 // signup route
+router.get('/auth/google', signupWithGoogle)
 router.post("/signup", signupUser);
 
 // forgot password route

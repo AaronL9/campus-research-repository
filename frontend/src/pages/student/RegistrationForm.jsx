@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useSignup } from "../hooks/useSignup";
+import { useSignup } from "../../hooks/useSignup";
 
 // assets
-import "../assets/css/user_auth/registration_form.css";
+import "../../assets/css/user_auth/registration_form.css"
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
@@ -34,12 +34,12 @@ const RegistrationForm = () => {
         </div>
         <div className="registration-form__content">
           <h2>Registration</h2>
-          <button
-            type="button"
+          <Link
+            to='/auth/google'
             className="registration-form__login-with-google-btn"
           >
             Continue With Google
-          </button>
+          </Link>
           <div className="registration-form__separator">
             <div></div>
             <span>Or</span>

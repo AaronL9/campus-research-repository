@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function TableRow({ title, author, course, date }) {
   const limitString = (str, maxLength) => {
-    if (str.length <= maxLength || window.outerWidth <= 650) {
+    if (str.length <= maxLength || window.outerWidth <= 750) {
       return str;
     } else {
       return str.slice(0, maxLength) + "...";

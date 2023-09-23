@@ -11,20 +11,20 @@ import RootLayout from "./layouts/RootLayout";
 // components
 import DepartmentRepository from "./components/repositories/DepartmentRepository";
 import Error from "./components/Error";
+import FaqItem from "./components/faqs/FaqItem";
+import ArchiveView from "./components/archive/ArchiveView";
+import PrivateRoutes from "./components/auth/PrivateRoutes";
 
 // pages
-import RegistrationForm from "./pages/RegistrationForm";
+import Home from "./pages/student/Home";
+import News from "./pages/student/News";
+import Faqs from "./pages/student/Faqs";
 import LoginForm from "./pages/LoginForm";
-import Home from "./pages/Home";
-import Repositories from "./pages/Repositories";
-import News from "./pages/News";
-import Faqs from "./pages/Faqs";
-import FaqItem from "./components/faqs/FaqItem";
-import Archive from "./pages/Archive";
-import ArchiveView from "./components/archive/ArchiveView";
-import Research from "./pages/Research";
-import Create from "./pages/Create";
-import PrivateRoutes from "./components/auth/PrivateRoutes";
+import Create from "./pages/student/Create";
+import Archive from "./pages/student/Archive";
+import Research from "./pages/student/Research";
+import Repositories from "./pages/student/Repositories";
+import RegistrationForm from "./pages/student/RegistrationForm";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

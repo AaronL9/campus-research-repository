@@ -25,12 +25,19 @@ import Archive from "./pages/student/Archive";
 import Research from "./pages/student/Research";
 import Repositories from "./pages/student/Repositories";
 import RegistrationForm from "./pages/student/RegistrationForm";
+import Dashboard from "./pages/admin/Dashboard";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route index  element={<LoginForm />}></Route>
       <Route path="registration" element={<RegistrationForm />}></Route>
+      <Route path="admin">
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="records" element={<Dashboard />} />
+        <Route path="archive" element={<Dashboard />} />
+        <Route path="queue" element={<Dashboard />} />
+      </Route>
       <Route element={<PrivateRoutes />}>
         <Route path="student" element={<RootLayout />} errorElement={<Error />}>
           <Route path="home" element={<Home />} />

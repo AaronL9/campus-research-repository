@@ -18,7 +18,6 @@ const requireAuth = require('../middleware/requireAuth');
 router.post("/login", loginUser);
 
 // signup route
-router.get('/auth/google', signupWithGoogle)
 router.post("/signup", signupUser);
 
 // forgot password route

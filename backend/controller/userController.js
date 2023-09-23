@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 const transporter = require("../utils/nodemailerConfig");
-const passport = require("passport");
 
 // generate token for signup and login
 const createToken = (_id) => {
@@ -44,12 +43,6 @@ const signupUser = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-
-const signupWithGoogle = async (req, res) => {
-  passport.authenticate("google");
-  res.status(200).json({ message: "working" });
-};
-
 // Generate a reset token and send the password reset email
 const recoverPassword = async (req, res) => {
   const { email } = req.body;

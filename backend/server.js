@@ -4,8 +4,6 @@ require("./third-party/googleAuth");
 const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/user");
-const passport = require('passport');
-
 
 // express app
 const app = express();

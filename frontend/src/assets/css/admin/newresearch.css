@@ -1,0 +1,145 @@
+/* ------------------- New Research ------------------- */
+.new-research-card {
+  display: flex;
+  margin-inline: auto;
+  width: min(1067px, 90%);
+  background-color: #f0f0f0;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.new-research-card picture {
+  margin-right: auto;
+  text-align: center;
+}
+
+.new-research-card img {
+  width: min(350px, 80vw);
+  height: 100%;
+  object-fit: cover;
+}
+
+.new-research-card .content {
+  width: min(900px, 60%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: justify;
+  padding: 2rem min(1rem, 2vw);
+  margin-right: auto;
+}
+
+/* --- START of View Button w/ Dropdown --- */
+.new-research-card .content .view-btn{
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 18px;
+}
+
+.new-research-card .content .dropdown-button {
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.new-research-card .content .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000;
+  min-width: 0;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  top: 35px;
+  left: -27px;
+  width: 92px;
+}
+
+.new-research-card .content .dropdown-content a {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: .7em;
+  text-align: left;
+}
+
+.new-research-card .content .dropdown-content a:hover {
+  background-color: #d3cece;
+  color: #000;
+  border-radius: 7px;
+}
+
+.new-research-card .content .view-btn:hover .dropdown-content {
+  display: block;
+}
+/* --- END of View Button w/ Dropdown --- */
+
+.new-research-card .content img{
+  width: 40px;
+}
+
+.new-research-card .content h3{
+  font-weight: normal;
+  text-align: left;
+}
+
+.new-research-card .content span {
+  font-weight: bold;
+}
+
+.new-research-card .content p {
+  font-size: 12px;
+}
+
+/* ----- Approve & Reject Buttons ----- */
+.new-research-card .content .btn{
+  display: inline-flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.new-research-card .content .btn a {
+  color: #fff;
+  text-align: center;
+  width: 150px;
+  padding: 0.75rem;
+  border-radius: 50px;
+  margin-top: 1rem;
+  transition: all 300ms;
+  text-decoration: none;
+}
+
+.new-research-card .content .btn .approve{
+  background: #121e3a;
+}
+
+.new-research-card .content .btn .reject{
+  background: #c70505;
+}
+
+.new-research-card .content .btn a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------- Responsiveness ------------------- */
+@media (max-width: 820px){
+  .new-research-card {
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+  }
+
+  .new-research-card .content,
+  .new-research-card picture {
+      margin: 0;
+      margin-top: 15px;
+      width: 90%;
+  }
+
+  .new-research-card picture {
+      padding-top: 2rem;
+  }
+}

@@ -1,0 +1,232 @@
+/*--------------------------- Parent Container ---------------------------*/
+.admin-archive-container{
+  max-width: 80%;
+  margin: 0 auto;
+} 
+
+/*--------------------------- TABLE ---------------------------*/
+.admin-archive-container .table{
+  overflow-x: auto;
+}
+
+.admin-archive-container .table-content{
+  border-collapse: collapse;
+  font-size: .9em;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.admin-archive-container .table-content thead tr{
+  background: linear-gradient(to bottom,
+  #212d62,
+  #212d62,
+  #1c435d,
+  #1b5858);   
+  text-align: left;
+  color: #fff;
+}
+
+.admin-archive-container .table-content thead th{
+  padding-left: 4rem;
+  height: 4rem;
+  font-weight: 300;
+}
+
+.admin-archive-container .table-content thead .action{
+  width: 15%;
+}
+
+.admin-archive-container .table-content tbody tr{
+  height: 5rem;
+}
+
+.admin-archive-container .table-content tbody tr:nth-child(even){
+  background-color: #d9d9d9;
+}
+
+.admin-archive-container .table-content tbody tr:last-child{
+  border-bottom: 3px solid #212d62;
+}
+
+.admin-archive-container .table-content tbody td{
+  padding-left: 4rem;
+  padding-bottom: 5px;
+  font-weight: 400;
+}
+
+/*------------ Action Column ------------*/
+.admin-archive-container .table-content tbody .view-btn{
+  position: relative;
+  margin-left: 1rem;
+}
+
+.admin-archive-container .table-content tbody .dropdown-button {
+  color: #000;
+  border: none;
+  cursor: pointer;
+  background: none;
+  font-size: 1.2em;
+}
+
+.admin-archive-container .table-content tbody .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  top: 28px;
+  right: 42px;
+  z-index: 1;
+  width: 110px;
+}
+
+.admin-archive-container .table-content tbody .dropdown-content a {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 1em;
+  text-align: left;
+  font-weight: 400;
+}
+
+.admin-archive-container .table-content tbody .dropdown-content a:hover {
+  background-color: #d3cece;
+  color: #000;
+  border-radius: 10px;
+}
+
+.admin-archive-container .table-content tbody .view-btn:hover .dropdown-content {
+  display: block;
+}
+
+.admin-archive-container .table-content tbody .view-btn{
+  position: relative;
+  margin-left: 1rem;
+}
+
+.admin-archive-container .table-content tbody .dropdown-button {
+  color: #000;
+  border: none;
+  cursor: pointer;
+  background: none;
+  font-size: 1.2em;
+}
+
+.admin-archive-container .table-content tbody .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  top: 28px;
+  right: 42px;
+  z-index: 1;
+  width: 110px;
+}
+
+.admin-archive-container .table-content tbody .dropdown-content a {
+  color: #fff;
+  padding: 12px 14px;
+  text-decoration: none;
+  display: block;
+  font-size: 1em;
+  text-align: left;
+  font-weight: 400;
+}
+
+.admin-archive-container .table-content tbody .dropdown-content a:hover {
+  background-color: #d3cece;
+  color: #000;
+  border-radius: 10px;
+}
+
+.admin-archive-container .table-content tbody .view-btn:hover .dropdown-content {
+  display: block;
+}
+
+/*--------------------------- PAGINATION ---------------------------*/
+.admin-archive-container .pagination {
+  text-align: center;
+  margin: 20px;
+}
+
+.admin-archive-container .pagination button {
+  padding: 3px 20px;
+  border-radius: 5px;
+  border: none;
+  background: #121e3a;
+  color: #fff;
+  font-size: .8em;
+  font-weight: 400;
+}
+
+.admin-archive-container .pagination button:hover {
+  background-color: #d9d9d9;
+  color: #000;
+  cursor: pointer;
+}
+
+.admin-archive-container .page-num {
+  background: #1d5f55;
+  padding: 4px 14px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: .7em;
+}
+
+/*--------------------------- RESPONSIVENESS ---------------------------*/
+@media (max-width: 650px){
+  .admin-archive-container .table{
+      width: 100%;
+  }
+
+  .admin-archive-container .table-content thead th{
+      display: none;
+  }
+
+  .admin-archive-container .table-content tbody td{
+      display: grid;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+  }
+
+  .admin-archive-container .table-content tbody td:first-child{
+      padding-top: 2rem;
+  }
+
+  .admin-archive-container .table-content tbody td:last-child{
+      padding-bottom: 2rem;
+  }
+
+  .admin-archive-container .table-content tbody td::before{
+      font-weight: 700;
+      font-size: 1.2em;
+      text-transform: capitalize;
+  }
+
+  .admin-archive-container .table-content tbody td:nth-of-type(1)::before{
+      content: "title";
+  }
+
+  .admin-archive-container .table-content tbody td:nth-of-type(2)::before{
+      content: "author";
+  }
+
+  .admin-archive-container .table-content tbody td:nth-of-type(3)::before{
+      content: "course/strand";
+  }
+
+  .admin-archive-container .table-content tbody td:nth-of-type(4)::before{
+      content: "date created";
+  }
+
+  .admin-archive-container .table-content tbody td:nth-of-type(5)::before{
+      content: "action";
+  }
+
+  .admin-archive-container .table-content tbody .dropdown-content {
+      top: 27px;
+      left: -30px;
+  }
+}

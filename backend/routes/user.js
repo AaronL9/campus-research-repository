@@ -9,7 +9,6 @@ const {
   recoverPassword,
   resetPassword,
   changePassword,
-  signupWithGoogle
 } = require("../controller/userController");
 
 const requireAuth = require('../middleware/requireAuth');

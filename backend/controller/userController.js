@@ -175,5 +175,4 @@ module.exports = {
   recoverPassword,
   resetPassword,
   changePassword,
-  signupWithGoogle,
 };

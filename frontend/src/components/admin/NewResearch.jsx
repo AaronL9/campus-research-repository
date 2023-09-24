@@ -3,58 +3,55 @@ import { Link } from "react-router-dom"
 
 import ResearchImage from "../../../public/images/admin/research-sample-image.png"
 import MenuIcon from "../../../public/images/admin/menu-dots.png"
+import ViewIcon from "../../../public/svg/view-icon.svg"
+import QueueIcon from "../../../public/svg/queue-icon.svg"
 
 export default function NewResearch() {
   return (
-    <>
-      <div className="new-research-card">
-        <picture>
-          <img src={ResearchImage} alt="research" />
-        </picture>
-        <div className="content">
-          <div className="view-btn">
-            <button className="dropdown-button">
-              <img src={MenuIcon} alt="Menu" />
-            </button>
-            <div className="dropdown-content">
-              <Link to="">
-                <i className="fa-solid fa-eye" style={{ color: "blue" }} /> View
-              </Link>
-              <Link to="">
-                <i
-                  className="fa-solid fa-folder-open"
-                  style={{ color: "orange" }}
-                />{" "}
-                Queue
-              </Link>
-            </div>
-          </div>
-          <h3>Title: "Research Campus Repository"</h3>
-          <p>
-            By: Cerezo, M U. &amp; Lee, BM P., &amp; Naraja R G., &amp; Zarate, J
-            C., &amp; Lomibao, AJ B.
-          </p>
-          <p>
-            <span>Abstract:</span> The "Research Campus Repository" is a
-            comprehensive website project aimed at providing an efficient and
-            user-friendly platform for academic institutions to store, manage, and
-            access research-related content and publications. The repository serves
-            as a centralized hub, facilitating easy dissemination of research
-            outputs and fostering collaboration among researchers, students, and
-            faculty members. The website's key features include a secure login
-            system, enabling registered users to upload and share their research
-            papers, conference proceedings, theses, and other scholarly works...
-          </p>
-          <div className="btn">
-            <Link to="" className="approve">
-              APPROVE
+    <div className="new-research">
+      <picture>
+        <img src={ResearchImage} alt="research" />
+      </picture>
+      <div className="new-research__content">
+        <div className="button__menu">
+          <button className="dropdown">
+            <img src={MenuIcon} alt="Menu" />
+          </button>
+          <div className="dropdown__content">
+            <Link to="">
+              <img src={ViewIcon} alt="View" /> View
             </Link>
-            <Link to="" className="reject">
-              REJECT
+            <Link to="">
+              <img src={QueueIcon} alt="Queue" />
+              Queue
             </Link>
           </div>
         </div>
+        <h3>Title: "Research Campus Repository"</h3>
+        <p>
+          By: Cerezo, M U. &amp; Lee, BM P., &amp; Naraja R G., &amp; Zarate, J C.,
+          &amp; Lomibao, AJ B.
+        </p>
+        <p>
+          <span>Abstract:</span> The "Research Campus Repository" is a comprehensive
+          website project aimed at providing an efficient and user-friendly platform
+          for academic institutions to store, manage, and access research-related
+          content and publications. The repository serves as a centralized hub,
+          facilitating easy dissemination of research outputs and fostering
+          collaboration among researchers, students, and faculty members. The
+          website's key features include a secure login system, enabling registered
+          users to upload and share their research papers, conference proceedings,
+          theses, and other scholarly works...
+        </p>
+        <div className="buttons">
+          <Link to="" className="button__approve">
+            APPROVE
+          </Link>
+          <Link to="" className="button__reject">
+            REJECT
+          </Link>
+        </div>
       </div>
-    </>
+    </div>
   )
 }

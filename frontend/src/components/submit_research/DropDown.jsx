@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 export default function DropDown({ data, setValue, department }) {
   const handleSelect = (e) => {
     e.preventDefault();

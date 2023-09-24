@@ -1,3 +1,22 @@
+const program = {
+  CITE: ["BSIT"],
+  CEA: ["BSCE", "BSEE", "BSECE", "BSCPE", "BSARCH", "BSME"],
+  CMA: ["BSA", "BSAIS", "BSMA", "BSBA-MM", "BSBA-FM", "BSHM", "BSTM"],
+  CAHS: ["BSN", "BSMLS", "BSP", "BSPsych"],
+  CELA: [
+    "BEEd",
+    "BSEd-EN",
+    "BSEd-GENSCI",
+    "BSEd-MATH",
+    "BSEd-SOCSCI",
+    "AB Comm",
+    "AB PolSci",
+  ],
+  CCJE: ["BSC"],
+  SHS: ["STEM", "ABM", "TVL", "GAS"],
+  LAW: ["BSL"],
+};
+
 export const submitFormData = {
   title: {
     id: "title",
@@ -22,23 +41,15 @@ export const submitFormData = {
     className: "submit-research__department",
     label: "Department",
     type: "text",
-    departments: ["CITE", "CEA", "CMA", "CAHS", "CELA", "CCJE", "SHS", "LAW"],
+    departments: program,
+    
   },
   course: {
     id: "course",
     className: "submit-research__course",
     label: "Course",
     type: "text",
-    departments: {
-      CITE: ["BSIT"],
-      CEA: ["BSCE", "BSEE", "BSECE", "BSCPE", "BSARCH", "BSME"],
-      CMA: ["BSA", "BSAIS", "BSMA", "BSBA-MM", "BSBA-FM", "BSHM", "BSTM"],
-      CAHS: ["BSN", "BSMLS"],
-      CELA: ["BSE", "BSEP", "BSS"],
-      CCJE: ["BSC"],
-      SHS: ["STEM", "ABM", "TVL", "GAS"],
-      LAW: ["BSL"],
-    },
+    courses: program,
   },
   abstract: {
     id: "abstract",

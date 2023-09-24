@@ -7,7 +7,7 @@ import DropDown from "../../components/submit_research/DropDown";
 
 export default function Create() {
   const [department, setDepartment] = useState("CITE");
-  const [course, setCourse] = useState("BSIT")
+  const [course, setCourse] = useState("BSIT");
 
   return (
     <div className="submit-research">
@@ -21,8 +21,17 @@ export default function Create() {
             <InputField data={submitFormData.author} />
             <InputField data={submitFormData.year} />
             <div className="submit-research__department-course">
-              <DropDown data={submitFormData.department} setValue={setDepartment}  />
-              <DropDown data={submitFormData.course} department={department} setValue={setCourse} />
+              <DropDown
+                data={submitFormData.department}
+                setDepartment={setDepartment}
+                setCourse={setCourse}
+                department={department}
+              />
+              <DropDown
+                data={submitFormData.course}
+                department={department}
+                setCourse={setCourse}
+              />
             </div>
             <InputField data={submitFormData.abstract} />
           </div>

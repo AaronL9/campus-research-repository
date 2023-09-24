@@ -6,7 +6,6 @@ export default function DropDown({ data, setValue, department }) {
 
   const options =
     data.id === "department" ? data.departments : data.departments[department];
-  console.log(data.departments[department]);
 
   return (
     <div className="submit-research__dropdown">

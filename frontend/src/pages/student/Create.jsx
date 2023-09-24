@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../assets/css/create.css";
 import { submitFormData } from "../../assets/js/SubmitFormData";
 import InputField from "../../components/submit_research/InputField";
 import Upload from "../../components/submit_research/Upload";
+import DropDown from "../../components/submit_research/DropDown";
 
 export default function Create() {
+  const [department, setDepartment] = useState("CITE");
+  const [course, setCourse] = useState("BSIT")
+
   return (
     <div className="submit-research">
       <form className="submit-research__form">
@@ -13,14 +17,14 @@ export default function Create() {
             <Upload />
           </div>
           <div className="submit-research__details">
-            <InputField data={submitFormData[0]} />
-            <InputField data={submitFormData[1]} />
-            <InputField data={submitFormData[2]} />
+            <InputField data={submitFormData.title} />
+            <InputField data={submitFormData.author} />
+            <InputField data={submitFormData.year} />
             <div className="submit-research__department-course">
-              <InputField data={submitFormData[3]} />
-              <InputField data={submitFormData[4]} />
+              <DropDown data={submitFormData.department} setValue={setDepartment}  />
+              <DropDown data={submitFormData.course} department={department} setValue={setCourse} />
             </div>
-            <InputField data={submitFormData[5]} />
+            <InputField data={submitFormData.abstract} />
           </div>
         </fieldset>
         <button className="submit-research__btn">Submit Research</button>

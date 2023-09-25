@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function InputField({ data }) {
+export default function InputField({ data, handleChange }) {
   return (
     <div className={data.className}>
       <label className="submit-research__label" htmlFor={data.id}>
@@ -13,6 +13,8 @@ export default function InputField({ data }) {
           rows={5}
           id={data.id}
           name={data.id}
+          onChange={handleChange}
+          required
         ></textarea>
       ) : (
         <input
@@ -20,6 +22,8 @@ export default function InputField({ data }) {
           type={data.type}
           id={data.id}
           name={data.id}
+          required
+          onChange={handleChange}
         />
       )}
     </div>

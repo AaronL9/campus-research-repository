@@ -101,7 +101,7 @@
   flex: 1;
 }
 
-select {
+.submit-research__selection {
   border-radius: 10px;
   background: #d9d9d9;
   outline: none;
@@ -128,4 +128,5 @@ select {
   padding: 1rem;
   border-radius: 3.125rem;
   background: #1e1e1e;
+  cursor: pointer;
 }

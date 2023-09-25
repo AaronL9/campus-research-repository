@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const validator = require("validator");
+const { ResearchSchema } = require("../model/researchModel");
 
 const Schema = mongoose.Schema;
 
@@ -18,6 +19,7 @@ const uesrSchema = new Schema({
     type: String,
     required: true,
   },
+  researh: [ResearchSchema],
   resetPasswordToken: String,
   resetPasswordExpires: Date,
 });

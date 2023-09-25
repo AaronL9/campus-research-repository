@@ -12,8 +12,10 @@ export default function Research() {
 
   const { researches, dispatch } = useResearchContext();
   const pdfUrl = `/api/research/${deptId}/${researchId}`;
-  const research = researches?.filter(research => research._id === researchId ? true : false)[0];
-  
+  const research = researches?.filter((research) =>
+    research._id === researchId ? true : false
+  )[0];
+
   useEffect(() => {
     const fetchResearch = async () => {
       const response = await fetch(`/api/research/${deptId.toUpperCase()}`);
@@ -28,7 +30,7 @@ export default function Research() {
     };
 
     fetchResearch();
-  }, [])
+  }, []);
   return (
     <>
       <div className="research-document">
@@ -42,10 +44,12 @@ export default function Research() {
               <img src="/images/research/sample_image.png" alt="sample_image" />
               <div className="research-info">
                 <p>
-                  <span>Date Published: </span>{formatDate(research?.year)}
+                  <span>Date Published: </span>
+                  {formatDate(research?.year)}
                 </p>
                 <p>
-                  <span>Author: </span>{research?.author}
+                  <span>Author: </span>
+                  {research?.author}
                 </p>
               </div>
             </div>
@@ -62,16 +66,9 @@ export default function Research() {
           </div>
           <h1 className="text-center">Research Review</h1>
           <div className="research-review">
-            <object
-              data={pdfUrl}
-              type="application/pdf"
-              width="500"
-              height="678"
-            >
-              <iframe src={pdfUrl} width="500" height="678">
-                <p>This browser does not support PDF!</p>
-              </iframe>
-            </object>
+            <iframe src={pdfUrl} width="100% " height="678">
+              <p>This browser does not support PDF!</p>
+            </iframe>
           </div>
         </div>
       </div>

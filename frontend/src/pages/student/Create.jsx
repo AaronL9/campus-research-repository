@@ -30,7 +30,7 @@ export default function Create() {
       data.append("course", formData.course);
       data.append("abstract", formData.abstract);
 
-      const response = await fetch("/file/upload", {
+      const response = await fetch("/api/research/upload", {
         method: "POST",
         body: data,
       });

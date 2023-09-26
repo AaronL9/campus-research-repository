@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import '../../assets/css/archive-view.css'
+import "../../assets/css/archive-view.css";
+import { ArchiveData } from "../../assets/js/ArchiveData";
+import { useParams } from "react-router-dom";
+import { useResearchContext } from "../../hooks/useResearchContext";
+import formatDate from "../../assets/js/formatDate";
 
 export default function ArchiveView() {
+  const archiveId = useParams().id;
+  const { researches, dispatch } = useResearchContext();
+  
+
+  useEffect(() => {
+    const fetchArchive = async () => {
+      const response = await fetch(`/api/research/archives/${archiveId}`);
+      const json = await response.json();
+
+      if (response.ok) {
+        json.year = formatDate(json.year);
+        dispatch({type: "SET_RESEARCH", payload: json})
+      }
+    };
+    fetchArchive();
+  }, []);
   return (
     <div className="archive-view-container">
       <h1>Archive</h1>
@@ -30,30 +50,12 @@ export default function ArchiveView() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="field">Research Title</td>
-              <td className="value">Research Campus Repository</td>
+            {ArchiveData.map(data => (
+            <tr key={data.key}>
+              <td className="field">{data.label}</td> 
+              <td className="value">{researches?.[data.key]}</td>
             </tr>
-            <tr>
-              <td className="field">Publication Year</td>
-              <td className="value">A.Y. 2023-2024</td>
-            </tr>
-            <tr>
-              <td className="field">Author</td>
-              <td className="value">Lomibao, Aaron Jeffrey B. et. al.</td>
-            </tr>
-            <tr>
-              <td className="field">Date Issued</td>
-              <td className="value">August 2023</td>
-            </tr>
-            <tr>
-              <td className="field">Course/Strand</td>
-              <td className="value">Web Development</td>
-            </tr>
-            <tr>
-              <td className="field">Department</td>
-              <td className="value">College of Information Technology</td>
-            </tr>
+            ))}
           </tbody>
         </table>
       </div>

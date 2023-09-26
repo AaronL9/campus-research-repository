@@ -35,6 +35,11 @@ const researchSchema = new Schema({
     type: String,
     required: true,
   },
+  archiveStatus: {
+    type: Boolean,
+    default: false,
+    required: false,
+  }
 });
 
 const ResearchModel = mongoose.model("Research", researchSchema);

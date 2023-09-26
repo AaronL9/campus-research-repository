@@ -1,13 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
-// assets
-import { TableData } from "../../assets/js/ArchiveTable";
-
-// components
+import React, { useEffect } from "react";
+import { useResearchContext } from "../../hooks/useResearchContext";
 import TableRow from "./TableRow";
 
 export default function ArchiveTable() {
+  const { researches, dispatch } = useResearchContext();
+
+  useEffect(() => {
+    const fetchArchives = async () => {
+      const response = await fetch("/api/research/archives");
+      const json = await response.json();
+
+      if (response.ok) {
+        dispatch({ type: "SET_RESEARCHES", payload: json });
+      }
+    };
+
+    fetchArchives();
+  }, []);
   return (
     <div className="archives-table" style={{ overflowX: "auto" }}>
       <table className="table-content">
@@ -20,13 +29,10 @@ export default function ArchiveTable() {
           </tr>
         </thead>
         <tbody>
-          {TableData.map((data) => (
+          {researches?.map((research) => (
             <TableRow
-              key={data.id}
-              title={data.title}
-              author={data.author}
-              course={data.course}
-              date={data.date}
+              key={research._id}
+              researchData={research}
             />
           ))}
         </tbody>

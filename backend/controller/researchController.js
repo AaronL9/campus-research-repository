@@ -19,10 +19,13 @@ const getByDepartment = async (req, res) => {
   const deptId = req.params.id;
 
   try {
-    const researches = await ResearchModel.find({ department: deptId });
+    const researches = await ResearchModel.find({
+      department: deptId,
+      archiveStatus: false,
+    });
     console.log(deptId);
     res.status(201).send(researches);
-  } catch (error) { 
+  } catch (error) {
     res.status(404).json({ error: error.message });
   }
 };
@@ -40,7 +43,26 @@ const getResearch = async (req, res) => {
     res.setHeader("Content-Type", "application/pdf");
 
     res.send(research.content);
-  } catch (error) { 
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+
+const getArchives = async (req, res) => {
+  try {
+    const arvhices = await ResearchModel.find({ archiveStatus: true });
+    res.send(arvhices);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+
+const getArchive = async (req, res) => {
+  const archiveId = req.params.id
+  try {
+    const archive = await ResearchModel.findById({ _id: archiveId });
+    res.send(archive);
+  } catch (error) {
     res.status(404).json({ error: error.message });
   }
 };
@@ -49,4 +71,6 @@ module.exports = {
   uploadResearch,
   getByDepartment,
   getResearch,
+  getArchives,
+  getArchive,
 };

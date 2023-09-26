@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default function TableRow({ title, author, course, date }) {
+import formatDate from "../../assets/js/formatDate";
+
+export default function TableRow({ researchData }) {
   const limitString = (str, maxLength) => {
     if (str.length <= maxLength || window.outerWidth <= 750) {
       return str;
@@ -21,17 +23,17 @@ export default function TableRow({ title, author, course, date }) {
   return (
     <tr>
       <td className="tooltip">
-        <p className="tooltiptext">{title}</p>
-        <Link to={"view"}>
+        <p className="tooltiptext">{researchData.title}</p>
+        <Link to={researchData._id}>
           <i className="fa-solid fa-magnifying-glass-arrow-right" />
         </Link>
-        <p className="title">{limitString(title, 25)}</p>
+        <p className="title">{limitString(researchData.title, 25)}</p>
       </td>
-      <td>{author}</td>
-      <td>{course}</td>
-      <td>{date}</td>
+      <td>{researchData.author}</td>
+      <td>{researchData.course}</td>
+      <td>{formatDate(researchData.year)}</td>
       <td className="archive-table-btn">
-        <Link to="view">Read More</Link>
+        <Link to={researchData._id}>Read More</Link>
       </td>
     </tr>
   );

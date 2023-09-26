@@ -1,17 +1,24 @@
 const express = require("express");
 const router = express.Router();
-const upload = require('../middleware/multer');
+const upload = require("../middleware/multer");
 
-
-const { uploadResearch, getByDepartment, getResearch } = require("../controller/researchController");
+const {
+  uploadResearch,
+  getByDepartment,
+  getResearch,
+  getArchives,
+  getArchive,
+} = require("../controller/researchController");
 
 // const requireAuth = require("../middleware/requireAuth");
 
 // router.use(requireAuth);
 
-router.get('/:id', getByDepartment);
-router.get('/:id/:id', getResearch);
+router.get("/archives", getArchives);
+router.get("/archives/:id", getArchive);
 router.post("/upload", upload.single("pdf"), uploadResearch);
 
-module.exports = router;
+router.get("/:id", getByDepartment);
+router.get("/:id/:id", getResearch);
 
+module.exports = router;

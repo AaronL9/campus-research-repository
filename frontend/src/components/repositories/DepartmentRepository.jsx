@@ -43,7 +43,7 @@ export default function DeptRepo() {
           <div className="research">
             {deptResearches?.map((deptResearch) => (
                 <ResearchCard
-                  key={research._id}
+                  key={deptResearch._id}
                   research={deptResearch}
                 />
               ))}

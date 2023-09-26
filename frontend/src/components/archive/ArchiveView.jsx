@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import "../../assets/css/archive-view.css";
 import { ArchiveData } from "../../assets/js/ArchiveData";
@@ -8,7 +8,7 @@ import formatDate from "../../assets/js/formatDate";
 
 export default function ArchiveView() {
   const archiveId = useParams().id;
-  const { researches, dispatch } = useResearchContext();
+  const [archive, setArchive] = useState(null);
   
 
   useEffect(() => {
@@ -18,11 +18,12 @@ export default function ArchiveView() {
 
       if (response.ok) {
         json.year = formatDate(json.year);
-        dispatch({type: "SET_RESEARCH", payload: json})
+        setArchive(json);
       }
     };
     fetchArchive();
   }, []);
+
   return (
     <div className="archive-view-container">
       <h1>Archive</h1>
@@ -53,7 +54,7 @@ export default function ArchiveView() {
             {ArchiveData.map(data => (
             <tr key={data.key}>
               <td className="field">{data.label}</td> 
-              <td className="value">{researches?.[data.key]}</td>
+              <td className="value">{archive?.[data.key]}</td>
             </tr>
             ))}
           </tbody>

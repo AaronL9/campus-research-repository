@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import { useResearchContext } from "../../hooks/useResearchContext";
+import React, { useEffect, useState } from "react";
 import TableRow from "./TableRow";
+import { useLocation } from "react-router-dom";
 
 export default function ArchiveTable() {
-  const { researches, dispatch } = useResearchContext();
+  const [archives, setArchives] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchArchives = async () => {
@@ -11,12 +12,13 @@ export default function ArchiveTable() {
       const json = await response.json();
 
       if (response.ok) {
-        dispatch({ type: "SET_RESEARCHES", payload: json });
+        setArchives(json);
       }
     };
 
     fetchArchives();
-  }, []);
+  }, [location]);
+
   return (
     <div className="archives-table" style={{ overflowX: "auto" }}>
       <table className="table-content">
@@ -29,7 +31,7 @@ export default function ArchiveTable() {
           </tr>
         </thead>
         <tbody>
-          {researches?.map((research) => (
+          {archives?.map((research) => (
             <TableRow
               key={research._id}
               researchData={research}

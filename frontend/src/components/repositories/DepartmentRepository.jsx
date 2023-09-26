@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // assets
 import "../../assets/css/repository.css";
@@ -9,19 +9,18 @@ import ResearchCard from "./ResearchCard";
 import SearchBar from "../SearchBar";
 import PreviousButton from "../PreviousButton";
 import { useParams } from "react-router-dom";
-import { useResearchContext } from "../../hooks/useResearchContext";
 
 export default function DeptRepo() {
   let deptId = useParams().id;
-  const { researches, dispatch } = useResearchContext();
+  const [deptResearches, setDeptResearches] = useState() 
 
   useEffect(() => {
     const fetchResearch = async () => {
       const response = await fetch(`/api/research/${deptId.toUpperCase()}`);
-      const data = await response.json();
+      const json = await response.json();
 
       if (response.ok) {
-        dispatch({ type: "SET_RESEARCHES", payload: data });
+        setDeptResearches(json)
       } else {
         console.log("response is not ok");
       }
@@ -42,14 +41,10 @@ export default function DeptRepo() {
           </div>
           <SearchBar placeholder={"search..."} />
           <div className="research">
-            {researches &&
-              researches.map((research) => (
+            {deptResearches?.map((deptResearch) => (
                 <ResearchCard
                   key={research._id}
-                  id={research._id}
-                  title={research.title}
-                  author={research.author}
-                  abstract={research.abstract}
+                  research={deptResearch}
                 />
               ))}
           </div>

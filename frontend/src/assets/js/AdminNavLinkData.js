@@ -14,9 +14,5 @@ export const AdminNavLinkData = [
   {
     id: 4,
     label: 'Queue'
-  }/* ,
-  {
-    id: 5,
-    label: 'FAQs'
-  }, */
+  }
 ]

@@ -1,4 +1,4 @@
-import { Outlet, useLocation, NavLink, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // assets
@@ -14,23 +14,14 @@ import Hamburger from "../components/Hamburger";
 import AdminNavButton from "../components/sidebar/AdminNavButton";
 import Footer from "../components/Footer";
 import Profile from "../components/sidebar/Profile";
-/* import { useLogout } from "../hooks/useLogout"; */
 
 const Sidebar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  /* const { logout } = useLogout();
-  const navigate = useNavigate(); */
 
   const handleToggleMenu = () => {
     setIsOpen((prevOpen) => !prevOpen);
   };
-
-  /* const handleLogout = (e) => {
-    e.preventDefault();
-    logout();
-    navigate("/");
-  }; */
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -47,10 +38,10 @@ const Sidebar = () => {
           {AdminNavLinkData.map((data) => (
             <AdminNavButton key={data.id} label={data.label} />
           ))}
-          {/* <NavLink to={'/'} onClick={handleLogout}>
+          <NavLink to={"/"} onClick={null}>
             <img src={`/svg/nav_link/logout.svg`} alt="logout" />
             <span>Logout</span>
-          </NavLink> */}
+          </NavLink>
         </div>
       </nav>
       <header>

@@ -5,10 +5,10 @@ import { Link } from "react-router-dom"
 import Pagination from "../../components/Pagination";
 
 //SVGs
-import DropdownIcon from "../../../public/svg/caret-down.svg"
+/* import DropdownIcon from "../../../public/svg/caret-down.svg"
 import ViewIcon from "../../../public/svg/archive-icon.svg"
 import RetrieveIcon from "../../../public/svg/retrieve-icon.svg"
-import DeleteIcon from "../../../public/svg/trash-icon.svg"
+import DeleteIcon from "../../../public/svg/trash-icon.svg" */
 
 import "../../assets/css/admin/archive.css"
 
@@ -35,12 +35,12 @@ export default function Archive() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={RetrieveIcon} alt="Retrieve" /> Retrieve</Link>
-                    <Link to=""><img src={DeleteIcon} alt="Delete" /> Delete</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/retrieve-icon.svg" alt="Retrieve" /> Retrieve</Link>
+                    <Link to=""><img src="/svg/trash-icon.svg" alt="Delete" /> Delete</Link>
                   </div>
                 </div>
               </td>
@@ -53,12 +53,12 @@ export default function Archive() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={RetrieveIcon} alt="Retrieve" /> Retrieve</Link>
-                    <Link to=""><img src={DeleteIcon} alt="Delete" /> Delete</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/retrieve-icon.svg" alt="Retrieve" /> Retrieve</Link>
+                    <Link to=""><img src="/svg/trash-icon.svg" alt="Delete" /> Delete</Link>
                   </div>
                 </div>
               </td>
@@ -71,12 +71,12 @@ export default function Archive() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={RetrieveIcon} alt="Retrieve" /> Retrieve</Link>
-                    <Link to=""><img src={DeleteIcon} alt="Delete" /> Delete</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/retrieve-icon.svg" alt="Retrieve" /> Retrieve</Link>
+                    <Link to=""><img src="/svg/trash-icon.svg" alt="Delete" /> Delete</Link>
                   </div>
                 </div>
               </td>
@@ -89,12 +89,12 @@ export default function Archive() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={RetrieveIcon} alt="Retrieve" /> Retrieve</Link>
-                    <Link to=""><img src={DeleteIcon} alt="Delete" /> Delete</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/retrieve-icon.svg" alt="Retrieve" /> Retrieve</Link>
+                    <Link to=""><img src="/svg/trash-icon.svg" alt="Delete" /> Delete</Link>
                   </div>
                 </div>
               </td>
@@ -107,12 +107,12 @@ export default function Archive() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={RetrieveIcon} alt="Retrieve" /> Retrieve</Link>
-                    <Link to=""><img src={DeleteIcon} alt="Delete" /> Delete</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/retrieve-icon.svg" alt="Retrieve" /> Retrieve</Link>
+                    <Link to=""><img src="/svg/trash-icon.svg" alt="Delete" /> Delete</Link>
                   </div>
                 </div>
               </td>
@@ -125,12 +125,12 @@ export default function Archive() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={RetrieveIcon} alt="Retrieve" /> Retrieve</Link>
-                    <Link to=""><img src={DeleteIcon} alt="Delete" /> Delete</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/retrieve-icon.svg" alt="Retrieve" /> Retrieve</Link>
+                    <Link to=""><img src="/svg/trash-icon.svg" alt="Delete" /> Delete</Link>
                   </div>
                 </div>
               </td>
@@ -143,12 +143,12 @@ export default function Archive() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={RetrieveIcon} alt="Retrieve" /> Retrieve</Link>
-                    <Link to=""><img src={DeleteIcon} alt="Delete" /> Delete</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/retrieve-icon.svg" alt="Retrieve" /> Retrieve</Link>
+                    <Link to=""><img src="/svg/trash-icon.svg" alt="Delete" /> Delete</Link>
                   </div>
                 </div>
               </td>
@@ -161,12 +161,12 @@ export default function Archive() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={RetrieveIcon} alt="Retrieve" /> Retrieve</Link>
-                    <Link to=""><img src={DeleteIcon} alt="Delete" /> Delete</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/retrieve-icon.svg" alt="Retrieve" /> Retrieve</Link>
+                    <Link to=""><img src="/svg/trash-icon.svg" alt="Delete" /> Delete</Link>
                   </div>
                 </div>
               </td>

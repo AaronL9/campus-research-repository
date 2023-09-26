@@ -5,10 +5,10 @@ import { Link } from "react-router-dom"
 import Pagination from "../../components/Pagination";
 
 //SVGs
-import DropdownIcon from "../../../public/svg/caret-down.svg"
+/* import DropdownIcon from "../../../public/svg/caret-down.svg"
 import ViewFileIcon from "../../../public/svg/view-file-icon.svg"
 import UpdateFileIcon from "../../../public/svg/update-file-icon.svg"
-import ArchiveIcon from "../../../public/svg/archive-icon.svg"
+import ArchiveIcon from "../../../public/svg/archive-icon.svg" */
 
 import "../../assets/css/admin/records.css"
 
@@ -35,12 +35,12 @@ export default function Records() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewFileIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={UpdateFileIcon} alt="Update" /> Update</Link>
-                    <Link to=""><img src={ArchiveIcon} alt="Archive" /> Archive</Link>
+                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
                   </div>
                 </div>
               </td>
@@ -53,12 +53,12 @@ export default function Records() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewFileIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={UpdateFileIcon} alt="Update" /> Update</Link>
-                    <Link to=""><img src={ArchiveIcon} alt="Archive" /> Archive</Link>
+                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
                   </div>
                 </div>
               </td>
@@ -71,12 +71,12 @@ export default function Records() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewFileIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={UpdateFileIcon} alt="Update" /> Update</Link>
-                    <Link to=""><img src={ArchiveIcon} alt="Archive" /> Archive</Link>
+                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
                   </div>
                 </div>
               </td>
@@ -89,12 +89,12 @@ export default function Records() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewFileIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={UpdateFileIcon} alt="Update" /> Update</Link>
-                    <Link to=""><img src={ArchiveIcon} alt="Archive" /> Archive</Link>
+                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
                   </div>
                 </div>
               </td>
@@ -107,12 +107,12 @@ export default function Records() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewFileIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={UpdateFileIcon} alt="Update" /> Update</Link>
-                    <Link to=""><img src={ArchiveIcon} alt="Archive" /> Archive</Link>
+                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
                   </div>
                 </div>
               </td>
@@ -125,12 +125,12 @@ export default function Records() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewFileIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={UpdateFileIcon} alt="Update" /> Update</Link>
-                    <Link to=""><img src={ArchiveIcon} alt="Archive" /> Archive</Link>
+                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
                   </div>
                 </div>
               </td>
@@ -143,12 +143,12 @@ export default function Records() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewFileIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={UpdateFileIcon} alt="Update" /> Update</Link>
-                    <Link to=""><img src={ArchiveIcon} alt="Archive" /> Archive</Link>
+                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
                   </div>
                 </div>
               </td>
@@ -161,12 +161,12 @@ export default function Records() {
               <td>
                 <div className="button__action">
                   <button className="dropdown">
-                    <img src={DropdownIcon} alt="Dropdown" />
+                    <img src="/svg/caret-down.svg" alt="Dropdown" />
                   </button>
                   <div className="dropdown__content">
-                    <Link to=""><img src={ViewFileIcon} alt="View" /> View</Link>
-                    <Link to=""><img src={UpdateFileIcon} alt="Update" /> Update</Link>
-                    <Link to=""><img src={ArchiveIcon} alt="Archive" /> Archive</Link>
+                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
+                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
+                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
                   </div>
                 </div>
               </td>

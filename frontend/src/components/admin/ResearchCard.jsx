@@ -1,28 +1,28 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 
-import ResearchImage from "../../../public/images/admin/research-sample-image.png"
+/* import ResearchImage from "../../../public/images/admin/research-sample-image.png"
 import MenuIcon from "../../../public/images/admin/menu-dots.png"
 import ViewIcon from "../../../public/svg/view-icon.svg"
-import QueueIcon from "../../../public/svg/queue-icon.svg"
+import QueueIcon from "../../../public/svg/queue-icon.svg" */
 
-export default function NewResearch() {
+export default function ResearchCard() {
   return (
     <div className="new-research">
       <picture>
-        <img src={ResearchImage} alt="research" />
+        <img src="/images/admin/research-sample-image.png" alt="research" />
       </picture>
       <div className="new-research__content">
         <div className="button__menu">
           <button className="dropdown">
-            <img src={MenuIcon} alt="Menu" />
+            <img src="/images/admin/menu-dots.png" alt="Menu" />
           </button>
           <div className="dropdown__content">
             <Link to="">
-              <img src={ViewIcon} alt="View" /> View
+              <img src="/svg/view-icon.svg" alt="View" /> View
             </Link>
             <Link to="">
-              <img src={QueueIcon} alt="Queue" />
+              <img src="/svg/queue-icon.svg" alt="Queue" />
               Queue
             </Link>
           </div>

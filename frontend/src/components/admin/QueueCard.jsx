@@ -1,19 +1,19 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 
-import ResearchImage from "../../../public/images/admin/research-sample-image.png"
-import ViewIcon from "../../../public/images/admin/box-arrow.png"
+/* import ResearchImage from "../../../public/images/admin/research-sample-image.png"
+import ViewIcon from "../../../public/images/admin/box-arrow.png" */
 
-export default function Queue() {
+export default function QueueCard() {
   return (
     <div className="queue">
       <picture>
-        <img src={ResearchImage} alt="Research" />
+        <img src="/images/admin/research-sample-image.png" alt="Research" />
       </picture>
       <div className="queue__content">
         <div className="view-button">
           <Link to="">
-            <img src={ViewIcon} alt="View" />
+            <img src="/images/admin/box-arrow.png" alt="View" />
           </Link>
         </div>
         <h3>Title: "Research Campus Repository"</h3>

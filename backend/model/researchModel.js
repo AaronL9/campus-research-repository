@@ -1,16 +1,19 @@
+// content: {
+//   type: Buffer, // Use the Buffer type to store binary data
+//   default: null,
+//   required: false,
+// },
+// contentType: {
+//   type: String, // Store the content type (e.g., 'application/pdf')
+//   default: null,
+//   required: false,
+// },
+
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
 const researchSchema = new Schema({
-  content: {
-    type: Buffer, // Use the Buffer type to store binary data
-    required: true,
-  },
-  contentType: {
-    type: String, // Store the content type (e.g., 'application/pdf')
-    required: true,
-  },
   title: {
     type: String,
     required: true,
@@ -39,7 +42,7 @@ const researchSchema = new Schema({
     type: Boolean,
     default: false,
     required: false,
-  }
+  },
 });
 
 const ResearchModel = mongoose.model("Research", researchSchema);

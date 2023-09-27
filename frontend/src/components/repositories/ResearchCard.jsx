@@ -14,7 +14,7 @@ export default function ResearchCard({ research }) {
         <h3>Title: "{research.title}"</h3>
         <p>By: {research.author}</p>
         <p>
-          <span>Abstract:</span>
+          <span>Abstract: </span>
           {research.abstract}
         </p>
         <Link to={research._id}>VIEW</Link>

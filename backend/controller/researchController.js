@@ -3,13 +3,12 @@ const { ResearchModel } = require("../model/researchModel");
 const uploadResearch = async (req, res) => {
   try {
     const research = await ResearchModel.create({
-      content: req.file.buffer, // Store the binary data of the file
-      contentType: req.file.mimetype, // Store the content type (e.g., 'application/pdf')
+      //content: req.file.buffer, // Store the binary data of the file
+      // contentType: //req.file.mimetype, // Store the content type (e.g., 'application/pdf')
       ...req.body,
     });
 
-    console.log(req.body);
-    res.status(201).send();
+    res.status(201).json(research);
   } catch (err) {
     res.status(500).send(err.message);
   }
@@ -44,7 +43,7 @@ const getResearch = async (req, res) => {
       author: research.author,
       year: research.year,
       abstract: research.abstract,
-      content: research.content.toString("base64"),
+      // content: research.content.toString("base64"),
     });
   } catch (error) {
     res.status(404).json({ error: error.message });

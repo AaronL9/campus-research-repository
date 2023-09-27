@@ -4,12 +4,6 @@ import { Link } from "react-router-dom"
 //components
 import Pagination from "../../components/Pagination";
 
-//SVGs
-/* import DropdownIcon from "../../../public/svg/caret-down.svg"
-import ViewIcon from "../../../public/svg/archive-icon.svg"
-import RetrieveIcon from "../../../public/svg/retrieve-icon.svg"
-import DeleteIcon from "../../../public/svg/trash-icon.svg" */
-
 import "../../assets/css/admin/archive.css"
 
 export default function Archive() {

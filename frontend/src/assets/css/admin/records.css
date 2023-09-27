@@ -149,6 +149,9 @@
 .private-records .pagination {
   text-align: center;
   margin: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .private-records .pagination button {

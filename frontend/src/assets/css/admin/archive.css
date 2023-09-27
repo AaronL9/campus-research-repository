@@ -150,6 +150,9 @@
 .admin-archive .pagination {
   text-align: center;
   margin: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .admin-archive .pagination button {

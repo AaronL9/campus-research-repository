@@ -1,11 +1,18 @@
 import React, { useState } from "react";
+import { useAuthContext } from "../../hooks/useAuthContext";
+
+// assets
 import "../../assets/css/create.css";
 import { submitFormData } from "../../assets/js/SubmitFormData";
+
+// components
 import InputField from "../../components/submit_research/InputField";
 import Upload from "../../components/submit_research/Upload";
 import DropDown from "../../components/submit_research/DropDown";
 
 export default function Create() {
+  const { user } = useAuthContext();
+
   const [formData, setFormData] = useState({
     pdf: null,
     title: "",
@@ -18,6 +25,11 @@ export default function Create() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!user) {
+      setError("You must be logged in");
+      return;
+    }
 
     try {
       const data = new FormData();
@@ -33,6 +45,9 @@ export default function Create() {
       const response = await fetch("/api/research/upload", {
         method: "POST",
         body: data,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
       });
 
       if (response.ok) {

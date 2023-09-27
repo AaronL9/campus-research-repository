@@ -9,25 +9,31 @@ import ResearchCard from "./ResearchCard";
 import SearchBar from "../SearchBar";
 import PreviousButton from "../PreviousButton";
 import { useParams } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 export default function DeptRepo() {
   let deptId = useParams().id;
-  const [deptResearches, setDeptResearches] = useState() 
+  const [deptResearches, setDeptResearches] = useState();
+  const { user } = useAuthContext();
 
   useEffect(() => {
     const fetchResearch = async () => {
-      const response = await fetch(`/api/research/${deptId.toUpperCase()}`);
+      const response = await fetch(`/api/research/${deptId.toUpperCase()}`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
       const json = await response.json();
 
       if (response.ok) {
-        setDeptResearches(json)
+        setDeptResearches(json);
       } else {
         console.log("response is not ok");
       }
     };
 
     fetchResearch();
-  }, []);
+  }, [user]);
   return (
     <>
       {RepoInfo[deptId] && (
@@ -42,11 +48,8 @@ export default function DeptRepo() {
           <SearchBar placeholder={"search..."} />
           <div className="research">
             {deptResearches?.map((deptResearch) => (
-                <ResearchCard
-                  key={deptResearch._id}
-                  research={deptResearch}
-                />
-              ))}
+              <ResearchCard key={deptResearch._id} research={deptResearch} />
+            ))}
           </div>
         </div>
       )}

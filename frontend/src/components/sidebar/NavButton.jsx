@@ -1,12 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 
 const NavButton = ({ label }) => {
-  const path =
-    label === "Logout"
-      ? "/"
-      : label === "FAQs"
-      ? "faqs/basics"
-      : label.toLowerCase();
+  const path = label === "FAQs" ? "faqs/basics" : label.toLowerCase();
   const variant = label.toLowerCase();
 
   return (

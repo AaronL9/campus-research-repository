@@ -4,10 +4,12 @@ import PreviousButton from "../../components/PreviousButton";
 import { useLocation } from "react-router-dom";
 import { useResearchContext } from "../../hooks/useResearchContext";
 import formatDate from "../../assets/js/formatDate";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 export default function Research() {
   const url = useLocation().pathname.split("/");
   const researchId = url[url.length - 1];
+  const { user } = useAuthContext();
   const deptId = url[url.length - 2];
 
   const { researches, dispatch } = useResearchContext();
@@ -18,7 +20,12 @@ export default function Research() {
 
   useEffect(() => {
     const fetchResearch = async () => {
-      const response = await fetch(`/api/research/${deptId.toUpperCase()}`);
+      const response = await fetch(`/api/research/${deptId.toUpperCase()}`, {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      });
+
       const data = await response.json();
 
       if (response.ok) {
@@ -30,7 +37,7 @@ export default function Research() {
     };
 
     fetchResearch();
-  }, []);
+  }, [user, dispatch]);
   return (
     <>
       <div className="research-document">

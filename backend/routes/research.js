@@ -10,9 +10,8 @@ const {
   getArchive,
 } = require("../controller/researchController");
 
-// const requireAuth = require("../middleware/requireAuth");
-
-// router.use(requireAuth);
+const requireAuth = require("../middleware/requireAuth");
+router.use(requireAuth);
 
 router.get("/archives", getArchives);
 router.get("/archives/:id", getArchive);

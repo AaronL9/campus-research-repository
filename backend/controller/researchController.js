@@ -39,10 +39,13 @@ const getResearch = async (req, res) => {
       return res.status(404).send("Research not found");
     }
 
-    // Set the appropriate content type for PDF
-    res.setHeader("Content-Type", "application/pdf");
-
-    res.send(research.content);
+    res.json({
+      title: research.title,
+      author: research.author,
+      year: research.year,
+      abstract: research.abstract,
+      content: research.content.toString("base64"),
+    });
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
@@ -58,7 +61,7 @@ const getArchives = async (req, res) => {
 };
 
 const getArchive = async (req, res) => {
-  const archiveId = req.params.id
+  const archiveId = req.params.id;
   try {
     const archive = await ResearchModel.findById({ _id: archiveId });
     res.send(archive);

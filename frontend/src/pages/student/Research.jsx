@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../../assets/css/research_view.css";
 import PreviousButton from "../../components/PreviousButton";
 import { useLocation } from "react-router-dom";
-import { useResearchContext } from "../../hooks/useResearchContext";
 import formatDate from "../../assets/js/formatDate";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
@@ -11,16 +10,15 @@ export default function Research() {
   const researchId = url[url.length - 1];
   const { user } = useAuthContext();
   const deptId = url[url.length - 2];
-
-  const { researches, dispatch } = useResearchContext();
-  const pdfUrl = `/api/research/${deptId}/${researchId}`;
-  const research = researches?.filter((research) =>
-    research._id === researchId ? true : false
-  )[0];
+  const [research, setResearch] = useState(null);
 
   useEffect(() => {
+    if (!user) {
+      return;
+    }
+
     const fetchResearch = async () => {
-      const response = await fetch(`/api/research/${deptId.toUpperCase()}`, {
+      const response = await fetch(`/api/research/${deptId}/${researchId}`, {
         headers: {
           Authorization: `Bearer ${user?.token}`,
         },
@@ -29,7 +27,7 @@ export default function Research() {
       const data = await response.json();
 
       if (response.ok) {
-        dispatch({ type: "SET_RESEARCHES", payload: data });
+        setResearch(data);
       } else {
         console.log("response is not ok");
       }
@@ -37,7 +35,8 @@ export default function Research() {
     };
 
     fetchResearch();
-  }, [user, dispatch]);
+  }, [user]);
+  
   return (
     <>
       <div className="research-document">
@@ -73,7 +72,11 @@ export default function Research() {
           </div>
           <h1 className="text-center">Research Review</h1>
           <div className="research-review">
-            <iframe src={pdfUrl} width="100% " height="678">
+            <iframe
+              src={`data:application/pdf;base64,${research?.content}`}
+              width="100% "
+              height="678"
+            >
               <p>This browser does not support PDF!</p>
             </iframe>
           </div>

@@ -24,10 +24,14 @@
   background: #d9d9d9;
   border-radius: 20px;
   padding: 10px 20px;
+  align-items: center;
   justify-content: space-between;
 }
 .archives .archive-features .archive-dropdown .filter {
+  display: flex;
+  align-items: center;
   margin-right: 5rem;
+  gap: 1rem;
 }
 
 .archive-dropdown span {
@@ -125,6 +129,12 @@
 
 .dropdown-course:hover .dropdown-content-course {
   display: block;
+}
+
+.select-custom {
+  background: none;
+  border: none;
+  outline: none;
 }
 
 /*========================================== Sort Dropdown ==========================================*/

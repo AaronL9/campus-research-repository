@@ -1,4 +1,4 @@
-const program = {
+export const program = {
   CITE: ["BSIT"],
   CEA: ["BSCE", "BSEE", "BSECE", "BSCPE", "BSARCH", "BSME"],
   CMA: ["BSA", "BSAIS", "BSMA", "BSBA-MM", "BSBA-FM", "BSHM", "BSTM"],

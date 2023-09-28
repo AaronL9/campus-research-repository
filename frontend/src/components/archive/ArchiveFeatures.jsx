@@ -1,7 +1,19 @@
 import SearchBar from "../SearchBar";
 import Dropdown from "./Dropdown";
+import { program } from "../../assets/js/SubmitFormData";
+import { useEffect, useState } from "react";
+
 
 export default function ArchiveFeatures() {
+  const [selectedCourse, setSelectedCourse] = useState("COURSES");
+  const [selectedDepartment, setSelectedDepartment] = useState("DEPARTMENT");
+
+  let courses = program[selectedDepartment] ? program[selectedDepartment] : [];
+
+  useEffect(() => {
+    setSelectedCourse((prev) => (courses.length ? (prev = courses[0]) : prev));
+  }, [selectedDepartment]);
+
   return (
     <div className="archive-features">
       <div className="search">
@@ -11,26 +23,17 @@ export default function ArchiveFeatures() {
         <div className="filter">
           <span>Filters: </span>
           <Dropdown
-            parentName={"dropdown-dept"}
-            btnName={"dropbtn-dept"}
-            content={"dropdown-content-dept"}
-            options={[
-              "CITE",
-              "CMA",
-              "CEA",
-              "CELA",
-              "CAHS",
-              "CCJE",
-              "SHS",
-              "COLLEGE OF LAW",
-            ]}
+            options={Object.keys(program)}
+            selectedValue={selectedDepartment}
+            setSelectedValue={setSelectedDepartment}
           />
-          <Dropdown
-            parentName={"dropdown-course"}
-            btnName={"dropbtn-course"}
-            content={"dropdown-content-course"}
-            options={['BSIT', 'BSN', 'BSA', 'BSCE', 'BSEE']}
-          />
+          {courses.length ? (
+            <Dropdown
+              options={courses}
+              selectedValue={selectedCourse}
+              setSelectedValue={setSelectedCourse}
+            />
+          ) : null}
         </div>
         <div className="sort">
           <span>Sort by: </span>

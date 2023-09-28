@@ -3,13 +3,14 @@ import TableRow from "./TableRow";
 import { useLocation } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
-export default function ArchiveTable() {
+export default function ArchiveTable({ pageNum, setLimit }) {
   const [archives, setArchives] = useState(null);
+
   const { user } = useAuthContext();
 
   useEffect(() => {
     const fetchArchives = async () => {
-      const response = await fetch("/api/research/archives", {
+      const response = await fetch(`/api/research/archives?page=${pageNum}`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -17,14 +18,15 @@ export default function ArchiveTable() {
       const json = await response.json();
 
       if (response.ok) {
+        setLimit(json.length);
         setArchives(json);
-      }
+      } else setLimit(true);
     };
 
     if (user) {
       fetchArchives();
     }
-  }, [user]);
+  }, [user, pageNum]);
 
   return (
     <div className="archives-table" style={{ overflowX: "auto" }}>

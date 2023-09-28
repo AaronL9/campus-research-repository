@@ -4,6 +4,7 @@
   --font-main: "Cabin", sans-serif;
   --font-title: "Poppins", sans-serif;
   font-family: var(--font-title);
+  scroll-behavior: smooth;
 }
 
 *,

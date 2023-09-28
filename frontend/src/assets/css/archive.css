@@ -254,7 +254,7 @@
   padding: 10px;
   position: absolute;
   z-index: 1;
-  top: -0.5vw;
+  top: 0.8vw;
   left: 100%;
   margin-left: -60px;
 }
@@ -262,12 +262,12 @@
 .tooltip .tooltiptext::after {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: -5px;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color:  transparent #1b5858 transparent transparent;
+  border-color: transparent #1b5858 transparent transparent;
 }
 
 @media (min-width: 750px) {
@@ -300,12 +300,16 @@
   color: #ffffff;
   font-size: 0.8em;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .archives .pagination button:hover {
+  background: #213970;
+}
+
+.archives .pagination button:disabled {
   background-color: #d9d9d9;
   color: #000;
-  cursor: pointer;
 }
 
 .archives .page-num {

@@ -11,34 +11,39 @@ import ResearchCard from "./ResearchCard";
 import SearchBar from "../SearchBar";
 import PreviousButton from "../PreviousButton";
 import Loader from "../../components/Loader";
+import PaginationBtn from "./PaginationBtn";
+import ScrollToTopBtn from "../ScrollToTopBtn";
 
 export default function DeptRepo() {
   let deptId = useParams().id;
-  const [deptResearches, setDeptResearches] = useState();
-  const [isLoading, setIsLoading] = useState(null);
+  const [deptResearches, setDeptResearches] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuthContext();
-
+  const [pageNum, setPageNum] = useState(1);
+  const [limit, setLimit] = useState(false);
+  const hide = !isLoading && !limit
+  console.log(hide)
   useEffect(() => {
     if (!user) return;
     const fetchResearch = async () => {
       setIsLoading(true);
-      const response = await fetch(`/api/research/${deptId.toUpperCase()}`, {
+      const response = await fetch(`/api/research/${deptId.toUpperCase()}/?page=${pageNum}&pageSize=5`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       });
       const json = await response.json();
-
       if (response.ok) {
-        setDeptResearches(json);
-        setIsLoading(null);
+        setDeptResearches([...deptResearches, ...json]);
+        if (json.length < 5) setLimit(true);
+        setIsLoading(false);
       } else {
         console.log("response is not ok");
       }
     };
 
     fetchResearch();
-  }, [user]);
+  }, [user, pageNum]);
   return (
     <>
       {RepoInfo[deptId] && (
@@ -56,9 +61,13 @@ export default function DeptRepo() {
               <ResearchCard key={deptResearch._id} research={deptResearch} />
             ))}
           </div>
+          <div className="repository__pagination">
+            {hide && (<PaginationBtn setPage={setPageNum} onLimit={limit} />)}
+          </div>
           {isLoading && <Loader />}
         </div>
       )}
+      <ScrollToTopBtn />
     </>
   );
 }

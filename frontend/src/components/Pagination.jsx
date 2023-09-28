@@ -1,13 +1,29 @@
-import React from 'react'
+import React from "react";
 
-export default function Pagination() {
+export default function Pagination({ pagination }) {
+  const prevLimit = pagination.pageNum === 1;
+
+  const handleClick = (e) => {
+    const btnId = e.target.id;
+    pagination.setPageNum((prevData) => {
+      return btnId === "nextBtn" ? prevData + 1 : prevData - 1;
+    });
+  };
   return (
     <div className="pagination">
-      <button id="prevBtn">prev</button>
+      <button
+        id="prevBtn"
+        disabled={prevLimit}
+        onClick={handleClick}
+      >
+        prev
+      </button>
       <span className="page-num" id="pageNumber">
-        1
+        {pagination.pageNum}
       </span>
-      <button id="nextBtn">next</button>
+      <button disabled={pagination.limit < 10} id="nextBtn" onClick={handleClick}>
+        next
+      </button>
     </div>
   );
 }

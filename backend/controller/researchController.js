@@ -3,7 +3,7 @@ const { ResearchModel } = require("../model/researchModel");
 const uploadResearch = async (req, res) => {
   try {
     const research = await ResearchModel.create({
-      //content: req.file.buffer, // Store the binary data of the file
+      // content: req.file.buffer, // Store the binary data of the file
       // contentType: //req.file.mimetype, // Store the content type (e.g., 'application/pdf')
       ...req.body,
     });
@@ -16,14 +16,20 @@ const uploadResearch = async (req, res) => {
 
 const getByDepartment = async (req, res) => {
   const deptId = req.params.id;
-
+  const pageNumber = parseInt(req.query.page) || 1;
+  const pageSize = parseInt(req.query.pageSize) || 5;
+  console.log(pageNumber, pageSize);
   try {
+    const skipCount = (pageNumber - 1) * pageSize;
+    console.log(skipCount);
     const researches = await ResearchModel.find({
       department: deptId,
       archiveStatus: false,
-    });
-    console.log(deptId);
-    res.status(201).send(researches);
+    })
+      .skip(skipCount)
+      .limit(pageSize);
+
+    res.send(researches);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
@@ -51,8 +57,14 @@ const getResearch = async (req, res) => {
 };
 
 const getArchives = async (req, res) => {
+  const pageNumber = parseInt(req.query.page) || 1;
+  const pageSize = 10;
+
   try {
-    const arvhices = await ResearchModel.find({ archiveStatus: true });
+    const skipCount = (pageNumber - 1) * pageSize;
+    const arvhices = await ResearchModel.find({ archiveStatus: true })
+      .skip(skipCount)
+      .limit(pageSize);
     res.send(arvhices);
   } catch (error) {
     res.status(404).json({ error: error.message });

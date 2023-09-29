@@ -8,10 +8,12 @@ import { options } from "../../assets/js/ArchiveData";
 export default function ArchiveFeatures() {
   const [selectedCourse, setSelectedCourse] = useState("COURSES");
   const [selectedDepartment, setSelectedDepartment] = useState("DEPARTMENTS");
-  const { setFilterValue, setPageNum } = useContext(ArchiveContext);
+  const [sortBy, setSortBy] = useState("Newest to Oldest");
+  const { setFilterValue, setPageNum, setSortingValue} = useContext(ArchiveContext);
 
   useEffect(() => {
     setPageNum(1);
+    setSortingValue(sortBy);
     if (selectedCourse !== "COURSES") {
       setSelectedDepartment("DEPARTMENTS");
       setFilterValue(selectedCourse);
@@ -24,8 +26,8 @@ export default function ArchiveFeatures() {
     if (selectedCourse === "COURSES" && selectedDepartment === "DEPARTMENTS") {
       setFilterValue(undefined);
     }
-  }, [selectedCourse, selectedDepartment]);
-  return (    
+  }, [selectedCourse, selectedDepartment, sortBy]);
+  return (
     <div className="archive-features">
       <div className="search">
         <SearchBar placeholder={"search archive list"} />
@@ -48,12 +50,11 @@ export default function ArchiveFeatures() {
           <span className="sort__text">Sort by: </span>
           <div className="dropdown-sort">
             <div>
-              <button className="dropbtn-sort">
-                A-Z <i className="fa-solid fa-caret-down" />
-              </button>
-              <div className="dropdown-content-sort">
-                <a href="#">Z-A</a>
-              </div>
+              <Dropdown
+                options={options.sort}
+                selectedValue={sortBy}
+                setSelectedValue={setSortBy}
+              />
             </div>
           </div>
         </div>

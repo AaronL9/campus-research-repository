@@ -5,15 +5,14 @@ import { ArchiveContext } from "../../pages/student/Archive";
 
 export default function ArchiveTable({ pageNum, setLimit }) {
   const [archives, setArchives] = useState(null);
-  const { filterValue } = useContext(ArchiveContext);
+  const { filterValue, sortingValue } = useContext(ArchiveContext);
 
   const { user } = useAuthContext();
-  console.log(filterValue)
 
   useEffect(() => {
     const fetchArchives = async () => {
       const response = await fetch(
-        `/api/research/archives?page=${pageNum}&filter=${filterValue}`,
+        `/api/research/archives?page=${pageNum}&filter=${filterValue}&sort=${sortingValue}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -31,7 +30,7 @@ export default function ArchiveTable({ pageNum, setLimit }) {
     if (user) {
       fetchArchives();
     }
-  }, [user, pageNum, filterValue]);
+  }, [user, pageNum, filterValue, sortingValue]);
 
   return (
     <div className="archives-table" style={{ overflowX: "auto" }}>

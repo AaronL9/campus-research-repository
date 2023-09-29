@@ -13,10 +13,20 @@ export default function Archive() {
   const [pageNum, setPageNum] = useState(1);
   const [limit, setLimit] = useState(10);
   const [filterValue, setFilterValue] = useState();
+  const [sortingValue, setSortingValue] = useState();
+  console.log(sortingValue)
   return (
     <div className="archives">
       <h1>Archive</h1>
-      <ArchiveContext.Provider value={{filterValue, setFilterValue, setPageNum}}>
+      <ArchiveContext.Provider
+        value={{
+          filterValue,
+          setFilterValue,
+          setPageNum,
+          sortingValue,
+          setSortingValue,
+        }}
+      >
         <ArchiveFeatures />
         <ArchiveTable pageNum={pageNum} setLimit={setLimit} />
         <Pagination pagination={{ pageNum, setPageNum, limit }} />

@@ -2,13 +2,13 @@
   position: relative;
   width: 160px;
   max-width: 100%;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: #000;
 }
 
 .select-button {
   width: 100%;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   background-color: none;
   padding: 0.675em 1em;
   border: none;
@@ -23,7 +23,7 @@
 .selected-value {
   font-weight: 500;
   text-align: left;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
 }
 
 .arrow {

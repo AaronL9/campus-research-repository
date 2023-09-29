@@ -1,4 +1,5 @@
 const { ResearchModel } = require("../model/researchModel");
+const { sort } = require("../utils/sorting");
 
 const uploadResearch = async (req, res) => {
   try {
@@ -61,23 +62,20 @@ const getArchives = async (req, res) => {
   const filterValue = req.query.filter;
   const pageSize = 10;
 
-  const filter = filterValue == "undefined"
-    ? { archiveStatus: true }
-    : {
-        archiveStatus: true,
-        $or: [
-          { department: { $regex: new RegExp(filterValue, "i") } },
-          { course: { $regex: new RegExp(filterValue, "i") } },
-        ],
-      };
+  const filter =
+    filterValue == "undefined"
+      ? { archiveStatus: true }
+      : {
+          archiveStatus: true,
+          $or: [{ department: filterValue }, { course: filterValue }],
+        };
 
-  console.log(Boolean(filterValue));
-  console.log(filterValue);
   try {
     const skipCount = (pageNumber - 1) * pageSize;
     const arvhices = await ResearchModel.find(filter)
       .skip(skipCount)
-      .limit(pageSize);
+      .limit(pageSize)
+      .sort(sort(req.query.sort));
     res.send(arvhices);
   } catch (error) {
     res.status(404).json({ error: error.message });

@@ -41,5 +41,16 @@ export const options = {
     "GAS",
     "BSL",
   ],
-  departments: ["DEPARTMENTS","CITE", "CEA", "CMA", "CELA", "CAHS", "CCJE", "SHS", "LAW"]
+  departments: [
+    "DEPARTMENTS",
+    "CITE",
+    "CEA",
+    "CMA",
+    "CELA",
+    "CAHS",
+    "CCJE",
+    "SHS",
+    "LAW",
+  ],
+  sort: ["Newest to Oldest", "Oldest to Newest", "Title: A-Z", "Title: Z-A"],
 };

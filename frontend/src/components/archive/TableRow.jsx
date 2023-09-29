@@ -31,6 +31,7 @@ export default function TableRow({ researchData }) {
       </td>
       <td>{researchData.author}</td>
       <td>{researchData.course}</td>
+      <td>{researchData.department}</td>
       <td>{formatDateToDDMMYYYY(researchData.year)}</td>
       <td className="archive-table-btn">
         <Link to={researchData._id}>Read More</Link>

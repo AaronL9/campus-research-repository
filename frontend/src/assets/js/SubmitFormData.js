@@ -12,7 +12,7 @@ export const program = {
     "AB Comm",
     "AB PolSci",
   ],
-  CCJE: ["BSC"],
+  CCJE: ["BSCRIM"],
   SHS: ["STEM", "ABM", "TVL", "GAS"],
   LAW: ["BSL"],
 };

@@ -40,6 +40,7 @@ export default function ArchiveTable({ pageNum, setLimit }) {
             <th>Title</th>
             <th>Author</th>
             <th>Course/Strand</th>
+            <th>Department</th>
             <th>Date Created</th>
           </tr>
         </thead>

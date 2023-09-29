@@ -11,6 +11,16 @@ export default function Research() {
   const { user } = useAuthContext();
   const deptId = url[url.length - 2];
   const [research, setResearch] = useState(null);
+  const pdfUrl = `/api/research/pdf/${researchId}`;
+
+  const handleDownloadClick = () => {
+
+    const anchor = document.createElement("a");
+    anchor.href = pdfUrl;
+    anchor.download = "Upang_Research.pdf"; 
+
+    anchor.click();
+  };
 
   useEffect(() => {
     if (!user) {
@@ -36,7 +46,7 @@ export default function Research() {
 
     fetchResearch();
   }, [user]);
-  
+
   return (
     <>
       <div className="research-document">
@@ -60,7 +70,7 @@ export default function Research() {
               </div>
             </div>
             <div className="content-right">
-              <button className="download-btn">
+              <button onClick={handleDownloadClick} className="download-btn">
                 <img src="/images/pdf-icon.png" alt="pdf_icon" />
                 PDF Download
               </button>
@@ -72,11 +82,7 @@ export default function Research() {
           </div>
           <h1 className="text-center">Research Review</h1>
           <div className="research-review">
-            <iframe
-              src={`data:application/pdf;base64,${research?.content}`}
-              width="100% "
-              height="678"
-            >
+            <iframe src={pdfUrl} width="100% " height="678">
               <p>This browser does not support PDF!</p>
             </iframe>
           </div>

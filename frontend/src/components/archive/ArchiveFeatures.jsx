@@ -35,16 +35,18 @@ export default function ArchiveFeatures() {
       <div className="archive-dropdown">
         <div className="filter">
           <span className="filter__text">Filters: </span>
-          <Dropdown
-            options={options.departments}
-            selectedValue={selectedDepartment}
-            setSelectedValue={setSelectedDepartment}
-          />
-          <Dropdown
-            options={options.courses}
-            selectedValue={selectedCourse}
-            setSelectedValue={setSelectedCourse}
-          />
+          <div className="filter__dropdown">
+            <Dropdown
+              options={options.departments}
+              selectedValue={selectedDepartment}
+              setSelectedValue={setSelectedDepartment}
+            />
+            <Dropdown
+              options={options.courses}
+              selectedValue={selectedCourse}
+              setSelectedValue={setSelectedCourse}
+            />
+          </div>
         </div>
         <div className="sort">
           <span className="sort__text">Sort by: </span>

@@ -30,21 +30,20 @@ export default function Create() {
     }
 
     try {
-      // const data = new FormData();
+      const data = new FormData();
 
-      // data.append("pdf", formData.pdf);
-      // data.append("title", formData.title);
-      // data.append("author", formData.author);
-      // data.append("year", formData.year);
-      // data.append("department", formData.department);
-      // data.append("course", formData.course);
-      // data.append("abstract", formData.abstract);
+      data.append("pdf", formData.pdf);
+      data.append("title", formData.title);
+      data.append("author", formData.author);
+      data.append("year", formData.year);
+      data.append("department", formData.department);
+      data.append("course", formData.course);
+      data.append("abstract", formData.abstract);
 
       const response = await fetch("/api/research/upload", {
         method: "POST",
-        body: JSON.stringify(formData),
+        body: data,
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${user.token}`,
         },
       });
@@ -80,7 +79,7 @@ export default function Create() {
       >
         <fieldset className="submit-research__fieldset">
           <div className="submit-research__upload">
-            {/* <Upload setFormData={setFormData} formData={formData} /> */}
+            <Upload setFormData={setFormData} formData={formData} />
           </div>
           <div className="submit-research__details">
             <InputField

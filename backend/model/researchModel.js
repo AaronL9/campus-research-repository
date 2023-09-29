@@ -1,14 +1,3 @@
-// content: {
-//   type: Buffer, // Use the Buffer type to store binary data
-//   default: null,
-//   required: false,
-// },
-// contentType: {
-//   type: String, // Store the content type (e.g., 'application/pdf')
-//   default: null,
-//   required: false,
-// },
-
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;

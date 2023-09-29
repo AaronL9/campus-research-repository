@@ -26,12 +26,15 @@
   padding: 10px 20px;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 .archives .archive-features .archive-dropdown .filter {
   display: flex;
   align-items: center;
-  margin-right: 5rem;
+  margin-right: 1rem;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .filter__text,
@@ -52,6 +55,12 @@
 
 .archive-dropdown .dropbtn-sort {
   margin-left: 10px;
+}
+
+.filter__dropdown {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /*========================================== Department Dropdown ==========================================*/
@@ -202,7 +211,7 @@
   padding-block: 1.5rem;
   font-weight: 300;
   text-align: center;
-  width: 25%;
+  width: 20%;
 }
 
 .archives .table-content tbody tr {
@@ -340,7 +349,6 @@
 
 @media screen and (max-width: 560px) {
   .archives .archive-features .archive-dropdown {
-    display: block;
     justify-content: start;
     border-radius: 5px;
   }

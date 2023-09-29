@@ -1,15 +1,16 @@
 const { ResearchModel } = require("../model/researchModel");
+const { ResearchPdfModel } = require("../model/researchPdfModel");
 const { sort } = require("../utils/sorting");
 const { filterArchive, filterResearch } = require("../utils/filtering");
 
 const uploadResearch = async (req, res) => {
   try {
-    const research = await ResearchModel.create({
-      // content: req.file.buffer, // Store the binary data of the file
-      // contentType: //req.file.mimetype, // Store the content type (e.g., 'application/pdf')
-      ...req.body,
+    const research = await ResearchModel.create({ ...req.body });
+    await ResearchPdfModel.create({
+      content: req.file.buffer, // Store the binary data of the file
+      contentType: req.file.mimetype, // Store the content type (e.g., 'application/pdf')
+      researchDetails: research._id,
     });
-
     res.status(201).json(research);
   } catch (err) {
     res.status(500).send(err.message);
@@ -21,7 +22,7 @@ const getByDepartment = async (req, res) => {
   const pageNumber = parseInt(req.query.page) || 1;
   const pageSize = 5;
 
-  console.log(deptId, req.query.filter)
+  console.log(deptId, req.query.filter);
 
   try {
     const skipCount = (pageNumber - 1) * pageSize;
@@ -37,6 +38,20 @@ const getByDepartment = async (req, res) => {
   }
 };
 
+const getPdf = async (req, res) => {
+  const researchId = req.params.id;
+
+  try {
+    const pdf = await ResearchPdfModel.findOne({ researchDetails: researchId});
+     res.setHeader("Content-Type", "application/pdf");
+     res.setHeader("Content-Disposition", 'inline; filename="Upang_Research.pdf"');
+
+     res.send(pdf.content)
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+}
+
 const getResearch = async (req, res) => {
   const researchId = req.params.id;
 
@@ -51,7 +66,6 @@ const getResearch = async (req, res) => {
       author: research.author,
       year: research.year,
       abstract: research.abstract,
-      // content: research.content.toString("base64"),
     });
   } catch (error) {
     res.status(404).json({ error: error.message });
@@ -90,4 +104,5 @@ module.exports = {
   getResearch,
   getArchives,
   getArchive,
+  getPdf,
 };

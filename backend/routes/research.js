@@ -8,16 +8,18 @@ const {
   getResearch,
   getArchives,
   getArchive,
+  getPdf,
 } = require("../controller/researchController");
 
 const requireAuth = require("../middleware/requireAuth");
-router.use(requireAuth);
+router.get("/pdf/:id", getPdf);
 
+router.use(requireAuth);
 router.get("/archives", getArchives);
 router.get("/archives/:id", getArchive);
-router.post("/upload", upload.single("pdf"), uploadResearch);
-
 router.get("/:id", getByDepartment);
 router.get("/:id/:id", getResearch);
+
+router.post("/upload", upload.single("pdf"), uploadResearch);
 
 module.exports = router;

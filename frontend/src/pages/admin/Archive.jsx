@@ -6,6 +6,8 @@ import Pagination from "../../components/Pagination";
 import TableHeader from '../../components/admin/ArchiveTable';
 import TableRow from '../../components/admin/ArchiveTableRow';
 
+import ArchiveFeatures from "../../components/archive/ArchiveFeatures";
+
 import "../../assets/css/admin/archive.css"
 
 const ArchiveTable = () => {
@@ -72,6 +74,7 @@ const ArchiveTable = () => {
   return (
     <div className="admin-archive">
       <h1>Archive</h1>
+      <ArchiveFeatures />
       <div className="archive-table">
         <table className="archive-table__content">
           <TableHeader />

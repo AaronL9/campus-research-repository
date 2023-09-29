@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 
-/* import ResearchImage from "../../../public/images/admin/research-sample-image.png"
-import ViewIcon from "../../../public/images/admin/box-arrow.png" */
-
 export default function QueueCard() {
   return (
     <div className="queue">
@@ -13,7 +10,7 @@ export default function QueueCard() {
       <div className="queue__content">
         <div className="view-button">
           <Link to="">
-            <img src="/images/admin/box-arrow.png" alt="View" />
+            <img src="/svg/view-this-research.svg" alt="View" />
           </Link>
         </div>
         <h3>Title: "Research Campus Repository"</h3>

@@ -1,11 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 
-/* import ResearchImage from "../../../public/images/admin/research-sample-image.png"
-import MenuIcon from "../../../public/images/admin/menu-dots.png"
-import ViewIcon from "../../../public/svg/view-icon.svg"
-import QueueIcon from "../../../public/svg/queue-icon.svg" */
-
 export default function ResearchCard() {
   return (
     <div className="new-research">
@@ -15,7 +10,7 @@ export default function ResearchCard() {
       <div className="new-research__content">
         <div className="button__menu">
           <button className="dropdown">
-            <img src="/images/admin/menu-dots.png" alt="Menu" />
+            <img src="/svg/menu-dots.svg" alt="Menu" />
           </button>
           <div className="dropdown__content">
             <Link to="">

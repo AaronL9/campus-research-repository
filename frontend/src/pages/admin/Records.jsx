@@ -6,6 +6,8 @@ import Pagination from "../../components/Pagination";
 import TableHeader from '../../components/admin/RecordsTable';
 import TableRow from '../../components/admin/RecordsTableRow';
 
+import ArchiveFeatures from "../../components/archive/ArchiveFeatures";
+
 import "../../assets/css/admin/records.css"
 
 const RecordsTable = () => {
@@ -72,6 +74,7 @@ const RecordsTable = () => {
   return (
     <div className="private-records">
       <h1>Records</h1>
+      <ArchiveFeatures />
       <div className="private-records__table">
         <table className="table__content">
           <TableHeader />

@@ -4,9 +4,32 @@
   margin: 0 auto;
 } 
 
+/*--------------------------- Archive Features ---------------------------*/
 .admin-archive h1 {
   margin-bottom: 2rem;
 }
+
+.admin-archive .archive-features {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-inline: auto;
+  margin-bottom: 30px;
+}
+
+.admin-archive .archive-features .archive-dropdown {
+  display: flex;
+  background: #d9d9d9;
+  border-radius: 20px;
+  padding: 10px 20px;
+  justify-content: space-between;
+}
+
+.admin-archive .archive-features .archive-dropdown .filter {
+  margin-right: 5rem;
+}
+
 /*--------------------------- TABLE ---------------------------*/
 .admin-archive .archive-table{
   overflow-x: auto;
@@ -250,5 +273,13 @@
   .archive-table__content tbody .dropdown__content {
     top: 27px;
     left: -30px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .admin-archive .archive-features .archive-dropdown {
+    display: block;
+    justify-content: start;
+    border-radius: 5px;
   }
 }

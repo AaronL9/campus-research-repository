@@ -9,8 +9,8 @@ export default function ArchiveView() {
       <div className="archive-view">
         <div className="download-btn">
           <a href="">
-            <i className="fa-sharp fa-solid fa-file-arrow-down fa-2xl" />{" "}
-            Download File
+            <img src="/svg/pdf-icon.svg" />PDF
+            Download
           </a>
         </div>
         <div className="info">

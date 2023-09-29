@@ -28,7 +28,7 @@ export default function Research() {
             </div>
             <div className="content-right">
               <button className="download-btn">
-                <img src="/images/pdf-icon.png" alt="pdf_icon" />
+                <img src="/svg/pdf-icon.svg" alt="pdf_icon" />
                 PDF Download
               </button>
               <div className="file-info">

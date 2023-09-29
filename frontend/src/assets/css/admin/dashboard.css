@@ -29,6 +29,13 @@
   box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.75);
   padding: 2rem;
   position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0px 15px 20px rgb(25, 80, 91, 0.4);
+  transform: translateY(-7px);
 }
 
 .dashboard-card h2 {

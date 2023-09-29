@@ -4,16 +4,33 @@
   margin: 0 auto;
 } 
 
+.admin-archive h1 {
+  margin-bottom: 2rem;
+}
 /*--------------------------- TABLE ---------------------------*/
 .admin-archive .archive-table{
   overflow-x: auto;
+  border-radius: 10px;
+}
+
+.archive-table::-webkit-scrollbar {
+	width: .2rem;  
+}
+
+.archive-table::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 5rem;
+}
+
+.archive-table::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 5rem;
 }
 
 .archive-table__content {
   border-collapse: collapse;
   font-size: .9em;
-  border-radius: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .archive-table__content thead tr{
@@ -74,8 +91,8 @@
   background-color: #000;
   border-radius: 10px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  top: 28px;
-  right: 42px;
+  top: 0;
+  left: -48px;
   z-index: 1;
   width: 110px;
 }
@@ -98,6 +115,7 @@
 
 .archive-table__content tbody .button__action:hover .dropdown__content {
   display: block;
+  top: 20px;
 }
 
 .archive-table__content tbody .dropdown {

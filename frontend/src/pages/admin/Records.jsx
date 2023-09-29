@@ -3,178 +3,88 @@ import { Link } from "react-router-dom"
 
 //components
 import Pagination from "../../components/Pagination";
-
-//SVGs
-/* import DropdownIcon from "../../../public/svg/caret-down.svg"
-import ViewFileIcon from "../../../public/svg/view-file-icon.svg"
-import UpdateFileIcon from "../../../public/svg/update-file-icon.svg"
-import ArchiveIcon from "../../../public/svg/archive-icon.svg" */
+import TableHeader from '../../components/admin/RecordsTable';
+import TableRow from '../../components/admin/RecordsTableRow';
 
 import "../../assets/css/admin/records.css"
 
-export default function Records() {
+const RecordsTable = () => {
+  const data = [
+    {
+      id: 0,
+      title: "Social Impact of Information Technology",
+      author: "Lomibao, Aaron Jeffrey B.",
+      course: "BSIT",
+      date: "26/08/2023",
+    },
+    {
+      id: 1,
+      title: "Nursing Theories and Nursing Practice: Personal Nursing Philosophy",
+      author: "Brown, Denise J.",
+      course: "BSN",
+      date: "26/08/2023",
+    },
+    {
+      id: 2,
+      title: "Engineering Analysis: Engineering Writing &amp; Composing Process",
+      author: "Smith, Jane A.",
+      course: "BSARCH",
+      date: "26/08/2023",
+    },
+    {
+      id: 3,
+      title: "Managerial and Financial Accounting: Role of Ethics in Accounting",
+      author: "Jones, Robert E.",
+      course: "BSA",
+      date: "26/08/2023",
+    },
+    {
+      id: 4,
+      title: "Software Engineering: Functional &amp; Non-functional Requirements",
+      author: "Link, Karen M.",
+      course: "BSECE",
+      date: "26/08/2023",
+    },
+    {
+      id: 5,
+      title: "Health Information Technology and Privacy of Medical Information",
+      author: "Jeffery, Kelly A.",
+      course: "BSIT",
+      date: "26/08/2023",
+    },
+    {
+      id: 6,
+      title:
+        "Tourism &amp; Health: Understanding the Quest towards Medical Tourism",
+      author: "Brown, Denise J.",
+      course: "BSTM",
+      date: "26/08/2023",
+    },
+    {
+      id: 7,
+      title: "Medical Apartheid: The Dark History of Medical Experimentation",
+      author: "Kemp, Lance J.",
+      course: "BSTM",
+      date: "26/08/2023",
+    },
+  ];
+
   return (
     <div className="private-records">
+      <h1>Records</h1>
       <div className="private-records__table">
         <table className="table__content">
-          <thead>
-            <tr>
-              <th width="30%">Title</th>
-              <th>Author</th>
-              <th>Course/Strand</th>
-              <th>Date Created</th>
-              <th className="action">Action</th>
-            </tr>
-          </thead>
+          <TableHeader />
           <tbody>
-            <tr>
-              <td>Social Impact of Mobile Technology Information Technology</td>
-              <td>Lomibao, Aaron</td>
-              <td>BSIT</td>
-              <td>29/07/2023</td>
-              <td>
-                <div className="button__action">
-                  <button className="dropdown">
-                    <img src="/svg/caret-down.svg" alt="Dropdown" />
-                  </button>
-                  <div className="dropdown__content">
-                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
-                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
-                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Nursing Theories and Nursing Practice: Personal Nursing Philosophy </td> 
-              <td>Brown, Denise J.</td>
-              <td>BSN</td>
-              <td>29/07/2023</td>
-              <td>
-                <div className="button__action">
-                  <button className="dropdown">
-                    <img src="/svg/caret-down.svg" alt="Dropdown" />
-                  </button>
-                  <div className="dropdown__content">
-                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
-                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
-                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Engineering Analysis: Engineering Writing & Composing Process </td>
-              <td>Smith, Jane A.</td>
-              <td>BSARCH</td>
-              <td>29/07/2023</td>
-              <td>
-                <div className="button__action">
-                  <button className="dropdown">
-                    <img src="/svg/caret-down.svg" alt="Dropdown" />
-                  </button>
-                  <div className="dropdown__content">
-                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
-                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
-                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Managerial and Financial Accounting: Role of Ethics in Accounting </td>
-              <td>Jones, Robert E.</td>
-              <td>BSA</td>
-              <td>29/07/2023</td>
-              <td>
-                <div className="button__action">
-                  <button className="dropdown">
-                    <img src="/svg/caret-down.svg" alt="Dropdown" />
-                  </button>
-                  <div className="dropdown__content">
-                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
-                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
-                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Software Engineering: Functional & Non-functional Requirements </td>
-              <td>Link, Karen M.</td>
-              <td>BSECE</td>
-              <td>29/07/2023</td>
-              <td>
-                <div className="button__action">
-                  <button className="dropdown">
-                    <img src="/svg/caret-down.svg" alt="Dropdown" />
-                  </button>
-                  <div className="dropdown__content">
-                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
-                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
-                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Health Information Technology and Privacy of Medical Information </td>
-              <td>Jeffery, Kelly A.</td>
-              <td>BSIT</td>
-              <td>29/07/2023</td>
-              <td>
-                <div className="button__action">
-                  <button className="dropdown">
-                    <img src="/svg/caret-down.svg" alt="Dropdown" />
-                  </button>
-                  <div className="dropdown__content">
-                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
-                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
-                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Tourism & Health: Understanding the Quest towards Medical Tourism </td>
-              <td>Smith, Stephanie L.</td>
-              <td>BSTM</td>
-              <td>29/07/2023</td>
-              <td>
-                <div className="button__action">
-                  <button className="dropdown">
-                    <img src="/svg/caret-down.svg" alt="Dropdown" />
-                  </button>
-                  <div className="dropdown__content">
-                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
-                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
-                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Medical Apartheid: The Dark History of Medical Experimentation</td>
-              <td>Kemp, Lance J.</td>
-              <td>BSMT</td>
-              <td>29/07/2023</td>
-              <td>
-                <div className="button__action">
-                  <button className="dropdown">
-                    <img src="/svg/caret-down.svg" alt="Dropdown" />
-                  </button>
-                  <div className="dropdown__content">
-                    <Link to=""><img src="/svg/view-file-icon.svg" alt="View" /> View</Link>
-                    <Link to=""><img src="/svg/update-file-icon.svg" alt="Update" /> Update</Link>
-                    <Link to=""><img src="/svg/archive-icon.svg" alt="Archive" /> Archive</Link>
-                  </div>
-                </div>
-              </td>
-            </tr>
+            {data.map((item, index) => (
+              <TableRow key={index} data={item} />
+            ))}
           </tbody>
         </table>
       </div>
       <Pagination />
     </div>
-  )
-}
+  );
+};
+
+export default RecordsTable;

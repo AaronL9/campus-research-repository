@@ -47,7 +47,7 @@ const Sidebar = () => {
           {NavLinkData.map((data) => (
             <NavButton key={data.id} label={data.label} />
           ))}
-          <NavLink to={'/'} onClick={handleLogout}>
+          <NavLink to={"/"} onClick={handleLogout}>
             <img src={`/svg/nav_link/logout.svg`} alt="logout" />
             <span>Logout</span>
           </NavLink>

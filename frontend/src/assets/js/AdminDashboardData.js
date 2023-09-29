@@ -15,20 +15,13 @@ export const AdminDashboardData = [
   },
   {
     id: 3,
-    path: "/admin/newresearch",
-    label: "Private Records",
-    icon: "/svg/admin_dashboard/privaterecords-icon.svg",
-    data: 20,
-  },
-  {
-    id: 4,
     path: "/admin/archive",
     label: "Archives",
     icon: "/svg/admin_dashboard/archives-icon.svg",
     data: 235,
   },
   {
-    id: 5,
+    id: 4,
     path: "/admin/queue",
     label: "Queue",
     icon: "/svg/admin_dashboard/queue-icon.svg",

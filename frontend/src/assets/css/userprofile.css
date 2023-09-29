@@ -5,12 +5,20 @@
 
 .userprofile {
   display: flex;
-  gap: 3.5rem;
   width: 90%;
   flex-direction: column;
-  align-items: center;
+  margin: 0 auto;
+}
+.userprofile h1 {
+  margin-bottom: 2rem;
+}
+
+.userprofile-content {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin: auto;
+  align-items: center;
+  gap: 3.5rem;
 }
 
 .userprofile-usercard {
@@ -158,6 +166,11 @@
   font-size: 0.8rem;
 }
 
+@media (max-width: 1110px) {
+  .userprofile {
+    padding: 15px;
+  }
+}
 @media (max-width: 940px) {
   .usercard-info__contact-wrap {
     flex-wrap: wrap;

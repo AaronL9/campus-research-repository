@@ -8,9 +8,16 @@ export default function Dashboard() {
     <>
       <div className="dashboard">
         <div className="dashboard-cards">
-          {AdminDashboardData.map(({ icon, label, alt, id, data }) => {
+          {AdminDashboardData.map(({ icon, label, alt, id, data, path }) => {
             return (
-              <Card key={id} icon={icon} label={label} alt={alt} data={data} />
+              <Card
+                key={id}
+                path={path}
+                icon={icon}
+                label={label}
+                alt={alt}
+                data={data}
+              />
             );
           })}
         </div>

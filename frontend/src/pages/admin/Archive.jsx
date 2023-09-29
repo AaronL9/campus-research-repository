@@ -30,7 +30,7 @@ const ArchiveTable = () => {
       id: 2,
       title: "Engineering Analysis: Engineering Writing &amp; Composing Process",
       author: "Smith, Jane A.",
-      course: "BSARCH",
+      course: "BSAR",
       date: "26/08/2023",
     },
     {

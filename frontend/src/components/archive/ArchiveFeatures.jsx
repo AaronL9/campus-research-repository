@@ -29,7 +29,23 @@ export default function ArchiveFeatures() {
             parentName={"dropdown-course"}
             btnName={"dropbtn-course"}
             content={"dropdown-content-course"}
-            options={['BSIT', 'BSN', 'BSA', 'BSCE', 'BSEE']}
+            options={[
+              'BSIT',
+              'BSAR',
+              'BSCE',
+              'BSEE',
+              'BSECE',
+              'BSCPE',
+              'BSME',
+              'BSTM',
+              'BSA',
+              'BSBA',
+              'BSHM',
+              'BSMLS',
+              'BSN',
+              'BSPSYCH',
+              'BSPHARMA'
+            ]}
           />
         </div>
         <div className="sort">

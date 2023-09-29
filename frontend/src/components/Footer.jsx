@@ -6,7 +6,7 @@ export default function Footer() {
       <figure>
         <img src="/images/phinmalogo.png" alt="school-logo" />
       </figure>
-      <p>Copyright © 2023 PHINMA Education. All Rights Reserved.</p>
+      <p>© 2023 PHINMA Education. All Rights Reserved.</p>
     </footer>
   );
 }

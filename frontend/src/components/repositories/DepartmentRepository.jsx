@@ -16,25 +16,29 @@ import ScrollToTopBtn from "../ScrollToTopBtn";
 
 export default function DeptRepo() {
   let deptId = useParams().id;
+  const { user } = useAuthContext();
+
   const [deptResearches, setDeptResearches] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { user } = useAuthContext();
   const [pageNum, setPageNum] = useState(1);
   const [limit, setLimit] = useState(false);
+  const [query, setQuery] = useState(undefined);
+  const [isSearch, setIsSearch] = useState(false)
+
   const hide = !isLoading && !limit
-  console.log(hide)
+
   useEffect(() => {
     if (!user) return;
+    setIsLoading(true);
     const fetchResearch = async () => {
-      setIsLoading(true);
-      const response = await fetch(`/api/research/${deptId.toUpperCase()}/?page=${pageNum}&pageSize=5`, {
+      const response = await fetch(`/api/research/${deptId.toUpperCase()}/?page=${pageNum}&filter=${query}`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       });
       const json = await response.json();
       if (response.ok) {
-        setDeptResearches([...deptResearches, ...json]);
+        setDeptResearches(!isSearch ? [...deptResearches, ...json] : json);
         if (json.length < 5) setLimit(true);
         setIsLoading(false);
       } else {
@@ -43,7 +47,7 @@ export default function DeptRepo() {
     };
 
     fetchResearch();
-  }, [user, pageNum]);
+  }, [user, pageNum, query]);
   return (
     <>
       {RepoInfo[deptId] && (
@@ -55,14 +59,14 @@ export default function DeptRepo() {
             </figure>
             <h1>{RepoInfo[deptId].title}</h1>
           </div>
-          <SearchBar placeholder={"search..."} />
+          <SearchBar placeholder={"search..."} setFilterValue={setQuery} queryType={setIsSearch} />
           <div className="research">
             {deptResearches?.map((deptResearch) => (
               <ResearchCard key={deptResearch._id} research={deptResearch} />
             ))}
           </div>
           <div className="repository__pagination">
-            {hide && (<PaginationBtn setPage={setPageNum} onLimit={limit} />)}
+            {hide && (<PaginationBtn setPage={setPageNum} onLimit={limit} queryType={setIsSearch}  />)}
           </div>
           {isLoading && <Loader />}
         </div>

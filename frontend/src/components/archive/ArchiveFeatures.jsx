@@ -30,7 +30,7 @@ export default function ArchiveFeatures() {
   return (
     <div className="archive-features">
       <div className="search">
-        <SearchBar placeholder={"search archive list"} />
+        <SearchBar placeholder={"search archive list"} setFilterValue={setFilterValue} />
       </div>
       <div className="archive-dropdown">
         <div className="filter">

@@ -1,5 +1,6 @@
 const { ResearchModel } = require("../model/researchModel");
 const { sort } = require("../utils/sorting");
+const { filterArchive, filterResearch } = require("../utils/filtering");
 
 const uploadResearch = async (req, res) => {
   try {
@@ -18,15 +19,15 @@ const uploadResearch = async (req, res) => {
 const getByDepartment = async (req, res) => {
   const deptId = req.params.id;
   const pageNumber = parseInt(req.query.page) || 1;
-  const pageSize = parseInt(req.query.pageSize) || 5;
-  console.log(pageNumber, pageSize);
+  const pageSize = 5;
+
+  console.log(deptId, req.query.filter)
+
   try {
     const skipCount = (pageNumber - 1) * pageSize;
-    console.log(skipCount);
-    const researches = await ResearchModel.find({
-      department: deptId,
-      archiveStatus: false,
-    })
+    const researches = await ResearchModel.find(
+      filterResearch(req.query.filter, deptId)
+    )
       .skip(skipCount)
       .limit(pageSize);
 
@@ -59,20 +60,11 @@ const getResearch = async (req, res) => {
 
 const getArchives = async (req, res) => {
   const pageNumber = parseInt(req.query.page) || 1;
-  const filterValue = req.query.filter;
   const pageSize = 10;
-
-  const filter =
-    filterValue == "undefined"
-      ? { archiveStatus: true }
-      : {
-          archiveStatus: true,
-          $or: [{ department: filterValue }, { course: filterValue }],
-        };
 
   try {
     const skipCount = (pageNumber - 1) * pageSize;
-    const arvhices = await ResearchModel.find(filter)
+    const arvhices = await ResearchModel.find(filterArchive(req.query.filter))
       .skip(skipCount)
       .limit(pageSize)
       .sort(sort(req.query.sort));

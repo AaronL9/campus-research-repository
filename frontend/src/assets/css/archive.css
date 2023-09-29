@@ -34,7 +34,8 @@
   gap: 1rem;
 }
 
-.archive-dropdown span {
+.filter__text,
+.sort__text {
   font-weight: 800;
 }
 

@@ -14,13 +14,14 @@
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
-
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .selected-value {
+  font-weight: 500;
   text-align: left;
   font-size: 0.75rem;
 }

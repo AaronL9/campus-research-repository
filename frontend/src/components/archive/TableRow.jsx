@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import formatDate from "../../assets/js/formatDate";
+import { formatDateToDDMMYYYY } from "../../assets/js/formatDate";
 
 export default function TableRow({ researchData }) {
   const limitString = (str, maxLength) => {
@@ -31,7 +31,7 @@ export default function TableRow({ researchData }) {
       </td>
       <td>{researchData.author}</td>
       <td>{researchData.course}</td>
-      <td>{formatDate(researchData.year)}</td>
+      <td>{formatDateToDDMMYYYY(researchData.year)}</td>
       <td className="archive-table-btn">
         <Link to={researchData._id}>Read More</Link>
       </td>

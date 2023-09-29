@@ -32,7 +32,7 @@ export default function ArchiveFeatures() {
       </div>
       <div className="archive-dropdown">
         <div className="filter">
-          <span>Filters: </span>
+          <span className="filter__text">Filters: </span>
           <Dropdown
             options={options.departments}
             selectedValue={selectedDepartment}
@@ -45,7 +45,7 @@ export default function ArchiveFeatures() {
           />
         </div>
         <div className="sort">
-          <span>Sort by: </span>
+          <span className="sort__text">Sort by: </span>
           <div className="dropdown-sort">
             <div>
               <button className="dropbtn-sort">

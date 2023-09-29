@@ -1,20 +1,30 @@
 import SearchBar from "../SearchBar";
 import Dropdown from "./Dropdown";
-import { program } from "../../assets/js/SubmitFormData";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ArchiveContext } from "../../pages/student/Archive";
 
+import { options } from "../../assets/js/ArchiveData";
 
 export default function ArchiveFeatures() {
   const [selectedCourse, setSelectedCourse] = useState("COURSES");
-  const [selectedDepartment, setSelectedDepartment] = useState("DEPARTMENT");
-
-  let courses = program[selectedDepartment] ? program[selectedDepartment] : [];
+  const [selectedDepartment, setSelectedDepartment] = useState("DEPARTMENTS");
+  const { setFilterValue } = useContext(ArchiveContext);
 
   useEffect(() => {
-    setSelectedCourse((prev) => (courses.length ? (prev = courses[0]) : prev));
-  }, [selectedDepartment]);
+    if (selectedCourse !== "COURSES") {
+      setSelectedDepartment("DEPARTMENTS");
+      setFilterValue(selectedCourse);
+    }
+    if (selectedDepartment !== "DEPARTMENTS") {
+      setSelectedCourse("COURSES");
+      setFilterValue(selectedDepartment);
+    }
 
-  return (
+    if (selectedCourse === "COURSES" && selectedDepartment === "DEPARTMENTS") {
+      setFilterValue(undefined);
+    }
+  }, [selectedCourse, selectedDepartment]);
+  return (    
     <div className="archive-features">
       <div className="search">
         <SearchBar placeholder={"search archive list"} />
@@ -23,17 +33,15 @@ export default function ArchiveFeatures() {
         <div className="filter">
           <span>Filters: </span>
           <Dropdown
-            options={Object.keys(program)}
+            options={options.departments}
             selectedValue={selectedDepartment}
             setSelectedValue={setSelectedDepartment}
           />
-          {courses.length ? (
-            <Dropdown
-              options={courses}
-              selectedValue={selectedCourse}
-              setSelectedValue={setSelectedCourse}
-            />
-          ) : null}
+          <Dropdown
+            options={options.courses}
+            selectedValue={selectedCourse}
+            setSelectedValue={setSelectedCourse}
+          />
         </div>
         <div className="sort">
           <span>Sort by: </span>

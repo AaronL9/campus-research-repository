@@ -58,11 +58,24 @@ const getResearch = async (req, res) => {
 
 const getArchives = async (req, res) => {
   const pageNumber = parseInt(req.query.page) || 1;
+  const filterValue = req.query.filter;
   const pageSize = 10;
 
+  const filter = filterValue == "undefined"
+    ? { archiveStatus: true }
+    : {
+        archiveStatus: true,
+        $or: [
+          { department: { $regex: new RegExp(filterValue, "i") } },
+          { course: { $regex: new RegExp(filterValue, "i") } },
+        ],
+      };
+
+  console.log(Boolean(filterValue));
+  console.log(filterValue);
   try {
     const skipCount = (pageNumber - 1) * pageSize;
-    const arvhices = await ResearchModel.find({ archiveStatus: true })
+    const arvhices = await ResearchModel.find(filter)
       .skip(skipCount)
       .limit(pageSize);
     res.send(arvhices);

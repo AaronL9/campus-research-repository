@@ -1,20 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import TableRow from "./TableRow";
-import { useLocation } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { ArchiveContext } from "../../pages/student/Archive";
 
 export default function ArchiveTable({ pageNum, setLimit }) {
   const [archives, setArchives] = useState(null);
+  const { filterValue } = useContext(ArchiveContext);
 
   const { user } = useAuthContext();
+  console.log(filterValue)
 
   useEffect(() => {
     const fetchArchives = async () => {
-      const response = await fetch(`/api/research/archives?page=${pageNum}`, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `/api/research/archives?page=${pageNum}&filter=${filterValue}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       const json = await response.json();
 
       if (response.ok) {
@@ -26,7 +31,7 @@ export default function ArchiveTable({ pageNum, setLimit }) {
     if (user) {
       fetchArchives();
     }
-  }, [user, pageNum]);
+  }, [user, pageNum, filterValue]);
 
   return (
     <div className="archives-table" style={{ overflowX: "auto" }}>

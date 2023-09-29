@@ -2,7 +2,8 @@ import React from "react";
 import "../../assets/css/dropdown.css";
 import { useState, useRef, useEffect } from "react";
 
-export default function Dropdown({options, selectedValue, setSelectedValue}) {
+export default function Dropdown({ options, selectedValue, setSelectedValue }) {
+
   const [isActive, setIsActive] = useState(false);
   const customSelectRef = useRef(null);
 
@@ -29,7 +30,7 @@ export default function Dropdown({options, selectedValue, setSelectedValue}) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [selectedValue]);
+  }, []);
 
   return (
     <div

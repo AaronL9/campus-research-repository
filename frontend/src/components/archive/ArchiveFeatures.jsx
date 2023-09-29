@@ -8,9 +8,10 @@ import { options } from "../../assets/js/ArchiveData";
 export default function ArchiveFeatures() {
   const [selectedCourse, setSelectedCourse] = useState("COURSES");
   const [selectedDepartment, setSelectedDepartment] = useState("DEPARTMENTS");
-  const { setFilterValue } = useContext(ArchiveContext);
+  const { setFilterValue, setPageNum } = useContext(ArchiveContext);
 
   useEffect(() => {
+    setPageNum(1);
     if (selectedCourse !== "COURSES") {
       setSelectedDepartment("DEPARTMENTS");
       setFilterValue(selectedCourse);

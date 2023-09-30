@@ -7,17 +7,18 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 const UserProfile = () => {
   const { user } = useAuthContext();
   const [userResearches, setUserResearches] = useState(null);
-
+  
   useEffect(() => {
     if (!user) {
       return;
     }
     const fetchUser = async () => {
-      const response = await fetch(`/api/research/user/${user?.id}`, {
+      const response = await fetch(`/api/research/user/${user.id}`, {
         headers: {
           Authorization: `Bearer ${user?.token}`,
         },
       });
+
       const json = await response.json();
 
       if (response.ok) {
@@ -27,7 +28,7 @@ const UserProfile = () => {
       }
     };
     fetchUser();
-  }, []);
+  }, [user]);
 
   return (
     <div className="userprofile">

@@ -6,24 +6,30 @@ const { filterArchive, filterResearch } = require("../utils/filtering");
 
 const getUserResearches = async (req, res) => {
   try {
-    const user = await User.findById({_id: req.userId});
-    res.status(200).json(user.researh)
-  } catch(error) {
+    const user = await User.findById({ _id: req.params.id });
+    res.status(200).json(user.research);
+  } catch (error) {
     res.status(500).send(err.message);
   }
-}
+};
 
 const uploadResearch = async (req, res) => {
+  console.log(req.userId);
   try {
     const newResearch = await ResearchModel.create({ ...req.body });
+
+    await User.findByIdAndUpdate(
+      req.userId,
+      { $push: { research: newResearch } },
+      { new: true }
+    );
+
     await ResearchPdfModel.create({
       content: req.file.buffer, // Store the binary data of the file
       contentType: req.file.mimetype, // Store the content type (e.g., 'application/pdf')
       researchDetails: newResearch._id,
     });
-    const user = await User.findOneAndUpdate({ _id: req.userId });
-    user.researh.push(newResearch);
-    await user.save();
+
     res.status(201).json(newResearch);
   } catch (err) {
     res.status(500).send(err.message);

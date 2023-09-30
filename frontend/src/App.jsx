@@ -7,6 +7,7 @@ import {
 
 // layouts
 import RootLayout from "./layouts/RootLayout";
+import AdminLayout from "./layouts/AdminLayout";
 
 // components
 import DepartmentRepository from "./components/repositories/DepartmentRepository";
@@ -25,22 +26,31 @@ import Archive from "./pages/student/Archive";
 import Research from "./pages/student/Research";
 import Repositories from "./pages/student/Repositories";
 import RegistrationForm from "./pages/student/RegistrationForm";
-import Dashboard from "./pages/admin/Dashboard";
+import Profile from "./pages/student/UserProfile";
+
+// admin pages
+import AdminDashboard from "./pages/admin/Dashboard";
+import AdminNewResearch from "./pages/admin/NewResearch";
+import AdminRecords from "./pages/admin/Records";
+import AdminArchive from "./pages/admin/Archive";
+import AdminQueue from "./pages/admin/Queue";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route index  element={<LoginForm />}></Route>
+      <Route index element={<LoginForm />}></Route>
       <Route path="registration" element={<RegistrationForm />}></Route>
-      <Route path="admin">
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="records" element={<Dashboard />} />
-        <Route path="archive" element={<Dashboard />} />
-        <Route path="queue" element={<Dashboard />} />
+      <Route path="admin" element={<AdminLayout />}>
+        <Route path="dashboard" element={<AdminDashboard />} />
+        <Route path="newresearch" element={<AdminNewResearch />} />
+        <Route path="records" element={<AdminRecords />} />
+        <Route path="archive" element={<AdminArchive />} />
+        <Route path="queue" element={<AdminQueue />} />
       </Route>
       <Route element={<PrivateRoutes />}>
         <Route path="student" element={<RootLayout />} errorElement={<Error />}>
           <Route path="home" element={<Home />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="repository" element={<Repositories />} />
           <Route path="repository/:id" element={<DepartmentRepository />} />
           <Route path="repository/:id/:id" element={<Research />} />
@@ -63,7 +73,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider  router={router} />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

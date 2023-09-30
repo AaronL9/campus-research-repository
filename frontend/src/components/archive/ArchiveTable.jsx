@@ -5,7 +5,7 @@ import { ArchiveContext } from "../../pages/student/Archive";
 
 export default function ArchiveTable({ pageNum, setLimit }) {
   const [archives, setArchives] = useState(null);
-  const { filterValue, sortingValue } = useContext(ArchiveContext);
+  const { filterValue, sortingValue} = useContext(ArchiveContext);
 
   const { user } = useAuthContext();
 

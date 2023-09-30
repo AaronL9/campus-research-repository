@@ -59,7 +59,7 @@ export default function DeptRepo() {
             </figure>
             <h1>{RepoInfo[deptId].title}</h1>
           </div>
-          <SearchBar placeholder={"search..."} setFilterValue={setQuery} queryType={setIsSearch} />
+          <SearchBar placeholder={"search..."} setFilterValue={setQuery} queryType={setIsSearch} setPageNum={setPageNum} />
           <div className="research">
             {deptResearches?.map((deptResearch) => (
               <ResearchCard key={deptResearch._id} research={deptResearch} />

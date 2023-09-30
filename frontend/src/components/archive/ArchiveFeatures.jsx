@@ -9,28 +9,51 @@ export default function ArchiveFeatures() {
   const [selectedCourse, setSelectedCourse] = useState("COURSES");
   const [selectedDepartment, setSelectedDepartment] = useState("DEPARTMENTS");
   const [sortBy, setSortBy] = useState("Newest to Oldest");
-  const { setFilterValue, setPageNum, setSortingValue} = useContext(ArchiveContext);
+  const { setFilterValue, setPageNum, setSortingValue, filterValue } =
+    useContext(ArchiveContext);
+  const [isSearch, setIsSearch] = useState(false);
 
   useEffect(() => {
     setPageNum(1);
     setSortingValue(sortBy);
-    if (selectedCourse !== "COURSES") {
-      setSelectedDepartment("DEPARTMENTS");
-      setFilterValue(selectedCourse);
-    }
-    if (selectedDepartment !== "DEPARTMENTS") {
+    if (!isSearch) {
+      if (selectedCourse !== "COURSES") {
+        setIsSearch(false);
+        setSelectedDepartment("DEPARTMENTS");
+        setFilterValue(selectedCourse);
+      }
+
+      if (selectedDepartment !== "DEPARTMENTS") {
+        setIsSearch(false);
+        setSelectedCourse("COURSES");
+        setFilterValue(selectedDepartment);
+      }
+      
+      if (
+        selectedCourse === "COURSES" &&
+        selectedDepartment === "DEPARTMENTS"
+        ) {
+          setFilterValue(undefined);
+          setIsSearch(false);
+        }
+      }
+      
+    if (isSearch) {
       setSelectedCourse("COURSES");
-      setFilterValue(selectedDepartment);
+      setSelectedDepartment("DEPARTMENTS");
     }
 
-    if (selectedCourse === "COURSES" && selectedDepartment === "DEPARTMENTS") {
-      setFilterValue(undefined);
-    }
-  }, [selectedCourse, selectedDepartment, sortBy]);
+  }, [selectedCourse, selectedDepartment, sortBy, filterValue]);
+
   return (
     <div className="archive-features">
       <div className="search">
-        <SearchBar placeholder={"search archive list"} setFilterValue={setFilterValue} />
+        <SearchBar
+          placeholder={"search archive list"}
+          setFilterValue={setFilterValue}
+          setPageNum={setPageNum}
+          queryType={setIsSearch}
+        />
       </div>
       <div className="archive-dropdown">
         <div className="filter">
@@ -40,11 +63,13 @@ export default function ArchiveFeatures() {
               options={options.departments}
               selectedValue={selectedDepartment}
               setSelectedValue={setSelectedDepartment}
+              setIsSearch={setIsSearch}
             />
             <Dropdown
               options={options.courses}
               selectedValue={selectedCourse}
               setSelectedValue={setSelectedCourse}
+              setIsSearch={setIsSearch}
             />
           </div>
         </div>

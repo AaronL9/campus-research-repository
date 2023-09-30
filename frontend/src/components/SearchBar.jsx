@@ -3,13 +3,14 @@ import React, { useContext, useState } from "react";
 // assets
 import "../assets/css/searchbar.css";
 
-export default function SearchBar({ placeholder, setFilterValue, queryType }) {
+export default function SearchBar({ placeholder, setFilterValue, queryType, setPageNum }) {
   const [searchValue, setSearchValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setFilterValue(searchValue);
     queryType(true);
+    setPageNum(1);
   };
   return (
     <div className="search-bar">

@@ -14,7 +14,7 @@ export default function Archive() {
   const [limit, setLimit] = useState(10);
   const [filterValue, setFilterValue] = useState();
   const [sortingValue, setSortingValue] = useState();
-  console.log(sortingValue)
+  
   return (
     <div className="archives">
       <h1>Archive</h1>
@@ -25,6 +25,7 @@ export default function Archive() {
           setPageNum,
           sortingValue,
           setSortingValue,
+          pageNum,
         }}
       >
         <ArchiveFeatures />

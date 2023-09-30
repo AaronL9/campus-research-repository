@@ -2,7 +2,7 @@ import React from "react";
 import "../../assets/css/dropdown.css";
 import { useState, useRef, useEffect } from "react";
 
-export default function Dropdown({ options, selectedValue, setSelectedValue }) {
+export default function Dropdown({ options, selectedValue, setSelectedValue, setIsSearch }) {
 
   const [isActive, setIsActive] = useState(false);
   const customSelectRef = useRef(null);
@@ -14,6 +14,7 @@ export default function Dropdown({ options, selectedValue, setSelectedValue }) {
   const handleOptionClick = (label) => {
     setSelectedValue(label);
     setIsActive(false);
+    setIsSearch(false);
   };
 
   const handleClickOutside = (e) => {

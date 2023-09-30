@@ -96,8 +96,8 @@ const getResearch = async (req, res) => {
 
 const getArchives = async (req, res) => {
   const pageNumber = parseInt(req.query.page) || 1;
-  const pageSize = 10;
-
+  const pageSize = parseInt(req.query.pageSize) || 10;
+  console.log(req.query.sort);
   try {
     const skipCount = (pageNumber - 1) * pageSize;
     const arvhices = await ResearchModel.find(filterArchive(req.query.filter))
@@ -105,6 +105,21 @@ const getArchives = async (req, res) => {
       .limit(pageSize)
       .sort(sort(req.query.sort));
     res.send(arvhices);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+
+const getAllResearch = async (req, res) => {
+  const pageNumber = parseInt(req.query.page) || 1;
+  const pageSize = parseInt(req.query.pageSize) || 5;
+  try {
+    const skipCount = (pageNumber - 1) * pageSize;
+    const researches = await ResearchModel.find({ archiveStatus: false })
+      .skip(skipCount)
+      .limit(pageSize)
+      .sort(sort(req.query.sort));
+    res.send(researches);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
@@ -128,4 +143,5 @@ module.exports = {
   getArchive,
   getPdf,
   getUserResearches,
+  getAllResearch,
 };

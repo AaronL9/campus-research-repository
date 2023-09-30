@@ -1,13 +1,14 @@
 import React from 'react'
+import formatDate from '../../assets/js/formatDate';
 
-export default function NewArchive() {
+export default function NewArchive({content}) {
   return (
     <div className="new-archive">
       <div className="content">
-        <h4><strong>Title:</strong> "Research Campus Repository"</h4>
-        <p><strong>By:</strong> Lomibao, AJ B. et. al.</p>
+        <h4><strong>Title:</strong> "{content.title}"</h4>
+        <p><strong>By:</strong> {content.author}</p>
         <p>
-          <strong>Date: </strong>August 2023
+          <strong>Date: </strong>{formatDate(content.year)}
         </p>
       </div>
     </div>

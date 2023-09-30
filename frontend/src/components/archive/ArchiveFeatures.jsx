@@ -81,6 +81,7 @@ export default function ArchiveFeatures() {
                 options={options.sort}
                 selectedValue={sortBy}
                 setSelectedValue={setSortBy}
+                setIsSearch={setIsSearch}
               />
             </div>
           </div>

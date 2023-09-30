@@ -11,15 +11,14 @@ export default function NewResearch({ content }) {
       </figure>
       <div className="content">
         <h4>
-          <strong>Title:</strong> "Research Campus Repository"
+          <strong>Title:</strong> {content.title}
         </h4>
         <p>
-          <strong>By:</strong> Lomibao, AJ B. et. al.
+          <strong>By:</strong> {content.author}
         </p>
         <p>
           <strong>Abstract: </strong>
-          {content ||
-            'The "Research Campus Repository" is a comprehensive website project aimed at providing an efficient and user-friendly platform ...'}
+          {content.abstract}
         </p>
       </div>
     </div>

@@ -15,16 +15,10 @@ export default function News() {
         <div className="repo-updates">
           <h2>Repository Updates</h2>
           <div className="divider"></div>
-          <NewResearch />
-          <NewResearch />
-          <NewResearch />
-          <NewResearch />
         </div>
         <div className="archive-updates">
           <h2>Archive Updates</h2>
           <div className="divider"></div>
-          <NewArchive />
-          <NewArchive />
           <NewArchive />
           <NewArchive />
         </div>

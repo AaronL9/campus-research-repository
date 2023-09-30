@@ -9,12 +9,14 @@ const {
   getArchives,
   getArchive,
   getPdf,
+  getUserResearches,
 } = require("../controller/researchController");
 
 const requireAuth = require("../middleware/requireAuth");
 router.get("/pdf/:id", getPdf);
 
 router.use(requireAuth);
+router.get("/user/:id", getUserResearches);
 router.get("/archives", getArchives);
 router.get("/archives/:id", getArchive);
 router.get("/:id", getByDepartment);

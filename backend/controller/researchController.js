@@ -1,17 +1,30 @@
 const { ResearchModel } = require("../model/researchModel");
 const { ResearchPdfModel } = require("../model/researchPdfModel");
+const User = require("../model/userModel");
 const { sort } = require("../utils/sorting");
 const { filterArchive, filterResearch } = require("../utils/filtering");
 
+const getUserResearches = async (req, res) => {
+  try {
+    const user = await User.findById({_id: req.userId});
+    res.status(200).json(user.researh)
+  } catch(error) {
+    res.status(500).send(err.message);
+  }
+}
+
 const uploadResearch = async (req, res) => {
   try {
-    const research = await ResearchModel.create({ ...req.body });
+    const newResearch = await ResearchModel.create({ ...req.body });
     await ResearchPdfModel.create({
       content: req.file.buffer, // Store the binary data of the file
       contentType: req.file.mimetype, // Store the content type (e.g., 'application/pdf')
-      researchDetails: research._id,
+      researchDetails: newResearch._id,
     });
-    res.status(201).json(research);
+    const user = await User.findOneAndUpdate({ _id: req.userId });
+    user.researh.push(newResearch);
+    await user.save();
+    res.status(201).json(newResearch);
   } catch (err) {
     res.status(500).send(err.message);
   }
@@ -42,15 +55,18 @@ const getPdf = async (req, res) => {
   const researchId = req.params.id;
 
   try {
-    const pdf = await ResearchPdfModel.findOne({ researchDetails: researchId});
-     res.setHeader("Content-Type", "application/pdf");
-     res.setHeader("Content-Disposition", 'inline; filename="Upang_Research.pdf"');
+    const pdf = await ResearchPdfModel.findOne({ researchDetails: researchId });
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader(
+      "Content-Disposition",
+      'inline; filename="Upang_Research.pdf"'
+    );
 
-     res.send(pdf.content)
+    res.send(pdf.content);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
-}
+};
 
 const getResearch = async (req, res) => {
   const researchId = req.params.id;
@@ -105,4 +121,5 @@ module.exports = {
   getArchives,
   getArchive,
   getPdf,
+  getUserResearches,
 };

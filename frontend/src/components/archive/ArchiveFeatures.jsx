@@ -1,6 +1,8 @@
 import SearchBar from "../SearchBar";
 import Dropdown from "./Dropdown";
 
+import { Link } from "react-router-dom";
+
 export default function ArchiveFeatures() {
   return (
     <div className="archive-features">
@@ -31,20 +33,36 @@ export default function ArchiveFeatures() {
             content={"dropdown-content-course"}
             options={[
               'BSIT',
-              'BSAR',
               'BSCE',
               'BSEE',
               'BSECE',
               'BSCPE',
+              'BSARCH',
               'BSME',
-              'BSTM',
               'BSA',
-              'BSBA',
+              'BSAIS',
+              'BSMA',
+              'BSBA-MM',
+              'BSBA-FM',
               'BSHM',
-              'BSMLS',
+              'BSTM',
               'BSN',
-              'BSPSYCH',
-              'BSPHARMA'
+              'BSMLS',
+              'BSPharma',
+              'BSPsych',
+              'BEEd',
+              'BSEd-EN',
+              'BSEd-GENSCI',
+              'BSEd-MATH',
+              'BSEd-SOCSCI',
+              'AB Comm',
+              'AB PolSci',
+              'BSCRIM',
+              'STEM',
+              'ABM',
+              'TVL',
+              'GAS',
+              'BSL'
             ]}
           />
         </div>
@@ -53,10 +71,11 @@ export default function ArchiveFeatures() {
           <div className="dropdown-sort">
             <div>
               <button className="dropbtn-sort">
-                A-Z <i className="fa-solid fa-caret-down" />
+                Name <i className="fa-solid fa-caret-down" />
               </button>
               <div className="dropdown-content-sort">
-                <a href="#">Z-A</a>
+                <Link to="">Size</Link>
+                <Link to="">Date</Link>
               </div>
             </div>
           </div>

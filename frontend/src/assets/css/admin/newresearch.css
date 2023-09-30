@@ -8,6 +8,12 @@
   position: relative;
 }
 
+.new-research__title {
+  margin-inline: auto;
+  width: min(1067px, 90%);
+  margin-bottom: 2rem;
+}
+
 .new-research picture {
   margin-right: auto;
   text-align: center;

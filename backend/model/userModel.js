@@ -19,7 +19,11 @@ const uesrSchema = new Schema({
     type: String,
     required: true,
   },
-  researh: [ResearchSchema],
+  researh: {
+    type: [ResearchSchema],
+    default: [],
+    required: false,
+  },
   resetPasswordToken: String,
   resetPasswordExpires: Date,
 });

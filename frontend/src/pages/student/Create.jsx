@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 // assets
@@ -12,6 +13,7 @@ import DropDown from "../../components/submit_research/DropDown";
 
 export default function Create() {
   const { user } = useAuthContext();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     title: "",
@@ -49,6 +51,7 @@ export default function Create() {
       });
 
       if (response.ok) {
+        navigate('/student/home')
         console.log("File uploaded successfully.");
       } else {
         console.error("File upload failed.");

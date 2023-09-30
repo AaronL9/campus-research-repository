@@ -19,6 +19,7 @@ export const useLogin = () => {
     const json = await response.json();
 
     if (!response.ok) {
+      console.log("error here")
       setError(json.error);
     }
 

@@ -52,37 +52,38 @@ export default function Research() {
       <div className="research-document">
         <PreviousButton />
         <div className="research-view">
-          <h1 className="text-center">
-            Research Title: <q>{research?.title}</q>
-          </h1>
-          <div className="research-title">
-            <div className="content-left">
+          <div className="research__infos">
+            <div className="content__left">
               <img src="/images/research/sample_image.png" alt="sample_image" />
-              <div className="research-info">
+            </div>
+            <div className="content__right">
+              <h1>
+                <q>{research?.title}</q>
+              </h1>
+              <div className="hr" />
+              <div className="file-info">
                 <p>
-                  <span>Date Published: </span>
-                  {formatDate(research?.year)}
+                  <span>Date Published: </span>{formatDate(research?.year)}
                 </p>
                 <p>
-                  <span>Author: </span>
-                  {research?.author}
+                  <span>Author: </span>{research?.author}
                 </p>
               </div>
-            </div>
-            <div className="content-right">
               <button onClick={handleDownloadClick} className="download-btn">
-                <img src="/svg/pdf-icon.svg" alt="pdf_icon" />
+                <img src="/svg/pdf-file-icon.svg" />
                 PDF Download
               </button>
-              <div className="abstract">
-                <span>Abstract:</span>
-                <p>{research?.abstract}</p>
-              </div>
             </div>
           </div>
-          <h1 className="text-center">Research Review</h1>
+          <div className="research__abstract">
+            <span>Abstract:</span>
+            <p>
+              {research?.abstract}
+            </p>
+          </div>
+          <h2>Research Review</h2>
           <div className="research-review">
-            <iframe src={pdfUrl} width="100% " height="678">
+            <iframe src={pdfUrl} width="100% " height={678}>
               <p>This browser does not support PDF!</p>
             </iframe>
           </div>

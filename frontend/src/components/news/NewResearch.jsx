@@ -16,10 +16,6 @@ export default function NewResearch({ content }) {
         <p>
           <strong>By:</strong> {content.author}
         </p>
-        <p>
-          <strong>Abstract: </strong>
-          {content.abstract}
-        </p>
       </div>
     </div>
   );

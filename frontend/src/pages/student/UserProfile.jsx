@@ -53,7 +53,7 @@ const UserProfile = () => {
                 className="usercard__camera"
               />
             </div>
-            <h2>{user?.name}</h2>
+            <h2>{user?.userName}</h2>
             <button className="usercard-top__report-btn">
               <img src="/svg/pen-icon.svg" alt="report_btn" />
               Research

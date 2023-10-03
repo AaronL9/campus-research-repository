@@ -2,15 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { formatDateToDDMMYYYY } from "../../assets/js/formatDate";
+import { limitString } from "../../assets/js/StringFormatter";
 
 export default function TableRow({ researchData }) {
-  const limitString = (str, maxLength) => {
-    if (str.length <= maxLength || window.outerWidth <= 750) {
-      return str;
-    } else {
-      return str.slice(0, maxLength) + "...";
-    }
-  };
+  
 
   window.onresize = () => {
     if (window.outerWidth <= 750 && window.outerWidth >= 600) {

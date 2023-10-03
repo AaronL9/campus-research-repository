@@ -9,7 +9,7 @@ const getUserResearches = async (req, res) => {
     const user = await User.findById({ _id: req.params.id });
     res.status(200).json(user.research);
   } catch (error) {
-    res.status(500).send(err.message);
+    res.status(500).send(error.message);
   }
 };
 

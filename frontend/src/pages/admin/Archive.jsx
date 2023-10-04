@@ -74,7 +74,7 @@ const ArchiveTable = () => {
   return (
     <div className="admin-archive">
       <h1>Archive</h1>
-      <ArchiveFeatures />
+      {/* <ArchiveFeatures /> */}
       <div className="archive-table">
         <table className="archive-table__content">
           <TableHeader />
@@ -85,7 +85,7 @@ const ArchiveTable = () => {
           </tbody>
         </table>
       </div>
-      <Pagination />
+      {/* <Pagination /> */}
     </div>
   );
 };

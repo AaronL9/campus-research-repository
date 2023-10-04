@@ -31,24 +31,6 @@
 }
 
 /*--------------------------- TABLE ---------------------------*/
-.admin-archive .archive-table{
-  overflow-x: auto;
-  border-radius: 10px;
-}
-
-.archive-table::-webkit-scrollbar {
-	width: .2rem;  
-}
-
-.archive-table::-webkit-scrollbar-track {
-  background: #fff;
-  border-radius: 5rem;
-}
-
-.archive-table::-webkit-scrollbar-thumb {
-  background: #c9c9c9;
-  border-radius: 5rem;
-}
 
 .archive-table__content {
   border-collapse: collapse;
@@ -78,6 +60,7 @@
 
 .archive-table__content tbody tr {
   height: 5rem;
+  background-color: #f0f0f0;
 }
 
 .archive-table__content tbody tr:nth-child(even) {

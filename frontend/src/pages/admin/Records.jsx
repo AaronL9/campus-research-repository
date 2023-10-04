@@ -74,7 +74,7 @@ const RecordsTable = () => {
   return (
     <div className="private-records">
       <h1>Records</h1>
-      <ArchiveFeatures />
+      {/* <ArchiveFeatures /> */}
       <div className="private-records__table">
         <table className="table__content">
           <TableHeader />
@@ -85,7 +85,7 @@ const RecordsTable = () => {
           </tbody>
         </table>
       </div>
-      <Pagination />
+      {/* <Pagination /> */}
     </div>
   );
 };

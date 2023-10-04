@@ -28,6 +28,13 @@
   font-weight: normal;
 }
 
+.login-form__admin-text {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
 .login-form__container {
   width: min(350px, 90vw);
   background: white;

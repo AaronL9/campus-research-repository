@@ -20,7 +20,7 @@ import PrivateRoutes from "./components/auth/PrivateRoutes";
 import Home from "./pages/student/Home";
 import News from "./pages/student/News";
 import Faqs from "./pages/student/Faqs";
-import LoginForm from "./pages/LoginForm";
+import LoginForm from "./pages/student/LoginForm";
 import Create from "./pages/student/Create";
 import Archive from "./pages/student/Archive";
 import Research from "./pages/student/Research";
@@ -34,12 +34,14 @@ import AdminNewResearch from "./pages/admin/NewResearch";
 import AdminRecords from "./pages/admin/Records";
 import AdminArchive from "./pages/admin/Archive";
 import AdminQueue from "./pages/admin/Queue";
+import Login from "./pages/admin/Login";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route index element={<LoginForm />}></Route>
       <Route path="registration" element={<RegistrationForm />}></Route>
+      <Route index element={<LoginForm />}></Route>
+      <Route path="admin/login" element={<Login />}></Route>
       <Route path="admin" element={<AdminLayout />}>
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="newresearch" element={<AdminNewResearch />} />
@@ -66,6 +68,7 @@ const router = createBrowserRouter(
           <Route path="archive" element={<Archive />} />
           <Route path="archive/:id" element={<ArchiveView />}></Route>
           <Route path="create" element={<Create />} />
+          
         </Route>
       </Route>
     </Route>

@@ -1,20 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
 
 // Assets
-import "../assets/css/user_auth/login_form.css";
-import SigninField from "../components/auth/SigninField";
-import SchoolLogo from "../components/SchoolLogo";
+import "../../assets/css/user_auth/login_form.css";
+import SigninField from "../../components/auth/SigninField";
+import SchoolLogo from "../../components/SchoolLogo";
 import { useEffect, useState } from "react";
-import { useLogin } from "../hooks/useLogin";
+import { useLogin } from "../../hooks/useLogin";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { userCredentials } from "../../assets/js/LoginCredentials";
+
 
 const LoginForm = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
+  const { dispatch } = useAuthContext();
+
 
   useEffect(() => {
     if (user) navigate("student/home");
-  }, [])
-
+  }, []);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +26,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(email, password);
+    await login(email, password, dispatch, userCredentials);
   };
 
   return (

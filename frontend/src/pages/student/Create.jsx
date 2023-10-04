@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
+
 // assets
 import "../../assets/css/create.css";
 import { submitFormData } from "../../assets/js/SubmitFormData";
@@ -51,7 +51,6 @@ export default function Create() {
       });
 
       if (response.ok) {
-        navigate('/student/home')
         console.log("File uploaded successfully.");
         navigate('/student/profile')
       } else {

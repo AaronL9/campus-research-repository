@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 // assets
 import "../assets/css/sidebar.css";
-import Logo from "../assets/images/home/university_logo.png";
+import Logo from "/svg/campus-logo.svg";
 
 // data
 import { NavLinkData } from "../assets/js/NavLinkData";
@@ -47,7 +47,7 @@ const Sidebar = () => {
           {NavLinkData.map((data) => (
             <NavButton key={data.id} label={data.label} />
           ))}
-          <NavLink to={'/'} onClick={handleLogout}>
+          <NavLink to={"/"} onClick={handleLogout}>
             <img src={`/svg/nav_link/logout.svg`} alt="logout" />
             <span>Logout</span>
           </NavLink>

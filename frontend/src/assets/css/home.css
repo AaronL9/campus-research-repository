@@ -1,4 +1,4 @@
-/* banner */          
+/* banner */
 
 .home {
   margin-top: 3rem;
@@ -15,7 +15,7 @@
 } */
 
 .intro-section {
-  width: min(1077px, 90%);  
+  width: min(1077px, 90%);
   padding: 4.5rem min(3.5rem, 10%);
   margin-inline: auto;
   margin-bottom: 3.5rem;
@@ -35,7 +35,6 @@
   align-items: center;
   gap: 50px;
 }
-
 
 /* ==================== Intro-Text ==================== */
 .intro-content__title {
@@ -82,7 +81,7 @@
 /* welcome section */
 
 .welcome-section {
-  width: min(1077px, 90%);  
+  width: min(1077px, 90%);
   margin-inline: auto;
   background: #e7e7e7;
   box-shadow: 4px 4px 10px 3px rgba(0, 0, 0, 0.25);
@@ -98,6 +97,8 @@
 /* Welcome PHINMA Image*/
 
 .welcome-img img {
+  margin-top: 1rem;
+  margin-bottom: -1rem;
   width: min(250px, 60vw);
 }
 
@@ -141,7 +142,8 @@
     margin-top: 1rem;
   }
 
-  .intro-section, .welcome-section {
+  .intro-section,
+  .welcome-section {
     width: 95%;
   }
 }

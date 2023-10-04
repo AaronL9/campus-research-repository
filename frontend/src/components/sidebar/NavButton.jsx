@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavButton = ({ label }) => {
   const path = label === "FAQs" ? "faqs/basics" : label.toLowerCase();

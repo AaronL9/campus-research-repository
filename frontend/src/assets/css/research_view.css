@@ -4,144 +4,124 @@
 }
 
 .research-view {
-  width: min(1100px, 95%);
+  max-width: 1100px;
   background: #f0f0f0;
-  margin: 2rem auto 0;
+  margin: 0 auto;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.research__infos {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
+  gap: 70px;
 }
 
-.research-view .text-center {
+.content__left img {
+  margin-top: 30px;
+  border-radius: 20px;
+}
+
+.content__right h1 {
   text-align: center;
-  font-size: 1.3em;
-  font-weight: 400;
-  margin: 0.7rem 0;
+  font-size: 1.8em;
+  font-weight: 800;
+  margin: .7rem 0;
+  background: linear-gradient(131deg, #202c61 0%, 50%, #1d6353 99% 99%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 40px;
 }
 
-/* --------------------------- Research-Title -------------------------- */
-.research-view .research-title {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin: 3rem 4.8rem 0 4.8rem;
-  gap: 2rem;
+.content__right .hr {
+  margin-block: 50px;
+  border-top: 4px solid #1d6353;
 }
 
-/* --------- content-left ---------*/
-.research-view .content-left img {
-  width: 80%;
+.content__right .file-info {
+  font-size: 1.2em;
+  line-height: 70px;
+  margin-top: 70px;
 }
 
-.research-view .content-left .research-info {
-  margin: 2rem 0;
+.content__right .file-info span {
+  font-weight: 700;
 }
 
-.research-view .content-left .research-info p {
-  font-size: 1em;
-  font-weight: 400;
-  margin-bottom: 1.5rem;
-}
-
-.research-view .content-left .research-info span {
-  font-weight: 650;
-}
-
-/* -------- content-right --------*/
-.research-view .content-right .download-btn {
+.content__right .download-btn {
   border: none;
   background: #ffffff;
-  padding: 0.8rem 2.2rem;
   border-radius: 30px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 12px; 
   font-size: 1em;
-  box-shadow: 0px 3px 0px 0 rgba(0, 0, 0, 0.2);
-}
-
-.research-view .content-right .download-btn:hover {
-  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 50px;
   cursor: pointer;
+  box-shadow: 0 0 10px rgba(32, 44, 97, 0.5);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.4s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+  background: linear-gradient(to top, #202c61 0%, 50%, #1d6353 99% 99%);
+  color: #fff;
+  margin-top: 40px;
 }
 
-.research-view .content-right .file-info {
-  margin: 3.8rem 0;
+.content__right .download-btn:hover, .download-btn:focus, .download-btn:active {
+  box-shadow: 0 0 5px rgba(32, 44, 97, 0.9);
+  -webkit-transform: scale(0.92);
+  transform: scale(0.92);
 }
 
-.research-view .content-right .file-info p {
-  font-size: 1em;
-  margin-bottom: 2.2rem;
+.research__abstract {
+  margin-block: 20px;
 }
 
-.research-view .content-right .file-info span {
-  font-weight: 650;
+.research__abstract span {
+  font-weight: 700;
+  font-size: 1.2em;
 }
 
-.research-view .content-right .abstract {
-  margin: 4.5rem 0;
-  text-align: justify;
+.research__abstract p {
+  text-indent: 3rem;
+  line-height: 40px;
 }
 
-.research-view .content-right .abstract span {
-  font-weight: 650;
+.research-view h2 {
+  font-weight: 700;
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 20px;
 }
 
-.research-view .content-right .abstract p {
-  text-indent: 2rem;
-}
-
-/* -------------------------- Research-Review -------------------------- */
 .research-view .research-review {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
+  margin-top: 20px;
 }
 
-/* -------------------------- Responsiveness -------------------------- */
-@media (max-width: 740px) {
-  .research-view .research-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media (max-width: 1165px) {
+  .research__infos {
     flex-wrap: wrap;
-    flex-direction: column;
   }
 
-  .research-view .research-title,
-  .research-view .research-reviewer {
-    margin: auto;
+  .content__left img {
+    width: 100%;
   }
+}
 
-  .research-view .content-left img {
-    width: 75vw;
-  }
+.content__right .download-btn {
+  margin-top: 40px;
+}
 
-  .research-view .content-left,
-  .research-view .content-right {
-    margin: 0 1.5rem;
-  }
+.research__abstract {
+  margin-top: 67px;
+}
 
-  .research-view .content-right .download-btn {
-    padding: 0.5rem 1.8rem;
-    margin: 0 auto;
-  }
-
-  .research-view .content-right .file-info {
-    margin: 2.5rem 0;
-  }
-
-  .research-view .content-right .file-info p {
-    margin-bottom: 0.5rem;
-  }
-
-  .research-view .content-right .abstract {
-    margin: 2rem 0;
-  }
-
-  .research-view .research-review {
-    margin: 0 1.5rem;
+@media (max-width: 820px) {
+  .research-view {
+    padding: 20px 30px;
   }
 }

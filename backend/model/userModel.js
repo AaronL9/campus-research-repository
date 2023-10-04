@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const validator = require("validator");
-const { ResearchSchema } = require("../model/researchModel");
+const { ResearchSchema, ResearchModel } = require("../model/researchModel");
 
 const Schema = mongoose.Schema;
 
-const uesrSchema = new Schema({
+const userSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -19,8 +19,9 @@ const uesrSchema = new Schema({
     type: String,
     required: true,
   },
-  researh: {
+  research: {
     type: [ResearchSchema],
+    ref: "ResearchModel",
     default: [],
     required: false,
   },
@@ -29,7 +30,7 @@ const uesrSchema = new Schema({
 });
 
 //  static signup method
-uesrSchema.statics.signup = async function (name, email, password) {
+userSchema.statics.signup = async function (name, email, password) {
   // validation
   if (!email || !password || !name) {
     throw Error("All fields must be filled");
@@ -58,7 +59,7 @@ uesrSchema.statics.signup = async function (name, email, password) {
 };
 
 // static login method
-uesrSchema.statics.login = async function (email, password) {
+userSchema.statics.login = async function (email, password) {
   if (!email || !password) {
     throw Error("All fields must be filled");
   }
@@ -78,7 +79,7 @@ uesrSchema.statics.login = async function (email, password) {
   return user;
 };
 
-uesrSchema.static(
+userSchema.static(
   "findOneOrCreate",
   async function findOneorCreate(condition, doc) {
     const one = await this.findOne(condition);
@@ -87,4 +88,4 @@ uesrSchema.static(
   }
 );
 
-module.exports = mongoose.model("User", uesrSchema);
+module.exports = mongoose.model("User", userSchema);

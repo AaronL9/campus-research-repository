@@ -5,11 +5,11 @@ export const useSignup = () => {
   const { dispatch } = useAuthContext()
   const navigate = useNavigate();
 
-  const signup = async (name, email, password) => {
+  const signup = async (userName, email, password) => {
     const response = await fetch('/api/user/signup', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({name, email, password })
+      body: JSON.stringify({userName, email, password })
     })
     const json = await response.json()
 
@@ -21,10 +21,9 @@ export const useSignup = () => {
       localStorage.setItem('user', JSON.stringify(json))
 
       // update the auth context
-      dispatch({type: 'LOGIN', payload: json})
-
+      dispatch({type: 'LOGIN', payload: json});
+      console.log(json);
       navigate('/student/home')
-
     }
   }
 

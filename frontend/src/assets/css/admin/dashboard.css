@@ -1,1 +1,72 @@
-/* starting file */
+/* google fonts poppins */
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* dashboard */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.dashboard h1 {
+  margin-bottom: 3rem;
+}
+
+.dashboard-content {
+  display: flex;
+  justify-content: center;
+}
+.dashboard-cards {
+  display: flex;
+  width: 80%;
+  max-width: 55rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.dashboard-card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: #2e2e2e;
+  width: 18rem;
+  height: 8rem;
+  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.75);
+  padding: 2rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0px 15px 20px rgb(25, 80, 91, 0.4);
+  transform: translateY(-7px);
+}
+
+.dashboard-card h2 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.dashboard-card__text {
+  text-align: center;
+}
+
+.data__count {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px 15px;
+}
+
+@media (max-width: 1110px) {
+  .dashboard {
+    padding: 0 15px;
+  }
+}

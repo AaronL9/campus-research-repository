@@ -3,17 +3,18 @@ import React from "react";
 // assets
 import ResearchImage from "../../assets/images/research_image.png";
 
-export default function NewResearch() {
+export default function NewResearch({ content }) {
   return (
     <div className="new-research">
-      <figure><img src={ResearchImage} alt="research" /></figure>
+      <figure>
+        <img src={ResearchImage} alt="research" />
+      </figure>
       <div className="content">
-        <h4><strong>Title:</strong> "Research Campus Repository"</h4>
-        <p><strong>By:</strong> Lomibao, AJ B. et. al.</p>
+        <h4>
+          <strong>Title:</strong> {content.title}
+        </h4>
         <p>
-          <strong>Abstract:</strong> The "Research Campus Repository" is a
-          comprehensive website project aimed at providing an efficient and
-          user-friendly platform ...
+          <strong>By:</strong> {content.author}
         </p>
       </div>
     </div>

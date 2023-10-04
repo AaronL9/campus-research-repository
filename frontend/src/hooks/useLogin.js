@@ -3,7 +3,7 @@ import { useAuthContext } from "./useAuthContext";
 import { useNavigate } from "react-router-dom";
 
 export const useLogin = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [error, setError] = useState(null);
   const { dispatch } = useAuthContext();
 
@@ -19,6 +19,7 @@ export const useLogin = () => {
     const json = await response.json();
 
     if (!response.ok) {
+      console.log("error here");
       setError(json.error);
     }
 

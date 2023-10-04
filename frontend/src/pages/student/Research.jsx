@@ -1,82 +1,91 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../assets/css/research_view.css";
 import PreviousButton from "../../components/PreviousButton";
+import { useLocation } from "react-router-dom";
+import formatDate from "../../assets/js/formatDate";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 export default function Research() {
+  const url = useLocation().pathname.split("/");
+  const researchId = url[url.length - 1];
+  const { user } = useAuthContext();
+  const deptId = url[url.length - 2];
+  const [research, setResearch] = useState(null);
+  const pdfUrl = `/api/research/pdf/${researchId}`;
+
+  const handleDownloadClick = () => {
+
+    const anchor = document.createElement("a");
+    anchor.href = pdfUrl;
+    anchor.download = "Upang_Research.pdf"; 
+
+    anchor.click();
+  };
+
+  useEffect(() => {
+    if (!user) {
+      return;
+    }
+
+    const fetchResearch = async () => {
+      const response = await fetch(`/api/research/${deptId}/${researchId}`, {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setResearch(data);
+      } else {
+        console.log("response is not ok");
+      }
+      console.log(data);
+    };
+
+    fetchResearch();
+  }, [user]);
+
   return (
     <>
       <div className="research-document">
         <PreviousButton />
         <div className="research-view">
-          <h1 className="text-center">
-            Research Title: <q>Research Campus Repository</q>
-          </h1>
-          <div className="research-title">
-            <div className="content-left">
+          <div className="research__infos">
+            <div className="content__left">
               <img src="/images/research/sample_image.png" alt="sample_image" />
-              <div className="research-info">
-                <p>
-                  <span>Publisher: </span>PHINMA University of Pangasinan
-                </p>
-                <p>
-                  <span>Year Published: </span>2023
-                </p>
-                <p>
-                  <span>Author: </span>Lomibao, Aaron Jeffrey B. et al.
-                </p>
-              </div>
             </div>
-            <div className="content-right">
-              <button className="download-btn">
-                <img src="/svg/pdf-icon.svg" alt="pdf_icon" />
-                PDF Download
-              </button>
+            <div className="content__right">
+              <h1>
+                <q>{research?.title}</q>
+              </h1>
+              <div className="hr" />
               <div className="file-info">
                 <p>
-                  <span>File Name: </span>Research_Campus_Repository_20230801
+                  <span>Date Published: </span>{formatDate(research?.year)}
                 </p>
                 <p>
-                  <span>File Type: </span>PDF
+                  <span>Author: </span>{research?.author}
                 </p>
               </div>
-              <div className="abstract">
-                <span>Abstract:</span>
-                <p>
-                  The "Research Campus Repository" is a comprehensive website
-                  project aimed at providing an efficient and user-friendly
-                  platform for academic institutions to store, manage, and
-                  access research-related content and publications. The
-                  repository serves as a centralized hub, facilitating easy
-                  dissemination of research outputs and fostering collaboration
-                  among researchers, students, and faculty members. The
-                  website's key features include a secure login system, enabling
-                  registered users to upload and share their research papers,
-                  conference proceedings, theses, and other scholarly works.
-                </p>
-                <p>
-                  Additionally, an advanced search functionality allows users to
-                  browse and retrieve relevant research materials based on
-                  keywords, authors, publication dates, and subject areas.
-                </p>
-              </div>
+              <button onClick={handleDownloadClick} className="download-btn">
+                <img src="/svg/pdf-file-icon.svg" />
+                PDF Download
+              </button>
             </div>
           </div>
-          <h1 className="text-center">Research Review</h1>
+          <div className="research__abstract">
+            <span>Abstract:</span>
+            <p>
+              {research?.abstract}
+            </p>
+          </div>
+          <h2>Research Review</h2>
           <div className="research-review">
-            <object
-              data="/file/pdf_file.pdf"
-              type="application/pdf"
-              width="500"
-              height="678"
-            >
-              <iframe
-                src="/file/pdf_file.pdf"
-                width="500"
-                height="678"
-              >
-                <p>This browser does not support PDF!</p>
-              </iframe>
-            </object>
+            <iframe src={pdfUrl} width="100% " height={678}>
+              <p>This browser does not support PDF!</p>
+            </iframe>
           </div>
         </div>
       </div>

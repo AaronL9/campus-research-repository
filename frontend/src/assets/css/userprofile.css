@@ -128,6 +128,7 @@
 }
 
 .userprofile-research {
+  width: 100%;
   max-width: 55rem;
   flex: 1;
   padding: 1rem;

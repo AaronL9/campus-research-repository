@@ -92,14 +92,28 @@
   padding-right: 1rem;
 }
 
-.submit-research__textarea {
-  resize: none;
-  padding-inline: 1rem;
-}
-
 .submit-research__department-course {
   display: flex;
   gap: 1rem;
+}
+
+.submit-research__dropdown {
+  flex: 1;
+}
+
+.submit-research__selection {
+  border-radius: 10px;
+  background: #d9d9d9;
+  outline: none;
+  border: none;
+  font-size: 1.1rem;
+  padding-block: 0.85rem;
+  width: 100%;
+}
+
+.submit-research__textarea {
+  resize: none;
+  padding-inline: 1rem;
 }
 
 /* ------ UPLOAD BUTTON ----- */
@@ -114,4 +128,5 @@
   padding: 1rem;
   border-radius: 3.125rem;
   background: #1e1e1e;
+  cursor: pointer;
 }

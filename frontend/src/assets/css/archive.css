@@ -24,14 +24,22 @@
   background: #d9d9d9;
   border-radius: 20px;
   padding: 10px 20px;
+  align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .archives .archive-features .archive-dropdown .filter {
-  margin-right: 5rem;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.archive-dropdown span {
+.filter__text,
+.sort__text {
   font-weight: 800;
 }
 
@@ -48,6 +56,12 @@
 
 .archive-dropdown .dropbtn-sort {
   margin-left: 10px;
+}
+
+.filter__dropdown {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /*========================================== Department Dropdown ==========================================*/
@@ -161,6 +175,12 @@
   display: block;
 }
 
+.select-custom {
+  background: none;
+  border: none;
+  outline: none;
+}
+
 /*========================================== Sort Dropdown ==========================================*/
 .dropbtn-sort {
   font-size: 1em;
@@ -230,7 +250,7 @@
   padding-block: 1.5rem;
   font-weight: 300;
   text-align: center;
-  width: 25%;
+  width: 20%;
 }
 
 .archives .table-content tbody tr {
@@ -293,20 +313,20 @@
   padding: 10px;
   position: absolute;
   z-index: 1;
-  top: -2vw;
-  left: 30%;
+  top: 0.8vw;
+  left: 100%;
   margin-left: -60px;
 }
 
 .tooltip .tooltiptext::after {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 50%;
+  top: 45%;
+  left: -5px;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #1b5858 transparent transparent transparent;
+  border-color: transparent #1b5858 transparent transparent;
 }
 
 @media (min-width: 750px) {
@@ -339,12 +359,16 @@
   color: #ffffff;
   font-size: 0.8em;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .archives .pagination button:hover {
+  background: #213970;
+}
+
+.archives .pagination button:disabled {
   background-color: #d9d9d9;
   color: #000;
-  cursor: pointer;
 }
 
 .archives .page-num {
@@ -364,7 +388,6 @@
 
 @media screen and (max-width: 560px) {
   .archives .archive-features .archive-dropdown {
-    display: block;
     justify-content: start;
     border-radius: 5px;
   }

@@ -1,82 +1,90 @@
 import SearchBar from "../SearchBar";
 import Dropdown from "./Dropdown";
+import { useEffect, useState, useContext } from "react";
+import { ArchiveContext } from "../../pages/student/Archive";
+
+import { options } from "../../assets/js/ArchiveData";
 
 import { Link } from "react-router-dom";
 
 export default function ArchiveFeatures() {
+  const [selectedCourse, setSelectedCourse] = useState("COURSES");
+  const [selectedDepartment, setSelectedDepartment] = useState("DEPARTMENTS");
+  const [sortBy, setSortBy] = useState("Newest to Oldest");
+  const { setFilterValue, setPageNum, setSortingValue, filterValue } =
+    useContext(ArchiveContext);
+  const [isSearch, setIsSearch] = useState(false);
+
+  useEffect(() => {
+    setPageNum(1);
+    setSortingValue(sortBy);
+    if (!isSearch) {
+      if (selectedCourse !== "COURSES") {
+        setIsSearch(false);
+        setSelectedDepartment("DEPARTMENTS");
+        setFilterValue(selectedCourse);
+      }
+
+      if (selectedDepartment !== "DEPARTMENTS") {
+        setIsSearch(false);
+        setSelectedCourse("COURSES");
+        setFilterValue(selectedDepartment);
+      }
+      
+      if (
+        selectedCourse === "COURSES" &&
+        selectedDepartment === "DEPARTMENTS"
+        ) {
+          setFilterValue(undefined);
+          setIsSearch(false);
+        }
+      }
+      
+    if (isSearch) {
+      setSelectedCourse("COURSES");
+      setSelectedDepartment("DEPARTMENTS");
+    }
+
+  }, [selectedCourse, selectedDepartment, sortBy, filterValue]);
+
   return (
     <div className="archive-features">
       <div className="search">
-        <SearchBar placeholder={"search list"} />
+        <SearchBar
+          placeholder={"search archive list"}
+          setFilterValue={setFilterValue}
+          setPageNum={setPageNum}
+          queryType={setIsSearch}
+        />
       </div>
       <div className="archive-dropdown">
         <div className="filter">
-          <span>Filters: </span>
-          <Dropdown
-            parentName={"dropdown-dept"}
-            btnName={"dropbtn-dept"}
-            content={"dropdown-content-dept"}
-            options={[
-              "CITE",
-              "CMA",
-              "CEA",
-              "CELA",
-              "CAHS",
-              "CCJE",
-              "SHS",
-              "COLLEGE OF LAW",
-            ]}
-          />
-          <Dropdown
-            parentName={"dropdown-course"}
-            btnName={"dropbtn-course"}
-            content={"dropdown-content-course"}
-            options={[
-              'BSIT',
-              'BSCE',
-              'BSEE',
-              'BSECE',
-              'BSCPE',
-              'BSARCH',
-              'BSME',
-              'BSA',
-              'BSAIS',
-              'BSMA',
-              'BSBA-MM',
-              'BSBA-FM',
-              'BSHM',
-              'BSTM',
-              'BSN',
-              'BSMLS',
-              'BSPharma',
-              'BSPsych',
-              'BEEd',
-              'BSEd-EN',
-              'BSEd-GENSCI',
-              'BSEd-MATH',
-              'BSEd-SOCSCI',
-              'AB Comm',
-              'AB PolSci',
-              'BSCRIM',
-              'STEM',
-              'ABM',
-              'TVL',
-              'GAS',
-              'BSL'
-            ]}
-          />
+          <span className="filter__text">Filters: </span>
+          <div className="filter__dropdown">
+            <Dropdown
+              options={options.departments}
+              selectedValue={selectedDepartment}
+              setSelectedValue={setSelectedDepartment}
+              setIsSearch={setIsSearch}
+            />
+            <Dropdown
+              options={options.courses}
+              selectedValue={selectedCourse}
+              setSelectedValue={setSelectedCourse}
+              setIsSearch={setIsSearch}
+            />
+          </div>
         </div>
         <div className="sort">
-          <span>Sort by: </span>
+          <span className="sort__text">Sort by: </span>
           <div className="dropdown-sort">
             <div>
-              <button className="dropbtn-sort">
-                Name <i className="fa-solid fa-caret-down" />
-              </button>
-              <div className="dropdown-content-sort">
-                <Link to="">Size</Link>
-                <Link to="">Date</Link>
-              </div>
+              <Dropdown
+                options={options.sort}
+                selectedValue={sortBy}
+                setSelectedValue={setSortBy}
+                setIsSearch={setIsSearch}
+              />
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 // assets
 import "../assets/css/sidebar.css";
-import Logo from "../assets/images/home/university_logo.png";
+import Logo from "/svg/campus-logo.svg";
 
 // data
 import { NavLinkData } from "../assets/js/NavLinkData";

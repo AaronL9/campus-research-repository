@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../assets/css/userprofile.css";
 import "../../assets/css/news.css";
 import NewResearch from "../../components/news/NewResearch";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const UserProfile = () => {
-  const components = [];
-  for (let i = 0; i < 10; i++) {
-    components.push(
-      <NewResearch
-        content="The Campus Research Repository is a collection of 
-      scholarly research publication records accessible online in order to help
-      students with their academic studies. Research publications include theses,
-      capstone projects, and other specialized research. This online research 
-      repository aims to hold, preserve, and archive published research from undergraduate and
-      graduate students of PHINMA UPang."
-      />
-    );
-  }
+  const { user } = useAuthContext();
+  const [userResearches, setUserResearches] = useState(null);
+  
+  useEffect(() => {
+    if (!user) {
+      return;
+    }
+    const fetchUser = async () => {
+      const response = await fetch(`/api/research/user/${user.id}`, {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      });
+
+      const json = await response.json();
+
+      if (response.ok) {
+        setUserResearches(json);
+      } else {
+        console.log("error has occured");
+      }
+    };
+    fetchUser();
+  }, [user]);
+
   return (
     <div className="userprofile">
       <h1>Profile</h1>
@@ -40,7 +53,7 @@ const UserProfile = () => {
                 className="usercard__camera"
               />
             </div>
-            <h2>Juan Dela Cruz</h2>
+            <h2>{user?.userName}</h2>
             <button className="usercard-top__report-btn">
               <img src="/svg/pen-icon.svg" alt="report_btn" />
               Research
@@ -65,7 +78,7 @@ const UserProfile = () => {
               <div className="usercard-info__contact-wrap">
                 <label>
                   <img src="/svg/mail.svg" alt="email-light" />
-                  <p> juandelacruz@gmail.com</p>
+                  <p>{user?.email}</p>
                 </label>
                 <label>
                   <img src="/svg/telephone.svg" alt="telephone" />
@@ -79,7 +92,11 @@ const UserProfile = () => {
           <h2>Research History</h2>
           <div className="divider"></div>
           <div className="userprofile-cards">
-            <div className="userprofile-card">{components}</div>
+            <div className="userprofile-card">
+              {userResearches?.map((research) => (
+                <NewResearch key={research._id} content={research} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

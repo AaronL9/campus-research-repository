@@ -6,14 +6,17 @@ import SigninField from "../../components/auth/SigninField";
 import SchoolLogo from "../../components/SchoolLogo";
 import { useEffect, useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
+import { adminCredentials } from "../../assets/js/LoginCredentials";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
+  const {user, admin, dispatch } = useAuthContext();
 
   useEffect(() => {
-    if (user) navigate("/student/home");
-  }, []);
+    if (admin) navigate("/admin/dashboard");
+    if (user) navigate("/student/home")
+  }, [user, admin]);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +24,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(email, password);
+    await login(email, password, dispatch, adminCredentials);
   };
 
   return (
@@ -52,9 +55,9 @@ const LoginForm = () => {
           )}
           <div className="login-form__forgot-password">Forgot Password?</div>
           <input type="submit" value="Sign In" />
-          <div className="login-form__signup-link">
+          {/* <div className="login-form__signup-link">
             Not a member? <Link to="registration">Register</Link>
-          </div>
+          </div> */}
         </form>
       </div>
     </div>

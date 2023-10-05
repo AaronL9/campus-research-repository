@@ -15,12 +15,14 @@ import NavButton from "../components/sidebar/NavButton";
 import Footer from "../components/Footer";
 import Profile from "../components/sidebar/Profile";
 import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Sidebar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const { logout } = useLogout();
   const navigate = useNavigate();
+  const { user } = useAuthContext();
 
   const handleToggleMenu = () => {
     setIsOpen((prevOpen) => !prevOpen);
@@ -28,7 +30,7 @@ const Sidebar = () => {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    logout();
+    logout("user");     
     navigate("/");
   };
 
@@ -42,12 +44,12 @@ const Sidebar = () => {
       <div className={isOpen ? "disable" : ""}></div>
       <CloseButton close={handleToggleMenu} isOpen={isOpen} />
       <nav className={isOpen ? "sidebar open" : "sidebar"}>
-        <Profile />
+        <Profile user={user} />
         <div className="links">
           {NavLinkData.map((data) => (
             <NavButton key={data.id} label={data.label} />
           ))}
-          <NavLink to={"/"} onClick={handleLogout}>
+          <NavLink onClick={handleLogout}>
             <img src={`/svg/nav_link/logout.svg`} alt="logout" />
             <span>Logout</span>
           </NavLink>

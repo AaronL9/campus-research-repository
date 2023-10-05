@@ -1,4 +1,4 @@
-import { Outlet, useLocation, NavLink } from "react-router-dom";
+import { Outlet, useLocation, NavLink, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // assets
@@ -14,13 +14,24 @@ import Hamburger from "../components/Hamburger";
 import AdminNavButton from "../components/sidebar/AdminNavButton";
 import Footer from "../components/Footer";
 import Profile from "../components/sidebar/Profile";
+import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Sidebar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const { logout } = useLogout();
+  const navigate = useNavigate();
+  const { admin } = useAuthContext();
 
   const handleToggleMenu = () => {
     setIsOpen((prevOpen) => !prevOpen);
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logout("admin");
+    navigate("/admin/login");
   };
 
   useEffect(() => {
@@ -33,15 +44,15 @@ const Sidebar = () => {
       <div className={isOpen ? "disable" : ""}></div>
       <CloseButton close={handleToggleMenu} isOpen={isOpen} />
       <nav className={isOpen ? "sidebar open" : "sidebar"}>
-        <Profile />
+        <Profile user={admin} />
         <div className="links">
           {AdminNavLinkData.map((data) => (
             <AdminNavButton key={data.id} label={data.label} />
           ))}
-          <NavLink to={"/"} onClick={null}>
+          <Link onClick={handleLogout}>
             <img src={`/svg/nav_link/logout.svg`} alt="logout" />
             <span>Logout</span>
-          </NavLink>
+          </Link>
         </div>
       </nav>
       <header>

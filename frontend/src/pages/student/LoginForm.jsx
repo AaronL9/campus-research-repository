@@ -9,16 +9,14 @@ import { useLogin } from "../../hooks/useLogin";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { userCredentials } from "../../assets/js/LoginCredentials";
 
-
 const LoginForm = () => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
-  const { dispatch } = useAuthContext();
-
+  const {user, admin, dispatch } = useAuthContext();
 
   useEffect(() => {
-    if (user) navigate("student/home");
-  }, []);
+    if (admin) navigate("/admin/dashboard");
+    if (user) navigate("/student/home");
+  }, [user, admin]);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

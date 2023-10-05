@@ -14,7 +14,7 @@ import DepartmentRepository from "./components/repositories/DepartmentRepository
 import Error from "./components/Error";
 import FaqItem from "./components/faqs/FaqItem";
 import ArchiveView from "./components/archive/ArchiveView";
-import PrivateRoutes from "./components/auth/PrivateRoutes";
+import {PrivateRoutes, AdminRoutes} from "./components/auth/PrivateRoutes";
 
 // pages
 import Home from "./pages/student/Home";
@@ -42,12 +42,14 @@ const router = createBrowserRouter(
       <Route path="registration" element={<RegistrationForm />}></Route>
       <Route index element={<LoginForm />}></Route>
       <Route path="admin/login" element={<Login />}></Route>
-      <Route path="admin" element={<AdminLayout />}>
-        <Route path="dashboard" element={<AdminDashboard />} />
-        <Route path="newresearch" element={<AdminNewResearch />} />
-        <Route path="records" element={<AdminRecords />} />
-        <Route path="archive" element={<AdminArchive />} />
-        <Route path="queue" element={<AdminQueue />} />
+      <Route element={<AdminRoutes />}>
+        <Route path="admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="newresearch" element={<AdminNewResearch />} />
+          <Route path="records" element={<AdminRecords />} />
+          <Route path="archive" element={<AdminArchive />} />
+          <Route path="queue" element={<AdminQueue />} />
+        </Route>
       </Route>
       <Route element={<PrivateRoutes />}>
         <Route path="student" element={<RootLayout />} errorElement={<Error />}>
@@ -68,7 +70,6 @@ const router = createBrowserRouter(
           <Route path="archive" element={<Archive />} />
           <Route path="archive/:id" element={<ArchiveView />}></Route>
           <Route path="create" element={<Create />} />
-          
         </Route>
       </Route>
     </Route>

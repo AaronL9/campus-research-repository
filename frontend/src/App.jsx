@@ -27,6 +27,8 @@ import Research from "./pages/student/Research";
 import Repositories from "./pages/student/Repositories";
 import RegistrationForm from "./pages/student/RegistrationForm";
 import Profile from "./pages/student/UserProfile";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 // admin pages
 import AdminDashboard from "./pages/admin/Dashboard";
@@ -39,6 +41,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route index element={<LoginForm />}></Route>
+      <Route path="forgotpassword" element={<ForgotPassword />}></Route>
+      <Route path="resetpassword" element={<ResetPassword />}></Route>
       <Route path="registration" element={<RegistrationForm />}></Route>
       <Route path="admin" element={<AdminLayout />}>
         <Route path="dashboard" element={<AdminDashboard />} />

@@ -20,7 +20,7 @@ export default function NewResearch() {
 
   const hide = !isLoading && !limit;
   
-  console.log(newResearch);
+  console.log(admin?.token);
 
   useEffect(() => {
     if (!admin) return;
@@ -28,7 +28,7 @@ export default function NewResearch() {
     const fetchSubmittedResearch = async () => {
       const response = await fetch(`/api/research/submitted?filter=${filter}`, {
         headers: {
-          Authorization: `Bearer ${admin.token}`,
+          Authorization: `Bearer ${admin?.token}`,
         },
       });
 

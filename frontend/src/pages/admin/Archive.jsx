@@ -6,7 +6,7 @@ import Pagination from "../../components/Pagination";
 import TableHeader from "../../components/admin/ArchiveTable";
 import TableRow from "../../components/admin/ArchiveTableRow";
 
-import ArchiveFeatures from "../../components/ArchiveFeatures";
+// import ArchiveFeatures from "../../components/ArchiveFeatures";
 
 import "../../assets/css/admin/archive.css";
 

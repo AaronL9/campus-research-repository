@@ -1,5 +1,5 @@
 // components
-import ArchiveFeatures from "../../components/ArchiveFeatures";
+import ArchiveFeatures from "../../components/archive/ArchiveFeatures";
 
 // assets
 import "../../assets/css/archive.css";
@@ -14,7 +14,7 @@ export default function Archive() {
   const [limit, setLimit] = useState(10);
   const [filterValue, setFilterValue] = useState();
   const [sortingValue, setSortingValue] = useState();
-  
+
   return (
     <div className="archives">
       <h1>Archive</h1>
@@ -28,7 +28,12 @@ export default function Archive() {
           pageNum,
         }}
       >
-        <ArchiveFeatures />
+        <ArchiveFeatures
+          setFilterValue={setFilterValue}
+          setPageNum={setPageNum}
+          setSortingValue={setSortingValue}
+          filterValue={filterValue}
+        />
         <ArchiveTable pageNum={pageNum} setLimit={setLimit} />
         <Pagination pagination={{ pageNum, setPageNum, limit }} />
       </ArchiveContext.Provider>

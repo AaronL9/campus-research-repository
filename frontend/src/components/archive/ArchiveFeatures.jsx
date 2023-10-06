@@ -1,16 +1,19 @@
-import SearchBar from "./SearchBar";
-import Dropdown from "./archive/Dropdown";
+import SearchBar from "../SearchBar";
+import Dropdown from "./Dropdown";
 import { useEffect, useState, useContext } from "react";
-import { ArchiveContext } from "../pages/student/Archive";
+import { ArchiveContext } from "../../pages/student/Archive";
 
-import { options } from "../assets/js/ArchiveData";
+import { options } from "../../assets/js/ArchiveData";
 
-export default function ArchiveFeatures() {
+export default function ArchiveFeatures({
+  setFilterValue,
+  setPageNum,
+  setSortingValue,
+  filterValue,
+}) {
   const [selectedCourse, setSelectedCourse] = useState("COURSES");
   const [selectedDepartment, setSelectedDepartment] = useState("DEPARTMENTS");
   const [sortBy, setSortBy] = useState("Newest to Oldest");
-  const { setFilterValue, setPageNum, setSortingValue, filterValue } =
-    useContext(ArchiveContext);
   const [isSearch, setIsSearch] = useState(false);
 
   useEffect(() => {

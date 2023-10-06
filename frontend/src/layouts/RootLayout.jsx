@@ -1,4 +1,4 @@
-import { Outlet, useLocation, NavLink, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // assets
@@ -49,10 +49,10 @@ const Sidebar = () => {
           {NavLinkData.map((data) => (
             <NavButton key={data.id} label={data.label} />
           ))}
-          <NavLink onClick={handleLogout}>
+          <Link onClick={handleLogout}>
             <img src={`/svg/nav_link/logout.svg`} alt="logout" />
             <span>Logout</span>
-          </NavLink>
+          </Link>
         </div>
       </nav>
       <header>

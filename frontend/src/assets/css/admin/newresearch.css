@@ -8,6 +8,19 @@
   position: relative;
 }
 
+.newsub-research {
+  display: flex;
+  justify-content: space-between;
+  width: min(1067px, 90%);
+  margin-inline: auto;
+  margin-block: 5rem 2rem;
+}
+
+.newsub-research__pagination {
+  display: flex;
+  justify-content: center;
+}
+
 .new-research picture {
   margin-right: auto;
   text-align: center;

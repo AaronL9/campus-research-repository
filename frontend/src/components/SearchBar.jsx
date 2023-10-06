@@ -12,6 +12,7 @@ export default function SearchBar({ placeholder, setFilterValue, queryType, setP
     queryType(true);
     setPageNum(1);
   };
+  
   return (
     <div className="search-bar">
       <form onSubmit={handleSubmit}>

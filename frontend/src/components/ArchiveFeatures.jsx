@@ -1,9 +1,9 @@
-import SearchBar from "../SearchBar";
-import Dropdown from "./Dropdown";
+import SearchBar from "./SearchBar";
+import Dropdown from "./archive/Dropdown";
 import { useEffect, useState, useContext } from "react";
-import { ArchiveContext } from "../../pages/student/Archive";
+import { ArchiveContext } from "../pages/student/Archive";
 
-import { options } from "../../assets/js/ArchiveData";
+import { options } from "../assets/js/ArchiveData";
 
 export default function ArchiveFeatures() {
   const [selectedCourse, setSelectedCourse] = useState("COURSES");
@@ -28,21 +28,20 @@ export default function ArchiveFeatures() {
         setSelectedCourse("COURSES");
         setFilterValue(selectedDepartment);
       }
-      
+
       if (
         selectedCourse === "COURSES" &&
         selectedDepartment === "DEPARTMENTS"
-        ) {
-          setFilterValue(undefined);
-          setIsSearch(false);
-        }
+      ) {
+        setFilterValue(undefined);
+        setIsSearch(false);
       }
-      
+    }
+
     if (isSearch) {
       setSelectedCourse("COURSES");
       setSelectedDepartment("DEPARTMENTS");
     }
-
   }, [selectedCourse, selectedDepartment, sortBy, filterValue]);
 
   return (

@@ -23,19 +23,22 @@ export default function DeptRepo() {
   const [pageNum, setPageNum] = useState(1);
   const [limit, setLimit] = useState(false);
   const [query, setQuery] = useState(undefined);
-  const [isSearch, setIsSearch] = useState(false)
+  const [isSearch, setIsSearch] = useState(false);
 
-  const hide = !isLoading && !limit
+  const hide = !isLoading && !limit;
 
   useEffect(() => {
     if (!user) return;
     setIsLoading(true);
     const fetchResearch = async () => {
-      const response = await fetch(`/api/research/${deptId.toUpperCase()}/?page=${pageNum}&filter=${query}`, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `/api/research/department/${deptId.toUpperCase()}/?page=${pageNum}&filter=${query}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       const json = await response.json();
       if (response.ok) {
         setDeptResearches(!isSearch ? [...deptResearches, ...json] : json);
@@ -59,14 +62,25 @@ export default function DeptRepo() {
             </figure>
             <h1>{RepoInfo[deptId].title}</h1>
           </div>
-          <SearchBar placeholder={"search..."} setFilterValue={setQuery} queryType={setIsSearch} setPageNum={setPageNum} />
+          <SearchBar
+            placeholder={"search..."}
+            setFilterValue={setQuery}
+            queryType={setIsSearch}
+            setPageNum={setPageNum}
+          />
           <div className="research">
             {deptResearches?.map((deptResearch) => (
               <ResearchCard key={deptResearch._id} research={deptResearch} />
             ))}
           </div>
           <div className="repository__pagination">
-            {hide && (<PaginationBtn setPage={setPageNum} onLimit={limit} queryType={setIsSearch}  />)}
+            {hide && (
+              <PaginationBtn
+                setPage={setPageNum}
+                onLimit={limit}
+                queryType={setIsSearch}
+              />
+            )}
           </div>
           {isLoading && <Loader />}
         </div>

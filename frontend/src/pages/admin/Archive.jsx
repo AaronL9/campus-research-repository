@@ -1,14 +1,14 @@
-import React from 'react'
-import { Link } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
 
 //components
 import Pagination from "../../components/Pagination";
-import TableHeader from '../../components/admin/ArchiveTable';
-import TableRow from '../../components/admin/ArchiveTableRow';
+import TableHeader from "../../components/admin/ArchiveTable";
+import TableRow from "../../components/admin/ArchiveTableRow";
 
-import ArchiveFeatures from "../../components/archive/ArchiveFeatures";
+import ArchiveFeatures from "../../components/ArchiveFeatures";
 
-import "../../assets/css/admin/archive.css"
+import "../../assets/css/admin/archive.css";
 
 const ArchiveTable = () => {
   const data = [
@@ -21,28 +21,32 @@ const ArchiveTable = () => {
     },
     {
       id: 1,
-      title: "Nursing Theories and Nursing Practice: Personal Nursing Philosophy",
+      title:
+        "Nursing Theories and Nursing Practice: Personal Nursing Philosophy",
       author: "Brown, Denise J.",
       course: "BSN",
       date: "26/08/2023",
     },
     {
       id: 2,
-      title: "Engineering Analysis: Engineering Writing &amp; Composing Process",
+      title:
+        "Engineering Analysis: Engineering Writing &amp; Composing Process",
       author: "Smith, Jane A.",
       course: "BSAR",
       date: "26/08/2023",
     },
     {
       id: 3,
-      title: "Managerial and Financial Accounting: Role of Ethics in Accounting",
+      title:
+        "Managerial and Financial Accounting: Role of Ethics in Accounting",
       author: "Jones, Robert E.",
       course: "BSA",
       date: "26/08/2023",
     },
     {
       id: 4,
-      title: "Software Engineering: Functional &amp; Non-functional Requirements",
+      title:
+        "Software Engineering: Functional &amp; Non-functional Requirements",
       author: "Link, Karen M.",
       course: "BSECE",
       date: "26/08/2023",

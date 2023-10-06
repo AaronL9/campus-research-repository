@@ -7,10 +7,10 @@ import { ResearchContextProvider } from "./context/ResearchContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthContextProvider>
-      <ResearchContextProvider>
-        <App />
-      </ResearchContextProvider>
-    </AuthContextProvider>
+      <AuthContextProvider>
+        <ResearchContextProvider>
+          <App />
+        </ResearchContextProvider>
+      </AuthContextProvider>
   </React.StrictMode>
 );

@@ -6,16 +6,19 @@ export const useSignup = () => {
   const navigate = useNavigate();
 
   const signup = async (userName, email, password) => {
+    
     const response = await fetch('/api/user/signup', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({userName, email, password })
     })
+
     const json = await response.json()
 
     if (!response.ok) {
       console.log(json.error)
     }
+
     if (response.ok) {
       // save the user to local storage
       localStorage.setItem('user', JSON.stringify(json))

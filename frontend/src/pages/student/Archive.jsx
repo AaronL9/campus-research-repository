@@ -1,5 +1,5 @@
 // components
-import ArchiveFeatures from "../../components/archive/ArchiveFeatures";
+import ArchiveFeatures from "../../components/ArchiveFeatures";
 
 // assets
 import "../../assets/css/archive.css";

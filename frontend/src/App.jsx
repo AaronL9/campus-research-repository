@@ -34,6 +34,7 @@ import AdminNewResearch from "./pages/admin/NewResearch";
 import AdminRecords from "./pages/admin/Records";
 import AdminArchive from "./pages/admin/Archive";
 import AdminQueue from "./pages/admin/Queue";
+import AdminResearchView from "./pages/admin/AdminResearchView";
 import Login from "./pages/admin/Login";
 
 const router = createBrowserRouter(
@@ -46,6 +47,7 @@ const router = createBrowserRouter(
         <Route path="admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="newresearch" element={<AdminNewResearch />} />
+          <Route path="newresearch/:id" element={<AdminResearchView />} />
           <Route path="records" element={<AdminRecords />} />
           <Route path="archive" element={<AdminArchive />} />
           <Route path="queue" element={<AdminQueue />} />

@@ -25,4 +25,16 @@ const filterResearch = (filterValue, deptId) => {
       };
 };
 
-module.exports = { filterArchive, filterResearch };
+const filterSubmit = (filterValue) => {
+  return filterValue === "undefined"
+    ? { approve: false }
+    : {
+      $or: [
+        { title: { $regex: new RegExp(filterValue, "i") } },
+        { author: { $regex: new RegExp(filterValue, "i") } },
+      ],
+        approve: false,
+      };
+};
+
+module.exports = { filterArchive, filterResearch, filterSubmit };

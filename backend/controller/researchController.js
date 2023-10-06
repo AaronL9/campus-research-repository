@@ -2,7 +2,11 @@ const { ResearchModel } = require("../model/researchModel");
 const { ResearchPdfModel } = require("../model/researchPdfModel");
 const User = require("../model/userModel");
 const { sort } = require("../utils/sorting");
-const { filterArchive, filterResearch } = require("../utils/filtering");
+const {
+  filterArchive,
+  filterResearch,
+  filterSubmit,
+} = require("../utils/filtering");
 
 const getUserResearches = async (req, res) => {
   try {
@@ -135,6 +139,48 @@ const getArchive = async (req, res) => {
   }
 };
 
+// adming access
+const getSubmittedResearches = async (req, res) => {
+  const pageNumber = parseInt(req.query.page) || 1;
+  const pageSize = 5;
+
+  try {
+    const skipCount = (pageNumber - 1) * pageSize;
+    const newSubmit = await ResearchModel.find(filterSubmit(req.query.filter))
+      .skip(skipCount)
+      .limit(pageSize);
+    res.status(200).json(newSubmit);
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
+};
+
+const confirmation = async (req, res) => {
+  try {
+    const research = await ResearchModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      }
+    );
+
+    if (!research) throw Error("No research found");
+    res.status(200).json(research);
+  } catch (error) {
+    res.status(404).json(error.message);
+  }
+};
+
+const reject = async (req, res) => {
+  try {
+    const research = await ResearchModel.findByIdAndDelete(req.params.id);
+    res.status(200).json(research);
+  } catch (error) {
+    res.status(404).json(error.message);
+  }
+};
+
 module.exports = {
   uploadResearch,
   getByDepartment,
@@ -144,4 +190,7 @@ module.exports = {
   getPdf,
   getUserResearches,
   getAllResearch,
+  getSubmittedResearches,
+  confirmation,
+  reject,
 };

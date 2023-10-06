@@ -32,6 +32,14 @@ const researchSchema = new Schema({
     default: false,
     required: false,
   },
+  approve: {
+    type: Boolean,
+    default: false,
+  },
+  queue: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 const ResearchModel = mongoose.model("Research", researchSchema);

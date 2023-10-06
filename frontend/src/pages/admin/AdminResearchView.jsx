@@ -1,35 +1,35 @@
 import React, { useEffect, useState } from "react";
 import "../../assets/css/research_view.css";
 import PreviousButton from "../../components/PreviousButton";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import formatDate from "../../assets/js/formatDate";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
-export default function Research() {
-  const url = useLocation().pathname.split("/");
-  const researchId = url[url.length - 1];
-  const { user } = useAuthContext();
+export default function AdminResearchView() {
+  // const url = useLocation().pathname.split("/");
+  const researchId = useParams().id;
+  const { admin } = useAuthContext();
   const [research, setResearch] = useState(null);
   const pdfUrl = `/api/research/pdf/${researchId}`;
+  console.log(researchId)
 
   const handleDownloadClick = () => {
-
     const anchor = document.createElement("a");
     anchor.href = pdfUrl;
-    anchor.download = "Upang_Research.pdf"; 
+    anchor.download = "Upang_Research.pdf";
 
     anchor.click();
   };
 
   useEffect(() => {
-    if (!user) {
+    if (!admin) {
       return;
     }
 
     const fetchResearch = async () => {
       const response = await fetch(`/api/research/${researchId}`, {
         headers: {
-          Authorization: `Bearer ${user?.token}`,
+          Authorization: `Bearer ${admin?.token}`,
         },
       });
 
@@ -44,7 +44,7 @@ export default function Research() {
     };
 
     fetchResearch();
-  }, [user]);
+  }, [admin]);
 
   return (
     <>
@@ -62,10 +62,12 @@ export default function Research() {
               <div className="hr" />
               <div className="file-info">
                 <p>
-                  <span>Date Published: </span>{formatDate(research?.year)}
+                  <span>Date Published: </span>
+                  {formatDate(research?.year)}
                 </p>
                 <p>
-                  <span>Author: </span>{research?.author}
+                  <span>Author: </span>
+                  {research?.author}
                 </p>
               </div>
               <button onClick={handleDownloadClick} className="download-btn">
@@ -76,9 +78,7 @@ export default function Research() {
           </div>
           <div className="research__abstract">
             <span>Abstract:</span>
-            <p>
-              {research?.abstract}
-            </p>
+            <p>{research?.abstract}</p>
           </div>
           <h2>Research Review</h2>
           <div className="research-review">

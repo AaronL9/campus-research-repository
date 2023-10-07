@@ -4,6 +4,7 @@ import CreateButton from "./CreateButton";
 import "../../assets/css/userprofile.css";
 
 export default function Profile({ user }) {
+  console.log(user)
   return (
     <>
       <div className="profile">
@@ -15,7 +16,7 @@ export default function Profile({ user }) {
           </div>
         </Link>
         <div className="line"></div>
-        <CreateButton />
+        {!user?.isAdmin ? (<CreateButton />) : null}
       </div>
     </>
   );

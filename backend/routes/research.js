@@ -17,7 +17,9 @@ const {
   getAllRecords,
   updateRecords,
   deleteArchive,
-  pushToArchives
+  pushToArchives,
+  getSubmittedResearchesCount,
+  queue
 } = require("../controller/researchController");
 
 const requireAuth = require("../middleware/requireAuth");
@@ -25,9 +27,11 @@ router.get("/pdf/:id", getPdf);
 
 router.use(requireAuth);
 router.get("/submitted", getSubmittedResearches);
+router.get("/submitted/count", getSubmittedResearchesCount);
 router.get("/archives", getArchives);
 router.get("/researches", getAllResearch);
 router.get("/records", getAllRecords);
+router.get("/queue", queue);
 router.get("/archives/:id", getArchive);
 router.get("/user/:id", getUserResearches);
 router.get("/department/:id", getByDepartment);

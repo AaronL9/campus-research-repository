@@ -7,6 +7,7 @@ const {
   filterResearch,
   filterSubmit,
   filterRecords,
+  filterCount,
 } = require("../utils/filtering");
 
 const getUserResearches = async (req, res) => {
@@ -158,6 +159,17 @@ const getSubmittedResearches = async (req, res) => {
   }
 };
 
+const getSubmittedResearchesCount = async (req, res) => {
+  try {
+    const count = await ResearchModel.countDocuments(
+      filterCount(req.query.filter)
+    );
+    res.status(200).json({ count });
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
+};
+
 const confirmation = async (req, res) => {
   try {
     const research = await ResearchModel.findByIdAndUpdate(
@@ -181,6 +193,15 @@ const reject = async (req, res) => {
     res.status(200).json(research);
   } catch (error) {
     res.status(404).json(error.message);
+  }
+};
+
+const queue = async (req, res) => {
+  try {
+    const queue = await ResearchModel.find({ queue: true, approve: false });
+    res.status(200).json(queue);
+  } catch (error) {
+    res.status(500).json(error.message);
   }
 };
 
@@ -227,9 +248,9 @@ const pushToArchives = async (req, res) => {
       }
     );
 
-    res.status(201).json(research)
+    res.status(201).json(research);
   } catch (error) {
-    res.status(500).send(error.message)
+    res.status(500).send(error.message);
   }
 };
 
@@ -259,4 +280,6 @@ module.exports = {
   updateRecords,
   deleteArchive,
   pushToArchives,
+  getSubmittedResearchesCount,
+  queue,
 };

@@ -52,4 +52,23 @@ const filterSubmit = (filterValue) => {
       };
 };
 
-module.exports = { filterArchive, filterResearch, filterSubmit, filterRecords };
+const filterCount = (filterValue) => {
+  switch (filterValue) {
+    case "1":
+      return { archiveStatus: false, approve: false };
+    case "2":
+      return { archiveStatus: false, approve: true };
+    case "3":
+      return { archiveStatus: true, approve: true };
+    case "4":
+      return { queue: true };
+  }
+};
+
+module.exports = {
+  filterArchive,
+  filterResearch,
+  filterSubmit,
+  filterRecords,
+  filterCount,
+};

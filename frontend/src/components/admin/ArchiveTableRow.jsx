@@ -1,23 +1,64 @@
 // TableRow.js
-import React from 'react';
-import { Link } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
+import { formatDateToDDMMYYYY } from "../../assets/js/formatDate";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const ArchiveTableRow = ({ data }) => {
+  const { admin } = useAuthContext();
+
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    const response = await fetch(`/api/research/archives/${data._id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${admin.token}`,
+      },
+    });
+
+    if (response.ok) {
+      location.reload();
+    }
+  };
+
+  const handleRetrieve = async (e) => {
+    e.preventDefault();
+    const response = await fetch(`/api/research/records/${data._id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ archiveStatus: false }),
+      headers: {
+        Authorization: `Bearer ${admin?.token}`,
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await response.json();
+    if (response.ok) {
+      console.log(json);
+      location.reload();
+    }
+  };
+
   return (
     <tr>
       <td>{data.title}</td>
       <td>{data.author}</td>
       <td>{data.course}</td>
-      <td>{data.date}</td>
+      <td>{formatDateToDDMMYYYY(data.year)}</td>
       <td>
         <div className="button__action">
           <button className="dropdown">
             <img src="/svg/caret-down.svg" alt="Dropdown" />
           </button>
           <div className="dropdown__content">
-            <Link to=""><img src="/svg/view-green-icon.svg" alt="View" /> View</Link>
-            <Link to=""><img src="/svg/retrieve-icon.svg" alt="Retrieve" /> Retrieve</Link>
-            <Link to=""><img src="/svg/trash-icon.svg" alt="Delete" /> Delete</Link>
+            <Link to={`/admin/archive/${data._id}`}>
+              <img src="/svg/view-green-icon.svg" alt="View" /> View
+            </Link>
+            <Link onClick={handleRetrieve}>
+              <img src="/svg/retrieve-icon.svg" alt="Retrieve" /> Retrieve
+            </Link>
+            <Link onClick={handleDelete}>
+              <img src="/svg/trash-icon.svg" alt="Delete" /> Delete
+            </Link>
           </div>
         </div>
       </td>

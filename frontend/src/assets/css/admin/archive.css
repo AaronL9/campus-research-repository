@@ -1,11 +1,12 @@
 /*--------------------------- Parent Container ---------------------------*/
 .admin-archive {
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
-} 
+}
 
 /*--------------------------- Archive Features ---------------------------*/
 .admin-archive h1 {
+  margin-inline: auto;
   margin-bottom: 2rem;
 }
 
@@ -15,7 +16,6 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-inline: auto;
-  margin-bottom: 30px;
 }
 
 .admin-archive .archive-features .archive-dropdown {
@@ -23,32 +23,37 @@
   background: #d9d9d9;
   border-radius: 20px;
   padding: 10px 20px;
+  align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
 }
 
 .admin-archive .archive-features .archive-dropdown .filter {
-  margin-right: 5rem;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /*--------------------------- TABLE ---------------------------*/
 
 .archive-table__content {
   border-collapse: collapse;
-  font-size: .9em;
+  font-size: 0.9em;
   /* overflow: hidden; */
+  width: 100%;
 }
 
-.archive-table__content thead tr{
-  background: linear-gradient(to bottom,
-  #212d62,
-  #212d62,
-  #1c435d,
-  #1b5858);   
+.archive-table__content thead tr {
+  background: linear-gradient(to bottom, #212d62, #212d62, #1c435d, #1b5858);
   text-align: left;
   color: #fff;
 }
 
-.archive-table__content thead th{
+.archive-table__content thead th {
   padding-left: 4rem;
   height: 4rem;
   font-weight: 300;
@@ -71,7 +76,7 @@
   border-bottom: 3px solid #212d62;
 }
 
-.archive-table__content tbody td{
+.archive-table__content tbody td {
   padding-left: 4rem;
   padding-bottom: 5px;
   font-weight: 400;
@@ -96,7 +101,7 @@
   position: absolute;
   background-color: #121e3a;
   border-radius: 10px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   top: 0;
   left: -48px;
   z-index: 1;
@@ -173,11 +178,11 @@
   border: none;
   background: #121e3a;
   color: #fff;
-  font-size: .8em;
+  font-size: 0.8em;
   font-weight: 400;
 }
 
-.admin-archive .pagination button:hover {
+.admin-archive .pagination button:hover, .admin-archive .pagination button:disabled {
   background-color: #d9d9d9;
   color: #000;
   cursor: pointer;
@@ -188,11 +193,11 @@
   padding: 4px 14px;
   border-radius: 8px;
   color: #fff;
-  font-size: .7em;
+  font-size: 0.7em;
 }
 
 /*--------------------------- RESPONSIVENESS ---------------------------*/
-@media (max-width: 650px){
+@media (max-width: 650px) {
   .admin-archive .archive-table {
     width: 100%;
   }
@@ -244,13 +249,5 @@
   .archive-table__content tbody .dropdown__content {
     top: 27px;
     left: -30px;
-  }
-}
-
-@media screen and (max-width: 560px) {
-  .admin-archive .archive-features .archive-dropdown {
-    display: block;
-    justify-content: start;
-    border-radius: 5px;
   }
 }

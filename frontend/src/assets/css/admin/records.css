@@ -1,6 +1,6 @@
 /*--------------------------- Parent Container ---------------------------*/
 .private-records {
-  max-width: 80%;
+  width: 90%;
   margin: 0 auto;
 } 
 
@@ -22,17 +22,25 @@
   background: #d9d9d9;
   border-radius: 20px;
   padding: 10px 20px;
+  align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .private-records .archive-features .archive-dropdown .filter {
-  margin-right: 5rem;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /*--------------------------- TABLE ---------------------------*/
 .private-records__table {
   /* overflow-x: auto; */
   border-radius: 10px;
+  width: 100%;
 }
 
 .private-records__table::-webkit-scrollbar {
@@ -53,6 +61,7 @@
   border-collapse: collapse;
   font-size: .9em;
   /* overflow: hidden; */
+  width: 100%;
 }
 
 .table__content thead tr {
@@ -66,9 +75,11 @@
 }
 
 .table__content thead th {
-  padding-left: 4rem;
-  height: 4rem;
+  padding-block: 2rem;
+  /* height: 4rem; */
   font-weight: 300;
+  width: 20%;
+  text-align: center;
 }
 
 .table__content thead .action {
@@ -89,15 +100,17 @@
 }
 
 .table__content tbody td {
-  padding-left: 4rem;
+  /* padding-left: 4rem; */
   padding-bottom: 5px;
   font-weight: 400;
+  width: 20%;
+  text-align: center;
 }
 
 /*------------ Action Column ------------*/
 .table__content tbody .button__action {
-  position: relative;
   margin-left: 1rem;
+  position: relative;
 }
 
 .table__content tbody .dropdown {
@@ -106,6 +119,7 @@
   cursor: pointer;
   background: none;
   font-size: 1.2em;
+
 }
 
 .table__content tbody .dropdown__content {
@@ -115,7 +129,7 @@
   border-radius: 10px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   top: 0;
-  left: -48px;
+  left: 28%;
   z-index: 1;
   width: 115px;
 }
@@ -193,7 +207,7 @@
   font-weight: 400;
 }
 
-.private-records .pagination button:hover {
+.private-records .pagination button:hover, .private-records .pagination button:disabled {
   background-color: #d9d9d9;
   color: #000;
   cursor: pointer;
@@ -215,12 +229,16 @@
 
   .table__content thead th {
     display: none;
+    text-align: left;
+    width: 100%;
   }
 
   .table__content tbody td {
     display: grid;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
+    text-align: left;
+    width: 100%;
   }
 
   .table__content tbody td:first-child {

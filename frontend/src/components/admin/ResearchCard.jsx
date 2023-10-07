@@ -47,7 +47,7 @@ export default function ResearchCard({ content }) {
             <img src="/svg/menu-dots.svg" alt="Menu" />
           </button>
           <div className="dropdown__content">
-            <Link to={content._id}>
+            <Link to={`/admin/research/${content._id}`}>
               <img src="/svg/view-icon.svg" alt="View" /> View
             </Link>
             <Link to="">

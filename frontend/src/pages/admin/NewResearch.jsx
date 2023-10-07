@@ -26,11 +26,14 @@ export default function NewResearch() {
     if (!admin) return;
     setIsLoading(true)
     const fetchSubmittedResearch = async () => {
-      const response = await fetch(`/api/research/submitted?filter=${filter}`, {
-        headers: {
-          Authorization: `Bearer ${admin?.token}`,
-        },
-      });
+      const response = await fetch(
+        `/api/research/submitted?filter=${filter}&page=${pageNum}`,
+        {
+          headers: {
+            Authorization: `Bearer ${admin?.token}`,
+          },
+        }
+      );
 
       const json = await response.json();
       if (response.ok) {

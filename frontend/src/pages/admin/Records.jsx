@@ -18,12 +18,18 @@ const RecordsTable = () => {
   const [sortingValue, setSortingValue] = useState();
   const [records, setRecords] = useState([]);
 
+  const pagination = {
+    pageNum,
+    setPageNum, 
+    limit,
+  }
+
   const { admin } = useAuthContext();
   console.log(records);
   useEffect(() => {
     const fetchRecords = async () => {
       const response = await fetch(
-        `/api/research/archives?page=${pageNum}&filter=${filterValue}&sort=${sortingValue}`,
+        `/api/research/records?page=${pageNum}&filter=${filterValue}&sort=${sortingValue}`,
         {
           headers: {
             Authorization: `Bearer ${admin.token}`,
@@ -33,7 +39,7 @@ const RecordsTable = () => {
       const json = await response.json();
 
       if (response.ok) {
-        // setLimit(json.length);
+        setLimit(json.length);
         setRecords(json);
       } else setLimit(true);
     };
@@ -57,12 +63,12 @@ const RecordsTable = () => {
           <TableHeader />
           <tbody>
             {records?.map((records) => (
-              <TableRow data={records} />
+              <TableRow key={records._id} data={records} />
             ))}
           </tbody>
         </table>
       </div>
-      {/* <Pagination /> */}
+      <Pagination pagination={pagination} />
     </div>
   );
 };

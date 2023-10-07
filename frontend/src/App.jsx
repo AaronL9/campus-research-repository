@@ -36,6 +36,9 @@ import AdminArchive from "./pages/admin/Archive";
 import AdminQueue from "./pages/admin/Queue";
 import AdminResearchView from "./pages/admin/AdminResearchView";
 import Login from "./pages/admin/Login";
+import Update from './pages/admin/Update';
+import AdminCreate from './pages/admin/Create';
+import AdminArchiveView from './pages/admin/ArchiveView';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -47,10 +50,13 @@ const router = createBrowserRouter(
         <Route path="admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="newresearch" element={<AdminNewResearch />} />
-          <Route path="newresearch/:id" element={<AdminResearchView />} />
           <Route path="records" element={<AdminRecords />} />
           <Route path="archive" element={<AdminArchive />} />
           <Route path="queue" element={<AdminQueue />} />
+          <Route path="create" element={<AdminCreate />} />
+          <Route path="research/update/:id" element={<Update />} />
+          <Route path="archive/:id" element={<AdminArchiveView />} />
+          <Route path="research/:id" element={<AdminResearchView />} />
         </Route>
       </Route>
       <Route element={<PrivateRoutes />}>

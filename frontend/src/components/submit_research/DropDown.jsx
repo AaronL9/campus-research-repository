@@ -1,4 +1,4 @@
-export default function DropDown({ data, department, onSelect }) {
+export default function DropDown({ data, department, onSelect, value }) {
   
   const options =
     data.id === "department"
@@ -12,6 +12,7 @@ export default function DropDown({ data, department, onSelect }) {
         className="submit-research__selection"
         id={data.id}
         name={data.id}
+        value={value}
         onChange={onSelect}
         required
       >

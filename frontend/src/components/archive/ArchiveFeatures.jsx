@@ -51,7 +51,7 @@ export default function ArchiveFeatures({
     <div className="archive-features">
       <div className="search">
         <SearchBar
-          placeholder={"search archive list"}
+          placeholder={"search..."}
           setFilterValue={setFilterValue}
           setPageNum={setPageNum}
           queryType={setIsSearch}

@@ -29,14 +29,15 @@ const filterRecords = (filterValue) => {
 
 const filterResearch = (filterValue, deptId) => {
   return filterValue === "undefined"
-    ? { archiveStatus: false, department: deptId }
+    ? { archiveStatus: false, department: deptId, approve: true }
     : {
         $or: [
           { title: { $regex: new RegExp(filterValue, "i") } },
           { author: { $regex: new RegExp(filterValue, "i") } },
         ],
-        archiveStatus: false,
+        approve: true,
         department: deptId,
+        archiveStatus: false,
       };
 };
 

@@ -42,7 +42,7 @@ const UserProfile = () => {
           }}
         />
         <div className="userprofile-research">
-          <h2>Research History</h2>
+          <h2>Research Contribution</h2>
           <div className="divider"></div>
           <div className="userprofile-cards">
             <div className="userprofile-card">

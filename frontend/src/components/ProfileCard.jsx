@@ -4,6 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 export default function ProfileCard({ profile }) {
   const { user } = useAuthContext();
+  console.log(user)
   const [isEditing, setIsEditing] = useState(false);
   const [info, setInfo] = useState(profile);
   const [image, setImage] = useState(null);
@@ -68,7 +69,7 @@ export default function ProfileCard({ profile }) {
                 className="picture-file"
               />
             </div>
-            <h2>{user?.name}</h2>
+            <h2>{user?.userName}</h2>
             <Link to="/student/create">
               <button className="usercard-top__report-btn">
                 <img src="/svg/pen-icon.svg" alt="report_btn" />
@@ -92,30 +93,12 @@ export default function ProfileCard({ profile }) {
                 maxLength={250}
               />
             </div>
-            <div className="usercard-info__address">
-              <span>Research Contribution:</span>
-              {info.works.map((work, index) => (
-                <input
-                  key={index}
-                  name="contribution"
-                  value={work}
-                  onChange={(e) => handleInputChange(e, index)}
-                />
-              ))}
-              <button type="button" onClick={handleAddWork}>
-                Add
-              </button>
-            </div>
             <div className="usercard-info__contact">
               <span>Contact:</span>
               <div className="usercard-info__contact-wrap">
                 <label>
                   <img src="/svg/mail.svg" alt="email-light" />
                   <p>{user?.email}</p>
-                </label>
-                <label>
-                  <img src="/svg/telephone.svg" alt="telephone" />
-                  <p> (63+) 923-101-0012</p>
                 </label>
               </div>
             </div>
@@ -155,22 +138,12 @@ export default function ProfileCard({ profile }) {
               <span>Bio:</span>
               <p>{info.biodata}</p>
             </div>
-            <div className="usercard-info__address">
-              <span>Research Contribution:</span>
-              {info.works.map((work, index) => (
-                <p key={index}>{work}</p>
-              ))}
-            </div>
             <div className="usercard-info__contact">
               <span>Contact:</span>
               <div className="usercard-info__contact-wrap">
                 <label>
                   <img src="/svg/mail.svg" alt="email-light" />
                   <p>{user?.email}</p>
-                </label>
-                <label>
-                  <img src="/svg/telephone.svg" alt="telephone" />
-                  <p> (63+) 923-101-0012</p>
                 </label>
               </div>
             </div>

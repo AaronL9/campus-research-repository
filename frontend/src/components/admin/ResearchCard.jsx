@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { limitAbstract } from "../../assets/js/StringFormatter";
 
 export default function ResearchCard({ content }) {
   const { admin } = useAuthContext();
@@ -20,19 +21,19 @@ export default function ResearchCard({ content }) {
 
     if (response.ok) location.reload();
   };
-  
+
   const handleReject = async (e) => {
     e.preventDefault();
-    
+
     const response = await fetch(`/api/research/reject/${content._id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${admin.token}`,
       },
     });
-    
+
     const json = await response.json();
-    
+
     if (response.ok) location.reload();
   };
 
@@ -59,7 +60,7 @@ export default function ResearchCard({ content }) {
         <h3>Title: "{content.title}"</h3>
         <p>By: {content.author}</p>
         <p>
-          <span>Abstract:</span> {content.abstract}
+          <span>Abstract:</span> {limitAbstract(content.abstract, 355)}
         </p>
         <div className="buttons">
           <Link onClick={handleApprove} className="button__approve">

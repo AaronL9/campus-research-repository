@@ -52,7 +52,7 @@ const LoginForm = () => {
               {error}
             </div>
           )}
-          <div className="login-form__forgot-password">Forgot Password?</div>
+          <Link to="forgotpassword"><div className="login-form__forgot-password">Forgot Password?</div></Link>
           <input type="submit" value="Sign In" />
           <div className="login-form__signup-link">
             Not a member? <Link to="registration">Register</Link>

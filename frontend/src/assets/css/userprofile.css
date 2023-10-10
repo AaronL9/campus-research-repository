@@ -9,6 +9,16 @@
   flex-direction: column;
   margin: 0 auto;
 }
+
+.usercard-edit,
+.usercard-save {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px;
+  width: 40px;
+}
+
 .userprofile h1 {
   margin-bottom: 2rem;
 }
@@ -24,6 +34,7 @@
 .userprofile-usercard {
   display: flex;
   flex: 1;
+  width: 100%;
   max-width: 55rem;
   gap: 2.5rem;
   border-radius: 1rem;
@@ -31,6 +42,7 @@
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.253);
   align-items: center;
   padding: 2rem;
+  position: relative;
 }
 
 .usercard-user {
@@ -48,6 +60,8 @@
 .usercard__profile {
   background-color: #f0f0f0;
   border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
 }
 
 .userprofile-decor {
@@ -67,7 +81,12 @@
   text-align: center;
 }
 
-.usercard-user button {
+.picture-file {
+  display: none;
+}
+
+.usercard-user button,
+.usercard-info__address button {
   display: inline-flex;
   padding: 0.5rem 1.3rem;
   align-items: center;
@@ -80,12 +99,17 @@
   background: linear-gradient(131deg, #202c61 0%, 50%, #1d6353 99% 99%);
   box-shadow: 5px 5px 20px rgb(25, 80, 91, 0.4);
 }
-
+.usercard-info__address button {
+  width: 5rem;
+  justify-content: center;
+  align-self: flex-end;
+}
 .usercard-info {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   padding-left: 1rem;
+  width: 60%;
 }
 
 .usercard-info span {
@@ -97,6 +121,7 @@
 .usercard-info p {
   font-size: 0.8rem;
   text-indent: 1rem;
+  word-wrap: break-word;
 }
 
 .usercard-info__contact {
@@ -125,6 +150,35 @@
 .userprofile-research .divider {
   border-top: 1px solid rgba(0, 0, 0, 0.705);
   margin-block: 2rem;
+}
+
+.usercard-info__bio,
+.usercard-info__address {
+  display: flex;
+  flex-direction: column;
+}
+.usercard-info__bio textarea {
+  height: 5rem;
+  resize: none;
+  text-indent: 1rem;
+}
+.usercard-info__address input {
+  text-indent: 0.5rem;
+}
+
+.usercard-info__address input,
+.usercard-info__bio textarea {
+  width: 90%;
+  align-self: flex-end;
+  padding: 5px;
+  font-size: 0.8rem;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  box-shadow: -1px -1px 2px 0px #fff inset,
+    1px 1px 2px 0px rgba(170, 170, 204, 0.5) inset;
+  margin-bottom: 0.5rem;
+  font-family: "Poppins";
 }
 
 .userprofile-research {

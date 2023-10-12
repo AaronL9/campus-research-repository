@@ -29,10 +29,8 @@ const LoginForm = () => {
 
   return (
     <div className="login-form">
-      <div className="login-form__header">
-        <SchoolLogo className={"login-form__logo"} />
-        <h1 className="login-form__title">CAMPUS RESEARCH REPOSITORY</h1>
-      </div>
+      <SchoolLogo className={"login-form__logo"} />
+      <h1 className="login-form__title">CAMPUS RESEARCH REPOSITORY</h1>
       <div className="login-form__container">
         <figure className="login-form__profile">
           <img src="/svg/profile.svg" alt="profile-logo" />

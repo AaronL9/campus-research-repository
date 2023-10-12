@@ -12,7 +12,7 @@ export default function ProfileCard({ profile }) {
   const [info, setInfo] = useState(profile);
   const [image, setImage] = useState(null);
   
-  
+  console.log(user);
   const handleEdit = () => {
     setIsEditing(true);
   };
@@ -127,7 +127,7 @@ export default function ProfileCard({ profile }) {
                 className="usercard__profile"
               />
             </div>
-            <h2>{user?.name}</h2>
+            <h2>{user?.userName}</h2>
             <Link to="/student/create">
               <button className="usercard-top__report-btn">
                 <img src="/svg/pen-icon.svg" alt="report_btn" />

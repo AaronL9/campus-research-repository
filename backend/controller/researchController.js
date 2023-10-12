@@ -258,6 +258,7 @@ const deleteArchive = async (req, res) => {
   const archiveId = req.params.id;
   try {
     const archive = await ResearchModel.findByIdAndDelete({ _id: archiveId });
+    await ResearchPdfModel.findOneAndDelete({ researchDetails: archiveId });
     res.send(archive);
   } catch (error) {
     res.status(404).json({ error: error.message });

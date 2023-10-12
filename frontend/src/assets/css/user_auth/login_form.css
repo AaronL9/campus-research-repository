@@ -14,11 +14,11 @@
   background-color: #e9ecef;
 }
 
-.login-form__header {
+/* .login-form__header {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
+} */
 
 .login-form__logo {
   text-align: center;

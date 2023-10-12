@@ -1,51 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
-import { ref, uploadBytes } from "firebase/storage";
-import { storage } from "../config/firebase";
 
-
-
-export default function ProfileCard({ profile }) {
-  const { user } = useAuthContext();
+export default function ProfileCard() {
+  const { user, dispatch } = useAuthContext();
   const [isEditing, setIsEditing] = useState(false);
-  const [info, setInfo] = useState(profile);
-  const [image, setImage] = useState(null);
-  
-  console.log(user);
+  const [bio, setBio] = useState("");
+
   const handleEdit = () => {
     setIsEditing(true);
   };
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
     setIsEditing(false);
-    //Save new info here ...
 
-    //Filter out empty string from the works array ...
-    const newWorks = info.works.filter((work) => work.trim() !== "");
-    setInfo({ ...info, works: newWorks });
-  };
-
-  const handleInputChange = (e, index) => {
-    const { name, value } = e.target;
-    if (name === "contribution") {
-      const newWorks = [...info.works];
-      newWorks[index] = value;
-      setInfo({ ...info, works: newWorks });
-    } else {
-      setInfo({ ...info, [name]: value });
+    try {
+      const response = await fetch(`/api/user/bio/${user.id}`, {
+        method: "PATCH",
+        body: JSON.stringify({ bio }),
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          "Content-Type": "application/json",
+        },
+      });
+      const json = await response.json();
+      if (response.ok) {
+        dispatch({ type: "BIO", payload: json });
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
-  const handleImageChange = (e) => {
-    const file = e.target.files[0]; 
-    const profileRef = ref(storage, `profile/${file.name}`);
 
-    uploadBytes(profileRef, file).then((snapshot) => {
-      console.log("Uploaded a blob or file!", snapshot);
-    });
-
-  };
+  useEffect(() => {
+    setBio(user.bio);
+  }, []);
 
   return (
     <>
@@ -59,22 +49,9 @@ export default function ProfileCard({ profile }) {
             />
             <div className="usercard__picture">
               <img
-                src={image || "/svg/profile-large.svg"}
+                src={"/svg/profile-large.svg"}
                 alt="userprofile"
                 className="usercard__profile"
-              />
-              <label htmlFor="file-input">
-                <img
-                  src="/svg/cam-btn.svg"
-                  alt="Cam"
-                  className="usercard__camera"
-                />
-              </label>
-              <input
-                id="file-input"
-                type="file"
-                onChange={handleImageChange}
-                className="picture-file"
               />
             </div>
             <h2>{user?.userName}</h2>
@@ -96,8 +73,8 @@ export default function ProfileCard({ profile }) {
               <span>Bio:</span>
               <textarea
                 name="biodata"
-                value={info.biodata}
-                onChange={handleInputChange}
+                value={bio}
+                onChange={(e) => setBio(e.target.value)}
                 maxLength={250}
               />
             </div>
@@ -144,7 +121,7 @@ export default function ProfileCard({ profile }) {
             />
             <div className="usercard-info__bio">
               <span>Bio:</span>
-              <p>{info.biodata}</p>
+              <p>{user?.bio}</p>
             </div>
             <div className="usercard-info__contact">
               <span>Contact:</span>

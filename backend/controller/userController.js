@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 const transporter = require("../utils/nodemailerConfig");
+const { error } = require("console");
 
 // generate token for signup and login
 const createToken = (_id) => {
@@ -19,10 +20,11 @@ const loginUser = async (req, res) => {
     const user = await User.login(email, password);
     const userName = user.name;
     const id = user._id;
+    const bio = user.bio
     // create token
     const token = createToken(user._id);
 
-    res.status(200).json({ id, userName, email, token });
+    res.status(200).json({ id, userName, email, token, bio });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -35,11 +37,12 @@ const signupUser = async (req, res) => {
   try {
     const user = await User.signup(userName, email, password);
     const id = user._id;
+    const bio = user.bio;
 
     // create token
     const token = createToken(user._id);
 
-    res.status(200).json({ id, userName, email, token });
+    res.status(200).json({ id, userName, email, token, bio });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -170,10 +173,26 @@ const changePassword = async (req, res) => {
   }
 };
 
+const setBio = async (req, res) => {
+  const { id } = req.params;
+  const { bio } = req.body;
+  try {
+    const user = await User.findByIdAndUpdate(id, {
+      $set: {
+        bio: bio,
+      },
+    });
+    res.status(200).json({ bio });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 module.exports = {
   signupUser,
   loginUser,
   recoverPassword,
   resetPassword,
   changePassword,
+  setBio
 };

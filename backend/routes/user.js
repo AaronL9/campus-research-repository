@@ -12,6 +12,7 @@ const {
   recoverPassword,
   resetPassword,
   changePassword,
+  setBio
 } = require("../controller/userController");
 const requireAuth = require("../middleware/requireAuth");
 
@@ -28,6 +29,7 @@ router.post("/reset_password/:token", resetPassword);
 // change password
 router.use(requireAuth);
 router.post('/upload/profile', uploadProfilePicture)
+router.patch('/bio/:id', setBio);
 router.post("/change_password", changePassword);
 
 module.exports = router;

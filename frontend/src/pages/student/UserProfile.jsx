@@ -35,11 +35,7 @@ const UserProfile = () => {
     <div className="userprofile">
       <h1>Profile</h1>
       <div className="userprofile-content">
-        <ProfileCard
-          profile={{
-            biodata: "The user has not yet written their biodata",
-          }}
-        />
+        <ProfileCard />
         <div className="userprofile-research">
           <h2>Research Contribution</h2>
           <div className="divider"></div>

@@ -11,7 +11,7 @@ import { userCredentials } from "../../assets/js/LoginCredentials";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const {user, admin, dispatch } = useAuthContext();
+  const { user, admin, dispatch } = useAuthContext();
 
   useEffect(() => {
     if (admin) navigate("/admin/dashboard");
@@ -29,8 +29,10 @@ const LoginForm = () => {
 
   return (
     <div className="login-form">
-      <SchoolLogo className={"login-form__logo"} />
-      <h1 className="login-form__title">CAMPUS RESEARCH REPOSITORY</h1>
+      <div className="login-form__header">
+        <SchoolLogo className={"login-form__logo"} />
+        <h1 className="login-form__title">CAMPUS RESEARCH REPOSITORY</h1>
+      </div>
       <div className="login-form__container">
         <figure className="login-form__profile">
           <img src="/svg/profile.svg" alt="profile-logo" />
@@ -52,7 +54,9 @@ const LoginForm = () => {
               {error}
             </div>
           )}
-          <Link to="forgotpassword"><div className="login-form__forgot-password">Forgot Password?</div></Link>
+          <Link to="forgotpassword">
+            <div className="login-form__forgot-password">Forgot Password?</div>
+          </Link>
           <input type="submit" value="Sign In" />
           <div className="login-form__signup-link">
             Not a member? <Link to="registration">Register</Link>

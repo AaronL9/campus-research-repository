@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { ref, uploadBytes } from "firebase/storage";
+import { storage } from "../config/firebase";
+
+
 
 export default function ProfileCard({ profile }) {
   const { user } = useAuthContext();
-  console.log(user)
   const [isEditing, setIsEditing] = useState(false);
   const [info, setInfo] = useState(profile);
   const [image, setImage] = useState(null);
-
+  
+  
   const handleEdit = () => {
     setIsEditing(true);
   };
+
   const handleSave = (e) => {
     e.preventDefault();
     setIsEditing(false);
@@ -20,9 +25,6 @@ export default function ProfileCard({ profile }) {
     //Filter out empty string from the works array ...
     const newWorks = info.works.filter((work) => work.trim() !== "");
     setInfo({ ...info, works: newWorks });
-  };
-  const handleAddWork = () => {
-    setInfo({ ...info, works: [...info.works, ""] });
   };
 
   const handleInputChange = (e, index) => {
@@ -36,7 +38,13 @@ export default function ProfileCard({ profile }) {
     }
   };
   const handleImageChange = (e) => {
-    setImage(URL.createObjectURL(e.target.files[0]));
+    const file = e.target.files[0]; 
+    const profileRef = ref(storage, `profile/${file.name}`);
+
+    uploadBytes(profileRef, file).then((snapshot) => {
+      console.log("Uploaded a blob or file!", snapshot);
+    });
+
   };
 
   return (

@@ -38,7 +38,6 @@ const UserProfile = () => {
         <ProfileCard
           profile={{
             biodata: "The user has not yet written their biodata",
-            works: ["Nothing contributed yet"],
           }}
         />
         <div className="userprofile-research">

@@ -14,12 +14,18 @@
   background-color: #e9ecef;
 }
 
+.login-form__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .login-form__logo {
   text-align: center;
 }
 
 .login-form__logo img {
-  width: min(310px, 100vw);
+  width: min(100px, 100vw);
 }
 
 .login-form__title {

@@ -37,8 +37,8 @@ router.get("/user/:id", getUserResearches);
 router.get("/department/:id", getByDepartment);
 router.get("/:id", getResearch);
 
+router.patch("/update/:id", upload.single('pdf'), updateRecords);
 router.patch("/approve/:id", confirmation);
-router.patch("/update/:id", updateRecords);
 router.patch("/records/:id", pushToArchives);
 
 router.post("/upload", upload.single("pdf"), uploadResearch);

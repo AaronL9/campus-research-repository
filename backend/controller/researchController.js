@@ -1,6 +1,6 @@
 const { ResearchModel } = require("../model/researchModel");
 const { ResearchPdfModel } = require("../model/researchPdfModel");
-const User = require("../model/userModel");
+const { User } = require("../model/userModel");
 const { sort } = require("../utils/sorting");
 const {
   filterArchive,
@@ -20,7 +20,7 @@ const getUserResearches = async (req, res) => {
 };
 
 const uploadResearch = async (req, res) => {
-  console.log(req.userId);
+  console.log(req.body);
   try {
     const newResearch = await ResearchModel.create({ ...req.body });
 
@@ -223,18 +223,35 @@ const getAllRecords = async (req, res) => {
 };
 
 const updateRecords = async (req, res) => {
+  console.log(req.body, req.file);
+
   try {
-    const newResearch = await ResearchModel.findByIdAndUpdate(
-      req.params.id,
-      req.body,
+    const newResearch = await ResearchModel.updateOne(
+      { _id: req.params.id },
       {
-        new: true,
-      }
+        $set: {
+          ...req.body,
+        },
+      },
+      { new: true }
     );
 
+    if (req?.file?.buffer) {
+      await ResearchPdfModel.updateOne(
+        { researchDetails: req.params.id },
+        {
+          $set: {
+            content: req.file.buffer,
+          },
+        }
+      );
+    }
+
+    console.log("success");
     res.status(201).json(newResearch);
   } catch (err) {
-    res.status(500).send(err.message);
+    console.log("error");
+    res.status(500).json({ error: "fucked up" });
   }
 };
 

@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const User = require("../model/userModel");
+const { User } = require("../model/userModel");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
@@ -21,7 +21,7 @@ const loginUser = async (req, res) => {
     const id = user._id;
     // create token
     const token = createToken(user._id);
-    
+
     res.status(200).json({ id, userName, email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -30,8 +30,8 @@ const loginUser = async (req, res) => {
 
 // signup user
 const signupUser = async (req, res) => {
-  const {userName, email, password } = req.body;
-  
+  const { userName, email, password } = req.body;
+
   try {
     const user = await User.signup(userName, email, password);
     const id = user._id;
@@ -39,14 +39,14 @@ const signupUser = async (req, res) => {
     // create token
     const token = createToken(user._id);
 
-    res.status(200).json({id, userName, email, token});
+    res.status(200).json({ id, userName, email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 // Generate a reset token and send the password reset email
 const recoverPassword = async (req, res) => {
-  const { email } = req.body;
+  const { email, host } = req.body;
 
   try {
     const user = await User.findOne({ email });
@@ -63,11 +63,11 @@ const recoverPassword = async (req, res) => {
     await user.save();
 
     // Send the password reset email with a link containing the reset token
-    const resetLink = `http://${req.headers.host}/api/user/reset_password/${resetToken}`;
+    const resetLink = `http://${host}/resetpassword/${resetToken}`;
 
     // Define email content
     const mailOptions = {
-      from: process.env.EMAIL,
+      from: "Cleo from CRR <k***@gmail.com>",
       to: user.email,
       subject: "Password Reset Request",
       text:

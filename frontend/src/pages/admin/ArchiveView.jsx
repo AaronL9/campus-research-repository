@@ -6,11 +6,19 @@ import { useParams } from "react-router-dom";
 import formatDate from "../../assets/js/formatDate";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
-
 export default function ArchiveView() {
   const archiveId = useParams().id;
   const [archive, setArchive] = useState(null);
   const { admin } = useAuthContext();
+  const pdfUrl = `/api/research/pdf/${archiveId}`;
+
+  const handleDownloadClick = () => {
+    const anchor = document.createElement("a");
+    anchor.href = pdfUrl;
+    anchor.download = "Upang_Research.pdf";
+
+    anchor.click();
+  };
 
   useEffect(() => {
     if (!admin) return;
@@ -35,8 +43,9 @@ export default function ArchiveView() {
       <div className="archive-view-container">
         <h1>Archive</h1>
         <div className="archive-view">
-          <button className="download-btn">
-              <img src="/svg/pdf-file-icon.svg" />PDF Download
+          <button onClick={handleDownloadClick} className="download-btn">
+            <img src="/svg/pdf-file-icon.svg" />
+            PDF Download
           </button>
           <div className="info">
             <h2>
@@ -66,6 +75,5 @@ export default function ArchiveView() {
         </div>
       </div>
     </>
-    
   );
 }

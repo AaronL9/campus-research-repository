@@ -47,7 +47,7 @@ const router = createBrowserRouter(
     <Route path="/">
       <Route index element={<LoginForm />}></Route>
       <Route path="forgotpassword" element={<ForgotPassword />}></Route>
-      <Route path="resetpassword" element={<ResetPassword />}></Route>
+      <Route path="resetpassword/:token" element={<ResetPassword />}></Route>
       <Route path="registration" element={<RegistrationForm />}></Route>
       <Route index element={<LoginForm />}></Route>
       <Route path="admin/login" element={<Login />}></Route>

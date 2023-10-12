@@ -11,11 +11,13 @@ import { formatDateToInput } from "../../assets/js/formatDate";
 import InputField from "../../components/submit_research/InputField";
 import Upload from "../../components/submit_research/Upload";
 import DropDown from "../../components/submit_research/DropDown";
+import Loader from "../../components/Loader";
 
 export default function Create() {
   const { admin } = useAuthContext();
   const navigate = useNavigate();
   const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -33,6 +35,8 @@ export default function Create() {
       return;
     }
 
+    setIsLoading(true);
+
     try {
       const data = new FormData();
 
@@ -44,12 +48,13 @@ export default function Create() {
       data.append("course", formData.course);
       data.append("abstract", formData.abstract);
 
+      console.log(formData);
+
       const response = await fetch(`/api/research/update/${id}`, {
         method: "PATCH",
-        body: JSON.stringify({ ...formData }),
+        body: data,
         headers: {
           Authorization: `Bearer ${admin.token}`,
-          "Content-Type": "application/json",
         },
       });
 
@@ -62,6 +67,8 @@ export default function Create() {
     } catch (error) {
       console.error("An error occurred:", error);
     }
+
+    setIsLoading(false);
   };
 
   const handleInputChange = (e) => {
@@ -89,61 +96,69 @@ export default function Create() {
 
       if (response.ok) {
         console.log(json);
-        setFormData((prevData) => ({ ...prevData, ...json }));
-        console.log(formData.department, json.course)
+        setFormData((prevData) => ({ ...json }));
+        console.log(formData.department, json.course);
       }
     };
     fetchResearch();
   }, [admin]);
 
   return (
-    <div className="submit-research">
-      <form
-        className="submit-research__form"
-        encType="multipart/form-data"
-        onSubmit={handleSubmit}
-      >
-        <fieldset className="submit-research__fieldset">
-          <div className="submit-research__upload">
-            <Upload setFormData={setFormData} formData={formData} />
-          </div>
-          <div className="submit-research__details">
-            <InputField
-              data={submitFormData.title}
-              handleChange={handleInputChange}
-              value={formData.title}
-            />
-            <InputField
-              data={submitFormData.author}
-              handleChange={handleInputChange}
-              value={formData.author}
-            />
-            <InputField
-              data={submitFormData.year}
-              handleChange={handleInputChange}
-              value={formatDateToInput(formData.year)}
-            />
-            <div className="submit-research__department-course">
-              <DropDown
-                data={submitFormData.department}
-                onSelect={handleInputChange}
-                value={formData.department}
-              />
-              <DropDown
-                data={submitFormData.course}
-                department={formData.department}
-                onSelect={handleInputChange}
-              />
-            </div>
-            <InputField
-              data={submitFormData.abstract}
-              handleChange={handleInputChange}
-              value={formData.abstract}
-            />
-          </div>
-        </fieldset>
-        <button className="submit-research__btn">Update Research</button>
-      </form>
-    </div>
+    <>
+      {isLoading ? (
+        <div className="update-loader">
+          <Loader />
+        </div>
+      ) : (
+        <div className="submit-research">
+          <form
+            className="submit-research__form"
+            encType="multipart/form-data"
+            onSubmit={handleSubmit}
+          >
+            <fieldset className="submit-research__fieldset">
+              <div className="submit-research__upload">
+                <Upload setFormData={setFormData} formData={formData} />
+              </div>
+              <div className="submit-research__details">
+                <InputField
+                  data={submitFormData.title}
+                  handleChange={handleInputChange}
+                  value={formData.title}
+                />
+                <InputField
+                  data={submitFormData.author}
+                  handleChange={handleInputChange}
+                  value={formData.author}
+                />
+                <InputField
+                  data={submitFormData.year}
+                  handleChange={handleInputChange}
+                  value={formatDateToInput(formData.year)}
+                />
+                <div className="submit-research__department-course">
+                  <DropDown
+                    data={submitFormData.department}
+                    onSelect={handleInputChange}
+                    value={formData.department}
+                  />
+                  <DropDown
+                    data={submitFormData.course}
+                    department={formData.department}
+                    onSelect={handleInputChange}
+                  />
+                </div>
+                <InputField
+                  data={submitFormData.abstract}
+                  handleChange={handleInputChange}
+                  value={formData.abstract}
+                />
+              </div>
+            </fieldset>
+            <button className="submit-research__btn">Update Research</button>
+          </form>
+        </div>
+      )}
+    </>
   );
 }

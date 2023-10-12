@@ -3,6 +3,10 @@ const router = express.Router();
 
 // controller function
 const {
+  uploadProfilePicture,
+} = require("../controller/profilePictureController");
+
+const {
   signupUser,
   loginUser,
   recoverPassword,
@@ -23,6 +27,7 @@ router.post("/reset_password/:token", resetPassword);
 
 // change password
 router.use(requireAuth);
+router.post('/upload/profile', uploadProfilePicture)
 router.post("/change_password", changePassword);
 
 module.exports = router;

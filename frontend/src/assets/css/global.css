@@ -120,6 +120,16 @@ footer img {
   vertical-align: middle;
 }
 
+.update-loader {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50000;
+}
+
 .custom-loader {
   width: 50px;
   height: 50px;

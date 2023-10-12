@@ -25,7 +25,7 @@
 }
 
 .login-form__logo img {
-  width: min(100px, 100vw);
+  width: min(300px, 100vw);
 }
 
 .login-form__title {

@@ -120,7 +120,7 @@ const getAllResearch = async (req, res) => {
   const pageSize = parseInt(req.query.pageSize) || 5;
   try {
     const skipCount = (pageNumber - 1) * pageSize;
-    const researches = await ResearchModel.find({ archiveStatus: false })
+    const researches = await ResearchModel.find({ archiveStatus: false, approve: true })
       .skip(skipCount)
       .limit(pageSize)
       .sort(sort(req.query.sort));

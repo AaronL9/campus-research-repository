@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 
 import "./../assets/css/user_auth/forgotpassword.css";
 import CheckMark from "../components/CheckMark";
+import Spinner from "../components/Spinner";
 
 export default function ForgotPassword() {
   const host = window.location.host;
   const [sent, setSent] = useState(false);
   const [email, setEmail] = useState("");
-  console.log(host);
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
 
     const response = await fetch(
@@ -26,11 +29,16 @@ export default function ForgotPassword() {
     if (response.ok) {
       setSent(true);
     }
+    setIsLoading(false);
   };
 
   return (
     <>
-      {sent ? (
+      {isLoading ? (
+        <div className="login-loader">
+          <Spinner />
+        </div>
+      ) : sent ? (
         <CheckMark email={email} />
       ) : (
         <div className="forgot-pass-form">

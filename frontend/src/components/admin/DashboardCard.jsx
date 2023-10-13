@@ -11,7 +11,7 @@ export default function DashboardCard({ id, icon, alt, label, path }) {
     if (!admin) return;
     const fetchCount = async () => {
       const response = await fetch(
-        `/api/research/submitted/count?filter=${id}`,
+        `https://crr-api.onrender.com/api/research/submitted/count?filter=${id}`,
         {
           headers: {
             Authorization: `Bearer ${admin.token}`,

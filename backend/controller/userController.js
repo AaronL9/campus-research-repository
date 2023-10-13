@@ -88,7 +88,6 @@ const recoverPassword = async (req, res) => {
           .status(500)
           .json({ error: "An error occurred while sending the email" });
       } else {
-        console.log("Password reset email sent successfully");
         res
           .status(200)
           .json({ message: "Password reset email sent successfully" });

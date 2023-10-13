@@ -20,7 +20,6 @@ const getUserResearches = async (req, res) => {
 };
 
 const uploadResearch = async (req, res) => {
-  console.log(req.body);
   try {
     const newResearch = await ResearchModel.create({ ...req.body });
 
@@ -46,8 +45,6 @@ const getByDepartment = async (req, res) => {
   const deptId = req.params.id;
   const pageNumber = parseInt(req.query.page) || 1;
   const pageSize = 5;
-
-  console.log(deptId, req.query.filter);
 
   try {
     const skipCount = (pageNumber - 1) * pageSize;
@@ -105,7 +102,7 @@ const getResearch = async (req, res) => {
 const getArchives = async (req, res) => {
   const pageNumber = parseInt(req.query.page) || 1;
   const pageSize = parseInt(req.query.pageSize) || 10;
-  console.log(req.query.sort);
+
   try {
     const skipCount = (pageNumber - 1) * pageSize;
     const arvhices = await ResearchModel.find(filterArchive(req.query.filter))
@@ -209,7 +206,6 @@ const queue = async (req, res) => {
 const getAllRecords = async (req, res) => {
   const pageNumber = parseInt(req.query.page) || 1;
   const pageSize = parseInt(req.query.pageSize) || 10;
-  console.log(req.query.sort);
 
   try {
     const skipCount = (pageNumber - 1) * pageSize;
@@ -224,7 +220,6 @@ const getAllRecords = async (req, res) => {
 };
 
 const updateRecords = async (req, res) => {
-  console.log(req.body, req.file);
 
   try {
     const newResearch = await ResearchModel.updateOne(
@@ -250,7 +245,6 @@ const updateRecords = async (req, res) => {
 
     res.status(201).json(newResearch);
   } catch (err) {
-    console.log("error");
     res.status(500).json({ error: "fucked up" });
   }
 };

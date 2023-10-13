@@ -27,11 +27,14 @@ export default function Research() {
     }
 
     const fetchResearch = async () => {
-      const response = await fetch(`/api/research/${researchId}`, {
-        headers: {
-          Authorization: `Bearer ${user?.token}`,
-        },
-      });
+      const response = await fetch(
+        `https://crr-api.onrender.com/api/research/${researchId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user?.token}`,
+          },
+        }
+      );
 
       const data = await response.json();
 
@@ -40,7 +43,6 @@ export default function Research() {
       } else {
         console.log("response is not ok");
       }
-      console.log(data);
     };
 
     fetchResearch();

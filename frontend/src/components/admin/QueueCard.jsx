@@ -7,14 +7,17 @@ export default function QueueCard({ content }) {
 
   const handleApprove = async (e) => {
     e.preventDefault();
-    const response = await fetch(`/api/research/approve/${content._id}`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${admin.token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ approve: true }),
-    });
+    const response = await fetch(
+      `https://crr-api.onrender.com/api/research/approve/${content._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${admin.token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ approve: true }),
+      }
+    );
 
     const json = await response.json();
 
@@ -24,12 +27,15 @@ export default function QueueCard({ content }) {
   const handleReject = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(`/api/research/reject/${content._id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${admin.token}`,
-      },
-    });
+    const response = await fetch(
+      `https://crr-api.onrender.com/api/research/reject/${content._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${admin.token}`,
+        },
+      }
+    );
 
     const json = await response.json();
 

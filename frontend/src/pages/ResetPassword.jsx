@@ -18,13 +18,16 @@ export default function ResetPassword() {
     }
 
     try {
-      const response = await fetch(`/api/user/reset_password/${token}`, {
-        method: "POST",
-        body: JSON.stringify({ newPassword: confirmPass }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `https://crr-api.onrender.com/api/user/reset_password/${token}`,
+        {
+          method: "POST",
+          body: JSON.stringify({ newPassword: confirmPass }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.ok) {
         navigate("/");

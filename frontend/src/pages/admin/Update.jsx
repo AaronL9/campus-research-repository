@@ -50,13 +50,16 @@ export default function Create() {
 
       console.log(formData);
 
-      const response = await fetch(`/api/research/update/${id}`, {
-        method: "PATCH",
-        body: data,
-        headers: {
-          Authorization: `Bearer ${admin.token}`,
-        },
-      });
+      const response = await fetch(
+        `https://crr-api.onrender.com/api/research/update/${id}`,
+        {
+          method: "PATCH",
+          body: data,
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         console.log("Research Updated successfully.");
@@ -86,11 +89,14 @@ export default function Create() {
   useEffect(() => {
     if (!admin) return;
     const fetchResearch = async () => {
-      const response = await fetch(`/api/research/${id}`, {
-        headers: {
-          Authorization: `Bearer ${admin.token}`,
-        },
-      });
+      const response = await fetch(
+        `https://crr-api.onrender.com/api/research/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
+        }
+      );
 
       const json = await response.json();
 

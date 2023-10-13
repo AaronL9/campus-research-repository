@@ -10,7 +10,7 @@ export default function ArchiveView() {
   const archiveId = useParams().id;
   const [archive, setArchive] = useState(null);
   const { admin } = useAuthContext();
-  const pdfUrl = `/api/research/pdf/${archiveId}`;
+  const pdfUrl = `https://crr-api.onrender.com/api/research/pdf/${archiveId}`;
 
   const handleDownloadClick = () => {
     const anchor = document.createElement("a");
@@ -23,11 +23,14 @@ export default function ArchiveView() {
   useEffect(() => {
     if (!admin) return;
     const fetchArchive = async () => {
-      const response = await fetch(`/api/research/archives/${archiveId}`, {
-        headers: {
-          Authorization: `Bearer ${admin?.token}`,
-        },
-      });
+      const response = await fetch(
+        `https://crr-api.onrender.com/api/research/archives/${archiveId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${admin?.token}`,
+          },
+        }
+      );
       const json = await response.json();
 
       if (response.ok) {

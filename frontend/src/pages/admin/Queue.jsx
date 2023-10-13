@@ -13,11 +13,14 @@ export default function Queue() {
   useEffect(() => {
     if (!admin) return;
     const fetchQueues = async () => {
-      const response = await fetch("/api/research/queue", {
-        headers: {
-          Authorization: `Bearer ${admin.token}` 
+      const response = await fetch(
+        "https://crr-api.onrender.com/api/research/queue",
+        {
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
         }
-      });
+      );
 
       const json = await response.json();
 

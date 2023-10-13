@@ -42,13 +42,16 @@ export default function Create() {
       data.append("course", formData.course);
       data.append("abstract", formData.abstract);
 
-      const response = await fetch("/api/research/upload", {
-        method: "POST",
-        body: data,
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        "https://crr-api.onrender.com/api/research/upload",
+        {
+          method: "POST",
+          body: data,
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         console.log("File uploaded successfully.");

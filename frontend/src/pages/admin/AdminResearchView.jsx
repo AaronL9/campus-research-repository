@@ -10,7 +10,7 @@ export default function AdminResearchView() {
   const researchId = useParams().id;
   const { admin } = useAuthContext();
   const [research, setResearch] = useState(null);
-  const pdfUrl = `/api/research/pdf/${researchId}`;
+  const pdfUrl = `https://crr-api.onrender.com/api/research/pdf/${researchId}`;
   console.log(researchId)
 
   const handleDownloadClick = () => {
@@ -27,11 +27,14 @@ export default function AdminResearchView() {
     }
 
     const fetchResearch = async () => {
-      const response = await fetch(`/api/research/${researchId}`, {
-        headers: {
-          Authorization: `Bearer ${admin?.token}`,
-        },
-      });
+      const response = await fetch(
+        `https://crr-api.onrender.com/api/research/${researchId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${admin?.token}`,
+          },
+        }
+      );
 
       const data = await response.json();
 

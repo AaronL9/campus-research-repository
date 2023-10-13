@@ -12,13 +12,16 @@ export default function ForgotPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("/api/user/forgot_password", {
-      method: "POST",
-      body: JSON.stringify({ email, host }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://crr-api.onrender.com/api/user/forgot_password",
+      {
+        method: "POST",
+        body: JSON.stringify({ email, host }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     if (response.ok) {
       setSent(true);

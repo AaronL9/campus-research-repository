@@ -15,11 +15,14 @@ export default function ArchiveView() {
   useEffect(() => {
     if (!user) return;
     const fetchArchive = async () => {
-      const response = await fetch(`/api/research/archives/${archiveId}`, {
-        headers: {
-          Authorization: `Bearer ${user?.token}`,
-        },
-      });
+      const response = await fetch(
+        `https://crr-api.onrender.com/api/research/archives/${archiveId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user?.token}`,
+          },
+        }
+      );
       const json = await response.json();
 
       if (response.ok) {

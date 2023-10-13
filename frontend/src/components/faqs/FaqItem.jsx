@@ -9,7 +9,6 @@ export default function FaqItem() {
   const location = useLocation().pathname.split("/");
   const categoryID = location[location.length - 1].toString();
   const data = FaqsInfo[categoryID];
-  console.log(categoryID)
 
   return (
     <>

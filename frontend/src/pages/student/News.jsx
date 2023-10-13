@@ -13,15 +13,13 @@ export default function News() {
   const [archives, setArchives] = useState();
   const [researches, setResearches] = useState();
 
-  console.log(archives);
-
   useEffect(() => {
     if (!user) {
       return;
     }
     const fetchNews = async () => {
       const response = await fetch(
-        "/api/research/archives?page=1&pageSize=5&sort=Newest to Oldest",
+        "https://crr-api.onrender.com/api/research/archives?page=1&pageSize=5&sort=Newest to Oldest",
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -29,7 +27,7 @@ export default function News() {
         }
       );
       const researches = await fetch(
-        "/api/research/researches?page=1&pageSize=5&sort=Newest to Oldest",
+        "https://crr-api.onrender.com/api/research/researches?page=1&pageSize=5&sort=Newest to Oldest",
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -62,9 +60,11 @@ export default function News() {
         <div className="repo-updates">
           <h2>Repository Updates</h2>
           <div className="divider"></div>
-          {researches?.map((research) => (
-            <NewResearch key={research._id} content={research} />
-          ))}
+          <div className="repo-updates__card">
+            {researches?.map((research) => (
+              <NewResearch key={research._id} content={research} />
+            ))}
+          </div>
         </div>
         <div className="archive-updates">
           <h2>Archive Updates</h2>

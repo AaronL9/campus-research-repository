@@ -9,14 +9,17 @@ const RecordsTableRow = ({ data }) => {
 
   const handlePushArchive = async (e) => {
     e.preventDefault();
-    const response = await fetch(`/api/research/records/${data._id}`, {
-      method: "PATCH",
-      body: JSON.stringify({ archiveStatus: true }),
-      headers: {
-        Authorization: `Bearer ${admin?.token}`,
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://crr-api.onrender.com/api/research/records/${data._id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({ archiveStatus: true }),
+        headers: {
+          Authorization: `Bearer ${admin?.token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const json = await response.json()
     if (response.ok) {
       console.log(json);

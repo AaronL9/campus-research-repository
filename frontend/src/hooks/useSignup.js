@@ -7,11 +7,14 @@ export const useSignup = () => {
 
   const signup = async (userName, email, password) => {
     
-    const response = await fetch('/api/user/signup', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({userName, email, password })
-    })
+    const response = await fetch(
+      "https://crr-api.onrender.com/api/user/signup",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userName, email, password }),
+      }
+    );
 
     const json = await response.json()
 

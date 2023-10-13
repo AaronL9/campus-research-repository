@@ -31,7 +31,7 @@ const ArchiveTable = () => {
   useEffect(() => {
     const fetchArchives = async () => {
       const response = await fetch(
-        `/api/research/archives?page=${pageNum}&filter=${filterValue}&sort=${sortingValue}`,
+        `https://crr-api.onrender.com/api/research/archives?page=${pageNum}&filter=${filterValue}&sort=${sortingValue}`,
         {
           headers: {
             Authorization: `Bearer ${admin.token}`,

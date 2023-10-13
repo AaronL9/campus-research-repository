@@ -14,11 +14,14 @@ const UserProfile = () => {
       return;
     }
     const fetchUser = async () => {
-      const response = await fetch(`/api/research/user/${user.id}`, {
-        headers: {
-          Authorization: `Bearer ${user?.token}`,
-        },
-      });
+      const response = await fetch(
+        `https://crr-api.onrender.com/api/research/user/${user.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user?.token}`,
+          },
+        }
+      );
 
       const json = await response.json();
 

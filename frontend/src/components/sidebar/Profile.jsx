@@ -4,7 +4,6 @@ import CreateButton from "./CreateButton";
 import "../../assets/css/userprofile.css";
 
 export default function Profile({ user }) {
-  console.log(user)
   return (
     <>
       <div className="profile">

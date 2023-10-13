@@ -16,14 +16,17 @@ export default function ProfileCard() {
     setIsEditing(false);
 
     try {
-      const response = await fetch(`/api/user/bio/${user.id}`, {
-        method: "PATCH",
-        body: JSON.stringify({ bio }),
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `https://crr-api.onrender.com/api/user/bio/${user.id}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify({ bio }),
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const json = await response.json();
       if (response.ok) {
         dispatch({ type: "BIO", payload: json });
@@ -73,9 +76,10 @@ export default function ProfileCard() {
               <span>Bio:</span>
               <textarea
                 name="biodata"
+                cols={80}
                 value={bio}
                 onChange={(e) => setBio(e.target.value)}
-                maxLength={250}
+                maxLength={255}
               />
             </div>
             <div className="usercard-info__contact">

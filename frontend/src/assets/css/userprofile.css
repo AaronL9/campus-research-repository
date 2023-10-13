@@ -45,6 +45,7 @@
   position: relative;
 }
 
+
 .usercard-user {
   width: 30%;
   display: flex;
@@ -100,7 +101,7 @@
   box-shadow: 5px 5px 20px rgb(25, 80, 91, 0.4);
 }
 .usercard-info__address button {
-  width: 5rem;
+  /* width: 5rem; */
   justify-content: center;
   align-self: flex-end;
 }
@@ -108,14 +109,13 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding-left: 1rem;
-  width: 60%;
+  width: 90%;
+  text-align: justify;
 }
 
 .usercard-info span {
   font-size: 1.2rem;
   font-weight: 500;
-  line-height: 250%;
 }
 
 .usercard-info p {
@@ -318,8 +318,16 @@
   }
 }
 
+@media (max-width: 480px) {
+  .userprofile {
+    width: 97%;
+  }
+}
+
 @media (max-width: 380px) {
   .userprofile-usercard {
     padding: 2rem 0.5rem;
   }
+
+  
 }

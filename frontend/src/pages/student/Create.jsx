@@ -10,10 +10,13 @@ import { submitFormData } from "../../assets/js/SubmitFormData";
 import InputField from "../../components/submit_research/InputField";
 import Upload from "../../components/submit_research/Upload";
 import DropDown from "../../components/submit_research/DropDown";
+import Loader from "../../components/Loader";
+
 
 export default function Create() {
   const { user } = useAuthContext();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -25,6 +28,7 @@ export default function Create() {
   });
 
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
 
     if (!user) {
@@ -62,6 +66,8 @@ export default function Create() {
     } catch (error) {
       console.error("An error occurred:", error);
     }
+
+    setIsLoading(false)
   };
 
   const handleInputChange = (e) => {
@@ -77,48 +83,52 @@ export default function Create() {
   };
 
   return (
-    <div className="submit-research">
-      <form
-        className="submit-research__form"
-        encType="multipart/form-data"
-        onSubmit={handleSubmit}
-      >
-        <fieldset className="submit-research__fieldset">
-          <div className="submit-research__upload">
-            <Upload setFormData={setFormData} formData={formData} />
-          </div>
-          <div className="submit-research__details">
-            <InputField
-              data={submitFormData.title}
-              handleChange={handleInputChange}
-            />
-            <InputField
-              data={submitFormData.author}
-              handleChange={handleInputChange}
-            />
-            <InputField
-              data={submitFormData.year}
-              handleChange={handleInputChange}
-            />
-            <div className="submit-research__department-course">
-              <DropDown
-                data={submitFormData.department}
-                onSelect={handleInputChange}
+    <>
+      {isLoading ? <div className="update-loader">
+        <Loader />
+      </div> : <div className="submit-research">
+        <form
+          className="submit-research__form"
+          encType="multipart/form-data"
+          onSubmit={handleSubmit}
+        >
+          <fieldset className="submit-research__fieldset">
+            <div className="submit-research__upload">
+              <Upload setFormData={setFormData} formData={formData} />
+            </div>
+            <div className="submit-research__details">
+              <InputField
+                data={submitFormData.title}
+                handleChange={handleInputChange}
               />
-              <DropDown
-                data={submitFormData.course}
-                department={formData.department}
-                onSelect={handleInputChange}
+              <InputField
+                data={submitFormData.author}
+                handleChange={handleInputChange}
+              />
+              <InputField
+                data={submitFormData.year}
+                handleChange={handleInputChange}
+              />
+              <div className="submit-research__department-course">
+                <DropDown
+                  data={submitFormData.department}
+                  onSelect={handleInputChange}
+                />
+                <DropDown
+                  data={submitFormData.course}
+                  department={formData.department}
+                  onSelect={handleInputChange}
+                />
+              </div>
+              <InputField
+                data={submitFormData.abstract}
+                handleChange={handleInputChange}
               />
             </div>
-            <InputField
-              data={submitFormData.abstract}
-              handleChange={handleInputChange}
-            />
-          </div>
-        </fieldset>
-        <button className="submit-research__btn">Submit Research</button>
-      </form>
-    </div>
+          </fieldset>
+          <button className="submit-research__btn">Submit Research</button>
+        </form>
+      </div>}
+    </>
   );
 }

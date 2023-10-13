@@ -32,7 +32,7 @@ export default function DeptRepo() {
     setIsLoading(true);
     const fetchResearch = async () => {
       const response = await fetch(
-        `https://crr-api.onrender.com/api/research/department/${deptId.toUpperCase()}/?page=${pageNum}&filter=${query}`,
+        `/api/research/department/${deptId.toUpperCase()}/?page=${pageNum}&filter=${query}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

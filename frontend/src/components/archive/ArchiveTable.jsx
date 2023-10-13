@@ -12,7 +12,7 @@ export default function ArchiveTable({ pageNum, setLimit }) {
   useEffect(() => {
     const fetchArchives = async () => {
       const response = await fetch(
-        `https://crr-api.onrender.com/api/research/archives?page=${pageNum}&filter=${filterValue}&sort=${sortingValue}`,
+        `/api/research/archives?page=${pageNum}&filter=${filterValue}&sort=${sortingValue}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

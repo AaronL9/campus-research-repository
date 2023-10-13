@@ -16,7 +16,7 @@ export default function ArchiveView() {
     if (!user) return;
     const fetchArchive = async () => {
       const response = await fetch(
-        `https://crr-api.onrender.com/api/research/archives/${archiveId}`,
+        `/api/research/archives/${archiveId}`,
         {
           headers: {
             Authorization: `Bearer ${user?.token}`,

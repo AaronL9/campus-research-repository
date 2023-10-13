@@ -51,7 +51,7 @@ export default function Create() {
       console.log(formData);
 
       const response = await fetch(
-        `https://crr-api.onrender.com/api/research/update/${id}`,
+        `/api/research/update/${id}`,
         {
           method: "PATCH",
           body: data,
@@ -90,7 +90,7 @@ export default function Create() {
     if (!admin) return;
     const fetchResearch = async () => {
       const response = await fetch(
-        `https://crr-api.onrender.com/api/research/${id}`,
+        `/api/research/${id}`,
         {
           headers: {
             Authorization: `Bearer ${admin.token}`,

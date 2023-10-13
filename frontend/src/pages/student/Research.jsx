@@ -28,7 +28,7 @@ export default function Research() {
 
     const fetchResearch = async () => {
       const response = await fetch(
-        `https://crr-api.onrender.com/api/research/${researchId}`,
+        `/api/research/${researchId}`,
         {
           headers: {
             Authorization: `Bearer ${user?.token}`,

@@ -15,7 +15,7 @@ const UserProfile = () => {
     }
     const fetchUser = async () => {
       const response = await fetch(
-        `https://crr-api.onrender.com/api/research/user/${user.id}`,
+        `/api/research/user/${user.id}`,
         {
           headers: {
             Authorization: `Bearer ${user?.token}`,

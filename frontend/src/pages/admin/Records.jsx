@@ -29,7 +29,7 @@ const RecordsTable = () => {
   useEffect(() => {
     const fetchRecords = async () => {
       const response = await fetch(
-        `https://crr-api.onrender.com/api/research/records?page=${pageNum}&filter=${filterValue}&sort=${sortingValue}`,
+        `/api/research/records?page=${pageNum}&filter=${filterValue}&sort=${sortingValue}`,
         {
           headers: {
             Authorization: `Bearer ${admin.token}`,

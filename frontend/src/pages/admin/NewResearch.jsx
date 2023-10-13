@@ -24,7 +24,7 @@ export default function NewResearch() {
     setIsLoading(true)
     const fetchSubmittedResearch = async () => {
       const response = await fetch(
-        `https://crr-api.onrender.com/api/research/submitted?filter=${filter}&page=${pageNum}`,
+        `/api/research/submitted?filter=${filter}&page=${pageNum}`,
         {
           headers: {
             Authorization: `Bearer ${admin?.token}`,

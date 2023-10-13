@@ -9,7 +9,7 @@ export default function ResearchCard({ content }) {
   const handleApprove = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      `https://crr-api.onrender.com/api/research/approve/${content._id}`,
+      `/api/research/approve/${content._id}`,
       {
         method: "PATCH",
         headers: {
@@ -29,7 +29,7 @@ export default function ResearchCard({ content }) {
     e.preventDefault();
 
     const response = await fetch(
-      `https://crr-api.onrender.com/api/research/reject/${content._id}`,
+      `/api/research/reject/${content._id}`,
       {
         method: "DELETE",
         headers: {

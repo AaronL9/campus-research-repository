@@ -47,7 +47,7 @@ export default function Create() {
       data.append("abstract", formData.abstract);
 
       const response = await fetch(
-        "https://crr-api.onrender.com/api/research/upload",
+        "/api/research/upload",
         {
           method: "POST",
           body: data,

@@ -17,7 +17,7 @@ export default function ProfileCard({ profile }) {
 
     try {
       const response = await fetch(
-        `https://crr-api.onrender.com/api/user/bio/${user.id}`,
+        `/api/user/bio/${user.id}`,
         {
           method: "PATCH",
           body: JSON.stringify({ bio }),

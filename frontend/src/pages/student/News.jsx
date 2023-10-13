@@ -19,7 +19,7 @@ export default function News() {
     }
     const fetchNews = async () => {
       const response = await fetch(
-        "https://crr-api.onrender.com/api/research/archives?page=1&pageSize=5&sort=Newest to Oldest",
+        "/api/research/archives?page=1&pageSize=5&sort=Newest to Oldest",
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -27,7 +27,7 @@ export default function News() {
         }
       );
       const researches = await fetch(
-        "https://crr-api.onrender.com/api/research/researches?page=1&pageSize=5&sort=Newest to Oldest",
+        "/api/research/researches?page=1&pageSize=5&sort=Newest to Oldest",
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

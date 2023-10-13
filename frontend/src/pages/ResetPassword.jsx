@@ -23,7 +23,7 @@ export default function ResetPassword() {
 
     try {
       const response = await fetch(
-        `https://crr-api.onrender.com/api/user/reset_password/${token}`,
+        `/api/user/reset_password/${token}`,
         {
           method: "POST",
           body: JSON.stringify({ newPassword: confirmPass }),

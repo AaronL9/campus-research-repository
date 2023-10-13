@@ -14,7 +14,7 @@ export default function Queue() {
     if (!admin) return;
     const fetchQueues = async () => {
       const response = await fetch(
-        "https://crr-api.onrender.com/api/research/queue",
+        "/api/research/queue",
         {
           headers: {
             Authorization: `Bearer ${admin.token}`,

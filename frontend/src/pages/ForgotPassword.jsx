@@ -16,7 +16,7 @@ export default function ForgotPassword() {
     e.preventDefault();
 
     const response = await fetch(
-      "https://crr-api.onrender.com/api/user/forgot_password",
+      "/api/user/forgot_password",
       {
         method: "POST",
         body: JSON.stringify({ email, host }),

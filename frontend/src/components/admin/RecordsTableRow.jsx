@@ -10,7 +10,7 @@ const RecordsTableRow = ({ data }) => {
   const handlePushArchive = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      `https://crr-api.onrender.com/api/research/records/${data._id}`,
+      `/api/research/records/${data._id}`,
       {
         method: "PATCH",
         body: JSON.stringify({ archiveStatus: true }),

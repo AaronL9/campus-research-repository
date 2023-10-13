@@ -7,7 +7,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 
 const UserProfile = () => {
   const { user } = useAuthContext();
-  const [userResearches, setUserResearches] = useState(null);
+  const [userProfile, setuserProfile] = useState({});
 
   useEffect(() => {
     if (!user) {
@@ -26,7 +26,7 @@ const UserProfile = () => {
       const json = await response.json();
 
       if (response.ok) {
-        setUserResearches(json);
+        setuserProfile(json);
       } else {
         console.log("error has occured");
       }
@@ -38,13 +38,13 @@ const UserProfile = () => {
     <div className="userprofile">
       <h1>Profile</h1>
       <div className="userprofile-content">
-        <ProfileCard />
+        <ProfileCard profile={userProfile} />
         <div className="userprofile-research">
           <h2>Research Contribution</h2>
           <div className="divider"></div>
           <div className="userprofile-cards">
             <div className="userprofile-card">
-              {userResearches?.map((research) => (
+              {userProfile?.research?.map((research) => (
                 <NewResearch key={research._id} content={research} />
               ))}
             </div>

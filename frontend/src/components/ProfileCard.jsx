@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-export default function ProfileCard() {
+export default function ProfileCard({ profile }) {
   const { user, dispatch } = useAuthContext();
   const [isEditing, setIsEditing] = useState(false);
   const [bio, setBio] = useState("");
@@ -37,8 +37,8 @@ export default function ProfileCard() {
   };
 
   useEffect(() => {
-    setBio(user.bio);
-  }, []);
+    setBio(profile.bio);
+  }, [profile]);
 
   return (
     <>
@@ -57,7 +57,7 @@ export default function ProfileCard() {
                 className="usercard__profile"
               />
             </div>
-            <h2>{user?.userName}</h2>
+            <h2>{profile.name}</h2>
             <Link to="/student/create">
               <button className="usercard-top__report-btn">
                 <img src="/svg/pen-icon.svg" alt="report_btn" />
@@ -87,7 +87,7 @@ export default function ProfileCard() {
               <div className="usercard-info__contact-wrap">
                 <label>
                   <img src="/svg/mail.svg" alt="email-light" />
-                  <p>{user?.email}</p>
+                  <p>{profile.email}</p>
                 </label>
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function ProfileCard() {
                 className="usercard__profile"
               />
             </div>
-            <h2>{user?.userName}</h2>
+            <h2>{profile.name}</h2>
             <Link to="/student/create">
               <button className="usercard-top__report-btn">
                 <img src="/svg/pen-icon.svg" alt="report_btn" />
@@ -125,14 +125,14 @@ export default function ProfileCard() {
             />
             <div className="usercard-info__bio">
               <span>Bio:</span>
-              <p>{user?.bio}</p>
+              <p>{profile.bio}</p>
             </div>
             <div className="usercard-info__contact">
               <span>Contact:</span>
               <div className="usercard-info__contact-wrap">
                 <label>
                   <img src="/svg/mail.svg" alt="email-light" />
-                  <p>{user?.email}</p>
+                  <p>{profile.email}</p>
                 </label>
               </div>
             </div>

@@ -1,21 +1,22 @@
 import React from "react";
 import formatDate from "../../assets/js/formatDate";
-import { limitString } from "../../assets/js/StringFormatter";
+import { useNavigate } from "react-router-dom";
 
 // assets
 
 export default function NewResearch({ content }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/student/repository/${content.department.toLowerCase()}/${content._id}`);
+  };
   return (
-    <div className="card">
-      <h3 className="card__title">
-        {content.title}
-      </h3>
+    <div onClick={handleClick} className="card">
+      <h3 className="card__title">{content.title}</h3>
       <p className="card__content">
         {/* {limitString(content.abstract, 555)} */}
       </p>
-      <div className="card__date">
-        {formatDate(content.year)}
-      </div>
+      <div className="card__date">{formatDate(content.year)}</div>
       <div className="card__arrow">
         <svg
           xmlns="http://www.w3.org/2000/svg"

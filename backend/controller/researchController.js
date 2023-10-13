@@ -189,8 +189,9 @@ const confirmation = async (req, res) => {
 
 const reject = async (req, res) => {
   try {
-    const research = await ResearchModel.findByIdAndDelete(req.params.id);
-    res.status(200).json(research);
+    await ResearchModel.findByIdAndDelete(req.params.id);
+    await ResearchPdfModel.findOneAndDelete({ researchDetails: req.params.id });
+    res.status(200).json({message: "Deleted Successfully"});
   } catch (error) {
     res.status(404).json(error.message);
   }
@@ -247,7 +248,6 @@ const updateRecords = async (req, res) => {
       );
     }
 
-    console.log("success");
     res.status(201).json(newResearch);
   } catch (err) {
     console.log("error");

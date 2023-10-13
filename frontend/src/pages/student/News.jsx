@@ -63,14 +63,14 @@ export default function News() {
           <h2>Repository Updates</h2>
           <div className="divider"></div>
           {researches?.map((research) => (
-            <NewResearch content={research} />
+            <NewResearch key={research._id} content={research} />
           ))}
         </div>
         <div className="archive-updates">
           <h2>Archive Updates</h2>
           <div className="divider"></div>
           {archives?.map((archive) => (
-            <NewArchive content={archive} />
+            <NewArchive key={archive._id} content={archive} />
           ))}
         </div>
       </div>

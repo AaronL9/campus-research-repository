@@ -19,9 +19,6 @@ export default function NewResearch() {
   const [limit, setLimit] = useState(false);
 
   const hide = !isLoading && !limit;
-  
-  console.log(admin?.token);
-
   useEffect(() => {
     if (!admin) return;
     setIsLoading(true)

@@ -14,7 +14,7 @@ import DepartmentRepository from "./components/repositories/DepartmentRepository
 import Error from "./components/Error";
 import FaqItem from "./components/faqs/FaqItem";
 import ArchiveView from "./components/archive/ArchiveView";
-import {PrivateRoutes, AdminRoutes} from "./components/auth/PrivateRoutes";
+import { PrivateRoutes, AdminRoutes } from "./components/auth/PrivateRoutes";
 
 // pages
 import Home from "./pages/student/Home";
@@ -38,18 +38,20 @@ import AdminArchive from "./pages/admin/Archive";
 import AdminQueue from "./pages/admin/Queue";
 import AdminResearchView from "./pages/admin/AdminResearchView";
 import Login from "./pages/admin/Login";
-import Update from './pages/admin/Update';
-import AdminCreate from './pages/admin/Create';
-import AdminArchiveView from './pages/admin/ArchiveView';
+import Update from "./pages/admin/Update";
+import AdminCreate from "./pages/admin/Create";
+import AdminArchiveView from "./pages/admin/ArchiveView";
+import ProtectedRoutes from "./components/auth/ProtectedRoutes";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route index element={<LoginForm />}></Route>
-      <Route path="forgotpassword" element={<ForgotPassword />}></Route>
-      <Route path="resetpassword/:token" element={<ResetPassword />}></Route>
-      <Route path="registration" element={<RegistrationForm />}></Route>
-      <Route index element={<LoginForm />}></Route>
+      <Route element={<ProtectedRoutes />}>
+        <Route index element={<LoginForm />}></Route>
+        <Route path="forgotpassword" element={<ForgotPassword />}></Route>
+        <Route path="resetpassword/:token" element={<ResetPassword />}></Route>
+        <Route path="registration" element={<RegistrationForm />}></Route>
+      </Route>
       <Route path="admin/login" element={<Login />}></Route>
       <Route element={<AdminRoutes />}>
         <Route path="admin" element={<AdminLayout />}>

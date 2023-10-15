@@ -1,4 +1,6 @@
 import { createContext, useReducer, useEffect, useState } from "react";
+import {auth, googleProvider} from '../config/firebase'
+import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 export const AuthContext = createContext();
 
@@ -20,7 +22,9 @@ export const authReducer = (state, action) => {
 export const AuthContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   
-
+  const signUpWithGoogle = () => {
+    return signInWithPopup(auth, googleProvider)
+  }
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
     admin: null,
@@ -42,7 +46,7 @@ export const AuthContextProvider = ({ children }) => {
   // console.log("AuthContext state:", state);
 
   return (
-    <AuthContext.Provider value={{ ...state, dispatch }}>
+    <AuthContext.Provider value={{ ...state, dispatch, signInWithPopup }}>
       {!isLoading && children}
     </AuthContext.Provider>
   );

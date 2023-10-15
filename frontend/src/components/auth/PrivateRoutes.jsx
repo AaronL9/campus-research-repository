@@ -10,6 +10,6 @@ export function AdminRoutes() {
   const admin = JSON.parse(localStorage.getItem('admin'));
 
   return admin ? <Outlet /> : <Navigate to='/admin/login' />
-}
+} 
 
 

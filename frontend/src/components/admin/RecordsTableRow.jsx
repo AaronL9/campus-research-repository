@@ -1,11 +1,24 @@
 // TableRow.js
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { formatDateToDDMMYYYY } from "../../assets/js/formatDate";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { limitString } from "../../assets/js/StringFormatter";
 
 const RecordsTableRow = ({ data }) => {
-  const { admin } = useAuthContext();
+   const [match, setMatch] = useState(false);
+   const { admin } = useAuthContext();
+
+   let x = window.matchMedia("(max-width: 750px)");
+
+   function myFunction(x) { 
+     if (x.matches) {
+       setMatch(x.matches);
+     } else {
+       setMatch(x.matches);
+     }
+   }
+   x.addEventListener("change", myFunction);
 
   const handlePushArchive = async (e) => {
     e.preventDefault();
@@ -26,10 +39,14 @@ const RecordsTableRow = ({ data }) => {
       location.reload();
     }
   };
+
+   useEffect(() => {
+     console.log("change")
+   }, [match]);
   return (
     <tr>
-      <td>{data.title}</td>
-      <td>{data.author}</td>
+      <td>{limitString(data.title, 35)}</td>
+      <td>{limitString(data.author, 25)}</td>
       <td>{data.course}</td>
       <td>{formatDateToDDMMYYYY(data.year)}</td>
       <td>

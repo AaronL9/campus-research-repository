@@ -20,7 +20,7 @@ export default function TableRow({ researchData }) {
  
 
   useEffect(() => {
-    // console.log("change")
+    console.log("change")
   }, [match])
 
   return (

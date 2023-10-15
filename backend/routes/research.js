@@ -19,7 +19,8 @@ const {
   deleteArchive,
   pushToArchives,
   getSubmittedResearchesCount,
-  queue
+  queue,
+  pushToQueue,
 } = require("../controller/researchController");
 
 const requireAuth = require("../middleware/requireAuth");
@@ -40,6 +41,7 @@ router.get("/:id", getResearch);
 router.patch("/update/:id", upload.single('pdf'), updateRecords);
 router.patch("/approve/:id", confirmation);
 router.patch("/records/:id", pushToArchives);
+router.patch("/queue/:id", pushToQueue);
 
 router.post("/upload", upload.single("pdf"), uploadResearch);
 

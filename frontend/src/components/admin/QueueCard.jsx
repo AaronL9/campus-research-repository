@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { limitAbstract } from "../../assets/js/StringFormatter";
 
 export default function QueueCard({ content }) {
   const { admin } = useAuthContext(); 
@@ -15,7 +16,7 @@ export default function QueueCard({ content }) {
           Authorization: `Bearer ${admin.token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ approve: true }),
+        body: JSON.stringify({ approve: true, queue: false }),
       }
     );
 
@@ -37,8 +38,6 @@ export default function QueueCard({ content }) {
       }
     );
 
-    const json = await response.json();
-
     if (response.ok) location.reload();
   };
   return (
@@ -55,7 +54,7 @@ export default function QueueCard({ content }) {
         <h3>Title: {content.title}</h3>
         <p>By: {content.author}</p>
         <p>
-          <span>Abstract:</span> {content.abstract}
+          <span>Abstract:</span> {limitAbstract(content.abstract, 355)}
         </p>
         <div className="buttons">
           <Link onClick={handleApprove} className="button__approve">

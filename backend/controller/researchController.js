@@ -264,6 +264,21 @@ const pushToArchives = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+const pushToQueue = async (req, res) => {
+  try {
+    const research = await ResearchModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      }
+    );
+
+    res.status(201).json(research);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
 
 const deleteArchive = async (req, res) => {
   const archiveId = req.params.id;
@@ -294,4 +309,5 @@ module.exports = {
   pushToArchives,
   getSubmittedResearchesCount,
   queue,
+  pushToQueue,
 };

@@ -43,20 +43,21 @@ const filterResearch = (filterValue, deptId) => {
 
 const filterSubmit = (filterValue) => {
   return filterValue === "undefined"
-    ? { approve: false }
+    ? { approve: false, queue: false }
     : {
         $or: [
           { title: { $regex: new RegExp(filterValue, "i") } },
           { author: { $regex: new RegExp(filterValue, "i") } },
         ],
         approve: false,
+        queue: false,
       };
 };
 
 const filterCount = (filterValue) => {
   switch (filterValue) {
     case "1":
-      return { archiveStatus: false, approve: false };
+      return { archiveStatus: false, approve: false, queue: false };
     case "2":
       return { archiveStatus: false, approve: true };
     case "3":

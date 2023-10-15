@@ -16,27 +16,29 @@ export default function Archive() {
   const [sortingValue, setSortingValue] = useState();
 
   return (
-    <div className="archives">
-      <h1>Archive</h1>
-      <ArchiveContext.Provider
-        value={{
-          filterValue,
-          setFilterValue,
-          setPageNum,
-          sortingValue,
-          setSortingValue,
-          pageNum,
-        }}
-      >
-        <ArchiveFeatures
-          setFilterValue={setFilterValue}
-          setPageNum={setPageNum}
-          setSortingValue={setSortingValue}
-          filterValue={filterValue}
-        />
-        <ArchiveTable pageNum={pageNum} setLimit={setLimit} />
-        <Pagination pagination={{ pageNum, setPageNum, limit }} />
-      </ArchiveContext.Provider>
-    </div>
+    <>
+      <div className="archives">
+        <h1>Archive</h1>
+        <ArchiveContext.Provider
+          value={{
+            filterValue,
+            setFilterValue,
+            setPageNum,
+            sortingValue,
+            setSortingValue,
+            pageNum,
+          }}
+        >
+          <ArchiveFeatures
+            setFilterValue={setFilterValue}
+            setPageNum={setPageNum}
+            setSortingValue={setSortingValue}
+            filterValue={filterValue}
+          />
+          <ArchiveTable pageNum={pageNum} setLimit={setLimit} />
+          <Pagination pagination={{ pageNum, setPageNum, limit }} />
+        </ArchiveContext.Provider>
+      </div>
+    </>
   );
 }

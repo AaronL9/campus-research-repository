@@ -5,7 +5,7 @@ import { ArchiveData } from "../../assets/js/ArchiveData";
 import { useParams } from "react-router-dom";
 import formatDate from "../../assets/js/formatDate";
 import { useAuthContext } from "../../hooks/useAuthContext";
-
+import PreviousButton from "../../components/PreviousButton";
 
 export default function ArchiveView() {
   const archiveId = useParams().id;
@@ -34,12 +34,14 @@ export default function ArchiveView() {
   }, [user]);
 
   return (
-    <>
+    <div className="archive-view">
+      <PreviousButton />
       <div className="archive-view-container">
         <h1>Archive</h1>
         <div className="archive-view">
           <button className="download-btn">
-              <img src="/svg/pdf-file-icon.svg" />PDF Download
+            <img src="/svg/pdf-file-icon.svg" />
+            PDF Download
           </button>
           <div className="info">
             <h2>
@@ -68,7 +70,6 @@ export default function ArchiveView() {
           </table>
         </div>
       </div>
-    </>
-    
+    </div>
   );
 }

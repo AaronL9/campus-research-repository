@@ -313,7 +313,8 @@
   padding: 10px;
   position: absolute;
   z-index: 1;
-  top: 0.8vw;
+  top: 50%;
+  transform: translateY(-50%);
   left: 100%;
   margin-left: -60px;
 }

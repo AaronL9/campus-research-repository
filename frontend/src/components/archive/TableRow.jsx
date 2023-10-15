@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { formatDateToDDMMYYYY } from "../../assets/js/formatDate";
 import { limitString } from "../../assets/js/StringFormatter";
 
 export default function TableRow({ researchData }) {
-  
+  const [match, setMatch] = useState(false);
 
-  window.onresize = () => {
-    if (window.outerWidth <= 750 && window.outerWidth >= 600) {
-      location.reload();
-    } else if (window.outerWidth >= 751 && window.outerWidth <= 800) {
-      location.reload();
+  let x = window.matchMedia("(max-width: 750px)");
+
+  function myFunction(x) {
+    if (x.matches) {
+      setMatch(x.matches)
+    } else {
+      setMatch(x.matches)
     }
-  };
+  }
+  x.addEventListener('change', myFunction)
+ 
+
+  useEffect(() => {
+    // console.log("change")
+  }, [match])
 
   return (
     <tr>
@@ -24,7 +32,7 @@ export default function TableRow({ researchData }) {
         </Link>
         <p className="title">{limitString(researchData.title, 25)}</p>
       </td>
-      <td>{researchData.author}</td>
+      <td>{limitString(researchData.author, 35)}</td>
       <td>{researchData.course}</td>
       <td>{researchData.department}</td>
       <td>{formatDateToDDMMYYYY(researchData.year)}</td>

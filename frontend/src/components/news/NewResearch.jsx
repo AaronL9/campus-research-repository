@@ -3,6 +3,8 @@ import formatDate from "../../assets/js/formatDate";
 import { useNavigate } from "react-router-dom";
 
 // assets
+import { limitString } from "../../assets/js/StringFormatter";
+
 
 export default function NewResearch({ content }) {
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ export default function NewResearch({ content }) {
   };
   return (
     <div onClick={handleClick} className="card">
-      <h3 className="card__title">{content.title}</h3>
+      <h3 className="card__title">{limitString(content.title, 35)}</h3>
       <p className="card__content">
         {/* {limitString(content.abstract, 555)} */}
       </p>

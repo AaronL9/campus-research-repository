@@ -59,7 +59,7 @@ const Sidebar = () => {
         <div className="banner">
           <Hamburger handleToggleMenu={handleToggleMenu} />
           <figure>
-            <img src={Logo} alt="logo" />
+            <img src="/svg/campus-logo.svg" alt="logo" />
             <figcaption>Campus Research Repository</figcaption>
           </figure>
         </div>
